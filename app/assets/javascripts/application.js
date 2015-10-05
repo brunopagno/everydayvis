@@ -14,6 +14,6 @@
 //= require jquery_ujs
 //= require foundation
 //= require d3
-//= require_tree .
+//= require_tree ./vis
 
 $(function(){ $(document).foundation(); });
