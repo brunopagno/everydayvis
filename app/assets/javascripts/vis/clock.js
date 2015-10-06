@@ -1,15 +1,23 @@
 function clock(element, data) {
-  var width = 250;
-  var height = 250;
-  var radius = Math.min(width, height) / 2;
+  var width = 500;
+  var height = 500;
+  var margin = 5;
+  var radius = Math.min(width, height) / 2 - margin;
   var activityRadius = 0.7 * radius;
   var luminosityRadius = 0.55 * radius;
-  var dayAndNightRadius = 0.4 * radius;
+  var sunRadius = 0.4 * radius;
 
   var activity_scale = d3.scale.linear().domain([0, data.max_activity]).range([0, 100]);
+  var luminosity_scale = d3.scale.linear().domain([0, data.max_luminosity]).range(["#2c2b48", "#e7e7f8"]);
+  var sun_scale = d3.scale.linear().domain([0, 24]).range([0, 360]);
 
   var pie = d3.layout.pie()
       .sort(null)
+      .value(function(d) { return 1; });
+
+  var innerPie = d3.layout.pie()
+      .sort(null)
+      .padAngle(-0.01)
       .value(function(d) { return 1; });
 
   // Activity
@@ -17,7 +25,11 @@ function clock(element, data) {
   var activityArc = d3.svg.arc()
       .innerRadius(activityRadius)
       .outerRadius(function(d) { 
-        return (radius - activityRadius) * (activity_scale(d.data) / 100.0) + activityRadius;
+        if (d.data == "sleep") {
+          return (radius - activityRadius) * (activity_scale(data.max_activity) / 100.0) + activityRadius;
+        } else {
+          return (radius - activityRadius) * (activity_scale(d.data) / 100.0) + activityRadius;
+        }
       });
 
   var activityOutlineArc = d3.svg.arc()
@@ -37,6 +49,7 @@ function clock(element, data) {
       .data(pie(data.activities))
     .enter().append("path")
       .attr("class", "solid-arc")
+      .attr("fill", function(d) { return d.data == "sleep" ? "#3d3d76" : "#4147f0"})
       .attr("d", activityArc);
 
   var outerPath = activitySvg.selectAll(".outline-arc")
@@ -56,26 +69,60 @@ function clock(element, data) {
       .outerRadius(activityRadius - 1);
 
   var luminosityOuterPath = luminositySvg.selectAll(".luminosity-outline-arc")
-      .data(pie(data.luminosity))
+      .data(innerPie(data.luminosity))
     .enter().append("path")
       .attr("class", "luminosity-outline-arc")
-      .attr("fill", function(d) { return "rgb(" + d.data * 3 + "," + d.data * 2.5 + "," + d.data * 1.5 + ")"; })
+      .attr("fill", function(d) { return luminosity_scale(d.data); })
       .attr("d", luminosityArc);
 
-  // Day and night
+  // Sun
 
-  var dayAndNightSvg = svg.append("g")
-      .attr("class", "day-and-night-arc")
+  var sunSvg = svg.append("g")
+      .attr("class", "sun-arc")
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-  var dayAndNightArc = d3.svg.arc()
-      .innerRadius(dayAndNightRadius)
-      .outerRadius(luminosityRadius);
+  var dayStartAngle = sun_scale(data.sunrise.getHours() + data.sunrise.getMinutes() / 60) * Math.PI / 180;
+  var dayEndAngle = sun_scale(data.sunset.getHours() + data.sunset.getMinutes() / 60) * Math.PI / 180;
 
-  var dayAndNightOuterPath = dayAndNightSvg.selectAll(".luminosity-outline-arc")
-      .data(pie(data.day_and_night))
-    .enter().append("path")
-      .attr("class", "day-and-night-outline-arc")
-      .attr("fill", "gray")
-      .attr("d", dayAndNightArc);
+  var dayPath = sunSvg.append("path")
+      .attr("class", "sun-outline-arc")
+      .attr("fill", "#7ec7ee")
+      .attr("d", d3.svg.arc()
+                   .innerRadius(sunRadius)
+                   .outerRadius(luminosityRadius)
+                   .startAngle(function(d) {
+                     return dayStartAngle;
+                   })
+                   .endAngle(function(d) {
+                     return dayEndAngle;
+                   })
+      );
+
+  var nightPath = sunSvg.append("path")
+      .attr("class", "sun-outline-arc")
+      .attr("fill", "#5c5c83")
+      .attr("d", d3.svg.arc()
+                   .innerRadius(sunRadius)
+                   .outerRadius(luminosityRadius)
+                   .startAngle(function(d) {
+                     return dayEndAngle;
+                   })
+                   .endAngle(function(d) {
+                     return dayStartAngle + Math.PI * 2;
+                   })
+      );
+
+  var alpha = (dayStartAngle + dayEndAngle) / 2;
+  var r = (luminosityRadius + sunRadius) / 2;
+  var sunCircleSvg = sunSvg.append("circle")
+      .attr("fill", "yellow")
+      .attr("cx", r * Math.sin(alpha))
+      .attr("cy", -r * Math.cos(alpha))
+      .attr("r", radius * 0.045);
+
+  var moonCircleSvg = sunSvg.append("circle")
+      .attr("fill", "lightgray")
+      .attr("cx", -r * Math.sin(alpha))
+      .attr("cy", r * Math.cos(alpha))
+      .attr("r", radius * 0.045);
 }
