@@ -53,7 +53,7 @@ function clock(element, data) {
 
   var luminosityArc = d3.svg.arc()
       .innerRadius(luminosityRadius)
-      .outerRadius(activityRadius - 2);
+      .outerRadius(activityRadius - 1);
 
   var luminosityOuterPath = luminositySvg.selectAll(".luminosity-outline-arc")
       .data(pie(data.luminosity))
@@ -70,12 +70,12 @@ function clock(element, data) {
 
   var dayAndNightArc = d3.svg.arc()
       .innerRadius(dayAndNightRadius)
-      .outerRadius(luminosityRadius - 2);
+      .outerRadius(luminosityRadius);
 
   var dayAndNightOuterPath = dayAndNightSvg.selectAll(".luminosity-outline-arc")
-      .data(pie(data.dayAndNight))
+      .data(pie(data.day_and_night))
     .enter().append("path")
-      .attr("class", "luminosity-outline-arc")
-      .attr("fill", function(d) { return "rgb(" + d.data * 3 + "," + d.data * 2.5 + "," + d.data * 1.5 + ")"; })
+      .attr("class", "day-and-night-outline-arc")
+      .attr("fill", "gray")
       .attr("d", dayAndNightArc);
 }
