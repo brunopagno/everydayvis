@@ -8,7 +8,7 @@ function clock(element, data) {
   var sunRadius = 0.4 * radius;
 
   var activity_scale = d3.scale.linear().domain([0, data.max_activity]).range([0, 100]);
-  var luminosity_scale = d3.scale.linear().domain([0, data.max_luminosity]).range(["#2c2b48", "#e7e7f8"]);
+  var luminosity_scale = d3.scale.linear().domain([0, data.max_luminosity]).range(["#3a3201", "#ffec6b"]);
   var sun_scale = d3.scale.linear().domain([0, 24]).range([0, 360]);
 
   var pie = d3.layout.pie()
