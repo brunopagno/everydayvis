@@ -29,3 +29,6 @@ bower.json
 
 #Ignore pow environment settings
 .powenv
+
+#Ignore data from quilombolas
+/quidata
