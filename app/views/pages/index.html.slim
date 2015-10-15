@@ -1,11 +1,16 @@
 h1 Hello!
 
-p Demo will be here!
+p
+  | Demo for the clock visualization. Please access 
+  = link_to "people", people_path
+  |  to see real data.
 
-.gogo
+.clock
+hr
+.stripe
 
 javascript:
-  var data = {
+  var clock_data = {
     max_activity: 100,
     activities: [
       'sleep', 'sleep', 'sleep', 'sleep', 'sleep', 'sleep',
@@ -23,4 +28,12 @@ javascript:
     sunset: new Date(0, 0, 0, 18, 29)
   }
 
-  clock('.gogo', data);
+  clock('.clock', clock_data);
+
+  // ---------------------------------
+
+  var stripe_data = {
+    values: [13, 19, 26, 70, 18, 99, 31, 94, 52]
+  }
+
+  stripe('.stripe', stripe_data);

@@ -1,6 +1,6 @@
-function clock(element, data) {
-  var width = 500;
-  var height = 500;
+function clock(element, data, width, height) {
+  var width = width | 250;
+  var height = height | 250;
   var margin = 5;
   var radius = Math.min(width, height) / 2 - margin;
   var sunRadius = 0.92 * radius;

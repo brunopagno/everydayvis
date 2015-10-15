@@ -6,8 +6,7 @@ class Person < ActiveRecord::Base
     date = activities.first.datetime unless date
     date = DateTime.new(date.year, date.month, date.day, -3, 0, 0)
 
-    daily_activities = activities.where("datetime BETWEEN ? AND ?", date, date + 1.day)
-    byebug
+    activities.where("datetime BETWEEN ? AND ?", date, date + 1.day)
   end
 
 end
