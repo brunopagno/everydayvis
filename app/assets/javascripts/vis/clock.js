@@ -126,13 +126,13 @@ function clock(element, data) {
 
   // Text
 
-  var textArc = d3.svg.arc()
-    .innerRadius(activityRadius)
-    .outerRadius(luminosityRadius);
+  // var textArc = d3.svg.arc()
+  //   .innerRadius(activityRadius)
+  //   .outerRadius(luminosityRadius);
 
-  var dayPath = sunSvg.append("text")
-      .attr("class", "clock-label")
-      .attr("x", 10)
-      .attr("y", 10)
-      .text("lalalala");
+  // var dayPath = sunSvg.append("text")
+  //     .attr("class", "clock-label")
+  //     .attr("x", 10)
+  //     .attr("y", 10)
+  //     .text("lalalala");
 }
