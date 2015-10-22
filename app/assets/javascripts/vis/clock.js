@@ -126,13 +126,28 @@ function clock(element, data) {
 
   // Text
 
-  var textArc = d3.svg.arc()
-    .innerRadius(activityRadius)
-    .outerRadius(luminosityRadius);
+  var textSvg = svg.append("g")
+      .attr("class", "text-arc")
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-  var dayPath = sunSvg.append("text")
+  var hours = -1;
+  var time = 0;
+  var degrees = 15 * Math.PI / 180;
+  var textOffset = 8.5;
+  var textLayer = textSvg.selectAll(".clock-label")
+      .data(data.activities)
+    .enter().append("text")
       .attr("class", "clock-label")
-      .attr("x", 10)
-      .attr("y", 10)
-      .text("lalalala");
+      .attr("x", function(d) {
+        hours += 1;
+        return 0.9 * activityRadius * Math.cos((degrees * hours) + (degrees / 2) - 1.5708) - textOffset;
+      })
+      .attr("y", function(d) {
+        hours += 1;
+        return 0.9 * activityRadius * Math.sin((degrees * hours) + (degrees / 2) - 1.5708) + textOffset;
+      })
+      .text(function(d) {
+        if (time >= 23) time = -1;
+        return time += 1;
+      });
 }
