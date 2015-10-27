@@ -151,6 +151,13 @@ function clock(element, data, width, height) {
         return time += 1;
       });
 
+  svg.append("svg:text")
+    .attr("class", "clock-date")
+    .attr("dy", ".35em")
+    .attr("text-anchor", "middle")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+    .text(data.date.getDate() + "/" + (data.date.getMonth() + 1) + "/" + data.date.getFullYear());
+
   // Interaction
 
   var interactionSvg = svg.append("g")
@@ -170,11 +177,23 @@ function clock(element, data, width, height) {
       // .on("mouseover", function(d) { console.log("OVER"); })
       // .on("mouseout", function(d) { console.log("OUT"); })
       .on("mousedown", function(d, hourNumber) {
-        showDataForClockSlice(data.date, hourNumber + 1);
+        $(".interaction-arc").attr("class", "interaction-arc");
+        $(this).attr("class", "interaction-arc highlight");
+        showDataForClockSlice(element, data.date, hourNumber + 1, width);
       });
 }
 
-function showDataForClockSlice(date, hour) {
-  console.log("date => " + date);
-  console.log("hour => " + hour);
+function showDataForClockSlice(element, date, hour, clock_width) {
+  $(".slice-info").remove();
+  var slice = d3.select(element).append("div")
+      .attr("class", "slice-info")
+      .style("left", clock_width + -15 + "px");
+
+  slice.append("h3")
+      .text(hour + "h")
+    .append("small")
+      .text(" of day " + date.getDate());
+
+  slice.append("p")
+      .text("The idea is to insert here a detailed graph of the selected slice");
 }

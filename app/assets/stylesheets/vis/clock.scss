@@ -1,18 +1,39 @@
+.clock {
+  position: relative;
+}
+
 .daily-clock {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+
   .outline-arc {
     fill: none;
     stroke: #000;
     stroke-width: 2;
   }
 
-  .luminosity-arc {
-    
-  }
-
   .clock-label {
-    font-family: Arial, sans-serif;
-    font-weight: bold;
     color: gray;
     fill: gray;
   }
+
+  .clock-date {
+    font-size: 26px;
+    color: gray;
+    fill: gray;
+  }
+
+  .highlight {
+    fill: rgba(192, 96, 192, 0.5);
+  }
+}
+
+.slice-info {
+  position: absolute;
+  z-index: 10;
+  border: 2px solid #999;
+  border-radius: 12px;
+  background-color: #ddd; 
+  top: 0;
+  padding: 8px;
 }
