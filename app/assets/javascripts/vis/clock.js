@@ -167,7 +167,14 @@ function clock(element, data, width, height) {
       .attr("class", "interaction-arc")
       .attr("fill", "transparent")
       .attr("d", interactionArc)
-      .on("mouseover", function(d) { console.log("OVER"); })
-      .on("mouseout", function(d) { console.log("OUT"); })
-      .on("mousedown", function(d) { console.log("CLICK"); });
+      // .on("mouseover", function(d) { console.log("OVER"); })
+      // .on("mouseout", function(d) { console.log("OUT"); })
+      .on("mousedown", function(d, hourNumber) {
+        showDataForClockSlice(data.date, hourNumber + 1);
+      });
+}
+
+function showDataForClockSlice(date, hour) {
+  console.log("date => " + date);
+  console.log("hour => " + hour);
 }
