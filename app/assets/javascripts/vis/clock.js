@@ -133,21 +133,41 @@ function clock(element, data, width, height) {
   var hours = -1;
   var time = 0;
   var degrees = 15 * Math.PI / 180;
-  var textOffset = 8.5;
+  var textOffset = width / 35;
   var textLayer = textSvg.selectAll(".clock-label")
       .data(data.activities)
     .enter().append("text")
       .attr("class", "clock-label")
       .attr("x", function(d) {
         hours += 1;
-        return 0.9 * activityRadius * Math.cos((degrees * hours) + (degrees / 2) - 1.5708) - textOffset;
+        return 0.88 * luminosityRadius * Math.cos((degrees * hours) + (degrees / 2) - 1.5708) - textOffset;
       })
       .attr("y", function(d) {
         hours += 1;
-        return 0.9 * activityRadius * Math.sin((degrees * hours) + (degrees / 2) - 1.5708) + textOffset;
+        return 0.88 * luminosityRadius * Math.sin((degrees * hours) + (degrees / 2) - 1.5708) + textOffset;
       })
       .text(function(d) {
         if (time >= 23) time = -1;
         return time += 1;
       });
+
+  // Interaction
+
+  var interactionSvg = svg.append("g")
+      .attr("class", "luminosity-arc")
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+  var interactionArc = d3.svg.arc()
+      .innerRadius(activityRadius)
+      .outerRadius(radius);
+
+  var interactionPath = interactionSvg.selectAll(".interaction-arc")
+      .data(pie(data.luminosity))
+    .enter().append("path")
+      .attr("class", "interaction-arc")
+      .attr("fill", "transparent")
+      .attr("d", interactionArc)
+      .on("mouseover", function(d) { console.log("OVER"); })
+      .on("mouseout", function(d) { console.log("OUT"); })
+      .on("mousedown", function(d) { console.log("CLICK"); });
 }
