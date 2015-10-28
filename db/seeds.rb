@@ -43,11 +43,3 @@ Dir['quidata/*.csv'].each do |file_name|
 
   person.save!
 end
-
-# Models~~
-# 
-# Person/Subject/Patient/User
-#   code:string, identity:string, name:string, gender:string, age:integer
-# 
-# Activity
-#   datetime:datetime, activity:integer, light:float, awake:boolean, person:references
