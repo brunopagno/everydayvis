@@ -1,10 +1,15 @@
-h3 = "Data from #{@person.name}"
+module PeopleHelper
 
-- @person.daily.each do |day|
-  p A wild day of activity~
-  .clock[data-userclock="#{daily_activities_to_json(@person, day)}"]
+  def daily_activities_to_json(user_id, daily)
+    {
+      user_id: user_id,
+      date: daily.first.datetime,
+    }
+  end
 
-javascript:
+end
+
+
   var clock_data = {
     user_id: 1,
     date: new Date(2013, 4, 30),
@@ -24,6 +29,3 @@ javascript:
     sunrise: new Date(0, 0, 0, 5, 58),
     sunset: new Date(0, 0, 0, 18, 29)
   }
-
-
-  clock('.clock', clock_data, 400, 400);
