@@ -205,7 +205,7 @@ function showDataForClockSlice(element, user_id, date, hour, clock_width) {
     success: function(data) {
       slice.classed("ajax-error", false);
 
-      console.log("data => " + data);
+      slice.append("p").text("data => " + data);
     },
     error: function() {
       slice.classed("ajax-error", true);
