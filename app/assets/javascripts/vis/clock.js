@@ -179,11 +179,11 @@ function clock(element, data, width, height) {
       .on("mousedown", function(d, hourNumber) {
         $(".interaction-arc").attr("class", "interaction-arc");
         $(this).attr("class", "interaction-arc highlight");
-        showDataForClockSlice(element, data.date, hourNumber + 1, width);
+        showDataForClockSlice(element, data.user_id, data.date, hourNumber + 1, width);
       });
 }
 
-function showDataForClockSlice(element, date, hour, clock_width) {
+function showDataForClockSlice(element, user_id, date, hour, clock_width) {
   $(".slice-info").remove();
   var slice = d3.select(element).append("div")
       .attr("class", "slice-info")
@@ -196,4 +196,21 @@ function showDataForClockSlice(element, date, hour, clock_width) {
 
   slice.append("p")
       .text("The idea is to insert here a detailed graph of the selected slice");
+
+  console.log("testing an ajax request here");
+
+  var url = "/person/" + user_id + "/" + date.getFullYear() + "/" + (date.getMonth()+1) + "/" + date.getDate() + "/" + hour;
+  $.ajax({
+    url: url,
+    success: function(data) {
+      slice.classed("ajax-error", false);
+
+      console.log("data => " + data);
+    },
+    error: function() {
+      slice.classed("ajax-error", true);
+    }
+  });
+
+  console.log("---------");
 }

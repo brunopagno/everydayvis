@@ -9,4 +9,9 @@ class Person < ActiveRecord::Base
     activities.where("datetime BETWEEN ? AND ?", date, date + 1.day)
   end
 
+  def at_hour(datetime)
+    byebug
+    activities.where("datetime BETWEEN ? AND ?", datetime, datetime + 1.hour)
+  end
+
 end
