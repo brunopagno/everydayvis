@@ -174,8 +174,6 @@ function clock(element, data, width, height) {
       .attr("class", "interaction-arc")
       .attr("fill", "transparent")
       .attr("d", interactionArc)
-      // .on("mouseover", function(d) { console.log("OVER"); })
-      // .on("mouseout", function(d) { console.log("OUT"); })
       .on("mousedown", function(d, hourNumber) {
         $(".interaction-arc").attr("class", "interaction-arc");
         $(this).attr("class", "interaction-arc highlight");
@@ -197,8 +195,6 @@ function showDataForClockSlice(element, user_id, date, hour, clock_width) {
   slice.append("p")
       .text("The idea is to insert here a detailed graph of the selected slice");
 
-  console.log("testing an ajax request here");
-
   var url = "/person/" + user_id + "/" + date.getFullYear() + "/" + (date.getMonth()+1) + "/" + date.getDate() + "/" + hour;
   $.ajax({
     url: url,
@@ -218,6 +214,4 @@ function showDataForClockSlice(element, user_id, date, hour, clock_width) {
       slice.classed("ajax-error", true);
     }
   });
-
-  console.log("---------");
 }

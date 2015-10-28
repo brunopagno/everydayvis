@@ -1,6 +1,6 @@
 h3 = "Data from #{@person.name}"
 
-.userclock[data-userclock="#{@person.daily}"]
+.clock[data-userclock="#{@person.daily}"]
 
 javascript:
   var clock_data = {
@@ -24,4 +24,4 @@ javascript:
   }
 
 
-  clock('.userclock', clock_data, 400, 400);
+  clock('.clock', clock_data, 400, 400);
