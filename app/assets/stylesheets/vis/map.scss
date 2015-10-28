@@ -1,11 +1,9 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-
-      #map{
-      width: 500px;
-    height: 400px;
-      }
+#map{
+  height: 400px;
+}

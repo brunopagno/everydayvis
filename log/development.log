@@ -2183,3 +2183,1119 @@ Completed 200 OK in 905ms (Views: 904.5ms | ActiveRecord: 0.0ms)
 
 Started GET "/assets/vis/map.self-59ee7dbc8b72d25b42ad4ca46c4478d3af5622a2d3f7c063a68fcdd6acd957df.css?body=1" for 10.0.2.2 at 2015-10-23 00:57:40 +0000
 Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/" for 10.0.2.2 at 2015-10-28 14:43:17 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.slim within layouts/application (15.3ms)
+  Rendered layouts/_header.html.slim (2.6ms)
+  Rendered layouts/_footer.html.slim (2.0ms)
+Completed 200 OK in 1934ms (Views: 1933.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/vis/map.self-59ee7dbc8b72d25b42ad4ca46c4478d3af5622a2d3f7c063a68fcdd6acd957df.css?body=1" for 10.0.2.2 at 2015-10-28 14:43:19 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/clock.self-05553614014495bce927d8431cbba0be21c7c02b540a86474e0725aa6e62791d.css?body=1" for 10.0.2.2 at 2015-10-28 14:43:19 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/maps" for 10.0.2.2 at 2015-10-28 14:43:24 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MapsController#index as HTML
+  Rendered maps/index.html within layouts/application (3.4ms)
+  Rendered layouts/_header.html.slim (0.3ms)
+  Rendered layouts/_footer.html.slim (0.0ms)
+Completed 200 OK in 716ms (Views: 715.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/maps" for 10.0.2.2 at 2015-10-28 14:46:36 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MapsController#index as HTML
+  Rendered maps/index.html within layouts/application (0.3ms)
+  Rendered layouts/_header.html.slim (0.2ms)
+  Rendered layouts/_footer.html.slim (0.0ms)
+Completed 200 OK in 726ms (Views: 726.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-167193cd81d9330d9ddb5c4ec7b44214fea529aa8a94f3a86e6526e4f652fc02.css?body=1" for 10.0.2.2 at 2015-10-28 14:46:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation_and_overrides.self-c518191427c621804a76e332288581abe46630e5944b17e80524ab928bb17d6f.css?body=1" for 10.0.2.2 at 2015-10-28 14:46:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/map.self-59ee7dbc8b72d25b42ad4ca46c4478d3af5622a2d3f7c063a68fcdd6acd957df.css?body=1" for 10.0.2.2 at 2015-10-28 14:46:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/clock.self-05553614014495bce927d8431cbba0be21c7c02b540a86474e0725aa6e62791d.css?body=1" for 10.0.2.2 at 2015-10-28 14:46:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.self-2c3718981abe8e272e410af80c59228c254172ea8448e678e5dbf9cd1b051067.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.abide.self-abbd1d12f4b07471e1d21afbc1474e47e0ca27058726132c372c324998daa097.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.accordion.self-cf17d392ac337bf5953a2f26af9eee35eee3455045148a35f60108e028ffdbcd.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.alert.self-6429073a95ade9c505d9fa9e6734009beecccab384a68e134b54aede5f3d0d25.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.clearing.self-ea0ff6347e6dea4e4d923e67da877ab921a4471e4312abe545f5211aac721173.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.dropdown.self-a11d53a5f478013eb25c61c800e9d6dfe29a4dec2b1c6659e9cd31a17b0ab5d4.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.equalizer.self-958ef0a1750bda14d84686a008451b05fff4b365c3d293cde663d30238a3b8aa.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.interchange.self-21b12f023e0306fcd4026c3b1205d09e5da090ac470c0f56dc53008cf672eab0.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.joyride.self-b83fb588541fa943e1f46855e00523dfca46267bf4f6c379d01274f865af9ad5.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.magellan.self-b624d8108443673bb2bc000ec1a7e14f8ab67f51d668d1f16efb1f22a11e9c4b.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.offcanvas.self-5c6d43217cbf09ab4fc78f35d4b72d488cfe65a669a3ca507462a02903426883.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.orbit.self-ec655701cf725bacabbd5a465b48037431a69a64b32c72b9a4f845393f3f85ed.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.reveal.self-29ab6c47f5bd3598f0d7ae15e6b624fd8b08f2ce6bbe8c5e6aad373ebe26ddea.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.slider.self-b5ee1f2d54e2200db7fe9edc3b372b640b7755af3e5942b499bdf0fb7120c374.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.tab.self-714a4d80908e3fe1ee585fb44937eb63345c05dcafbf199858bb3b034c95cb94.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.tooltip.self-0199023f742be0c4496f028919a28303e4a3499acbcf9baeb63e63bfc76cc8c4.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.topbar.self-7ba72b08fc9d42f50a91b7c5ef026441b78b417c50e8a85639ec324d80f0934b.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation.self-abe4ee7a105042f73b12b1f1a28788522d2f253445a475a94ab4d6e1f7b0ec52.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/d3.self-bba644a88475fad716e03a8f92ecfc7e1c6ebcea622c39975002fd8356d00ba0.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/clock.self-dc62bd74098334c763a0b58c388865d4abcd86a40bd757e6e2feabc76ecb49ba.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/stripe.self-02966132df82044e48c3d1d756418b9bce1d50a1ead0cb07078e3fd705c0ccef.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-1141abc003dc121216b7b5559c4662bc03b305da3f4d6a8c72e94a3eac480312.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/maps" for 10.0.2.2 at 2015-10-28 14:46:44 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MapsController#index as HTML
+  Rendered maps/index.html within layouts/application (0.4ms)
+  Rendered layouts/_header.html.slim (0.2ms)
+  Rendered layouts/_footer.html.slim (0.0ms)
+Completed 200 OK in 689ms (Views: 689.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/foundation_and_overrides.self-c518191427c621804a76e332288581abe46630e5944b17e80524ab928bb17d6f.css?body=1" for 10.0.2.2 at 2015-10-28 14:46:44 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-167193cd81d9330d9ddb5c4ec7b44214fea529aa8a94f3a86e6526e4f652fc02.css?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/map.self-59ee7dbc8b72d25b42ad4ca46c4478d3af5622a2d3f7c063a68fcdd6acd957df.css?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/clock.self-05553614014495bce927d8431cbba0be21c7c02b540a86474e0725aa6e62791d.css?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.self-2c3718981abe8e272e410af80c59228c254172ea8448e678e5dbf9cd1b051067.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.abide.self-abbd1d12f4b07471e1d21afbc1474e47e0ca27058726132c372c324998daa097.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.accordion.self-cf17d392ac337bf5953a2f26af9eee35eee3455045148a35f60108e028ffdbcd.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.alert.self-6429073a95ade9c505d9fa9e6734009beecccab384a68e134b54aede5f3d0d25.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.clearing.self-ea0ff6347e6dea4e4d923e67da877ab921a4471e4312abe545f5211aac721173.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.dropdown.self-a11d53a5f478013eb25c61c800e9d6dfe29a4dec2b1c6659e9cd31a17b0ab5d4.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.equalizer.self-958ef0a1750bda14d84686a008451b05fff4b365c3d293cde663d30238a3b8aa.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.interchange.self-21b12f023e0306fcd4026c3b1205d09e5da090ac470c0f56dc53008cf672eab0.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.joyride.self-b83fb588541fa943e1f46855e00523dfca46267bf4f6c379d01274f865af9ad5.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.magellan.self-b624d8108443673bb2bc000ec1a7e14f8ab67f51d668d1f16efb1f22a11e9c4b.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.offcanvas.self-5c6d43217cbf09ab4fc78f35d4b72d488cfe65a669a3ca507462a02903426883.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.orbit.self-ec655701cf725bacabbd5a465b48037431a69a64b32c72b9a4f845393f3f85ed.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.reveal.self-29ab6c47f5bd3598f0d7ae15e6b624fd8b08f2ce6bbe8c5e6aad373ebe26ddea.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.slider.self-b5ee1f2d54e2200db7fe9edc3b372b640b7755af3e5942b499bdf0fb7120c374.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.tab.self-714a4d80908e3fe1ee585fb44937eb63345c05dcafbf199858bb3b034c95cb94.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.tooltip.self-0199023f742be0c4496f028919a28303e4a3499acbcf9baeb63e63bfc76cc8c4.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.topbar.self-7ba72b08fc9d42f50a91b7c5ef026441b78b417c50e8a85639ec324d80f0934b.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation.self-abe4ee7a105042f73b12b1f1a28788522d2f253445a475a94ab4d6e1f7b0ec52.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/d3.self-bba644a88475fad716e03a8f92ecfc7e1c6ebcea622c39975002fd8356d00ba0.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/clock.self-dc62bd74098334c763a0b58c388865d4abcd86a40bd757e6e2feabc76ecb49ba.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:46 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/stripe.self-02966132df82044e48c3d1d756418b9bce1d50a1ead0cb07078e3fd705c0ccef.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:46 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-1141abc003dc121216b7b5559c4662bc03b305da3f4d6a8c72e94a3eac480312.js?body=1" for 10.0.2.2 at 2015-10-28 14:46:46 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/maps" for 10.0.2.2 at 2015-10-28 14:49:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MapsController#index as HTML
+  Rendered maps/index.html within layouts/application (0.4ms)
+  Rendered layouts/_header.html.slim (0.2ms)
+  Rendered layouts/_footer.html.slim (0.0ms)
+Completed 200 OK in 734ms (Views: 733.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/vis/map.self-59ee7dbc8b72d25b42ad4ca46c4478d3af5622a2d3f7c063a68fcdd6acd957df.css?body=1" for 10.0.2.2 at 2015-10-28 14:49:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-167193cd81d9330d9ddb5c4ec7b44214fea529aa8a94f3a86e6526e4f652fc02.css?body=1" for 10.0.2.2 at 2015-10-28 14:49:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation_and_overrides.self-c518191427c621804a76e332288581abe46630e5944b17e80524ab928bb17d6f.css?body=1" for 10.0.2.2 at 2015-10-28 14:49:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/clock.self-05553614014495bce927d8431cbba0be21c7c02b540a86474e0725aa6e62791d.css?body=1" for 10.0.2.2 at 2015-10-28 14:49:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.self-2c3718981abe8e272e410af80c59228c254172ea8448e678e5dbf9cd1b051067.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.abide.self-abbd1d12f4b07471e1d21afbc1474e47e0ca27058726132c372c324998daa097.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.accordion.self-cf17d392ac337bf5953a2f26af9eee35eee3455045148a35f60108e028ffdbcd.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.alert.self-6429073a95ade9c505d9fa9e6734009beecccab384a68e134b54aede5f3d0d25.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.equalizer.self-958ef0a1750bda14d84686a008451b05fff4b365c3d293cde663d30238a3b8aa.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.dropdown.self-a11d53a5f478013eb25c61c800e9d6dfe29a4dec2b1c6659e9cd31a17b0ab5d4.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.clearing.self-ea0ff6347e6dea4e4d923e67da877ab921a4471e4312abe545f5211aac721173.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.interchange.self-21b12f023e0306fcd4026c3b1205d09e5da090ac470c0f56dc53008cf672eab0.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.joyride.self-b83fb588541fa943e1f46855e00523dfca46267bf4f6c379d01274f865af9ad5.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.magellan.self-b624d8108443673bb2bc000ec1a7e14f8ab67f51d668d1f16efb1f22a11e9c4b.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.offcanvas.self-5c6d43217cbf09ab4fc78f35d4b72d488cfe65a669a3ca507462a02903426883.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.orbit.self-ec655701cf725bacabbd5a465b48037431a69a64b32c72b9a4f845393f3f85ed.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.reveal.self-29ab6c47f5bd3598f0d7ae15e6b624fd8b08f2ce6bbe8c5e6aad373ebe26ddea.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.slider.self-b5ee1f2d54e2200db7fe9edc3b372b640b7755af3e5942b499bdf0fb7120c374.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.tab.self-714a4d80908e3fe1ee585fb44937eb63345c05dcafbf199858bb3b034c95cb94.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.tooltip.self-0199023f742be0c4496f028919a28303e4a3499acbcf9baeb63e63bfc76cc8c4.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.topbar.self-7ba72b08fc9d42f50a91b7c5ef026441b78b417c50e8a85639ec324d80f0934b.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation.self-abe4ee7a105042f73b12b1f1a28788522d2f253445a475a94ab4d6e1f7b0ec52.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/d3.self-bba644a88475fad716e03a8f92ecfc7e1c6ebcea622c39975002fd8356d00ba0.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/clock.self-dc62bd74098334c763a0b58c388865d4abcd86a40bd757e6e2feabc76ecb49ba.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/stripe.self-02966132df82044e48c3d1d756418b9bce1d50a1ead0cb07078e3fd705c0ccef.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-1141abc003dc121216b7b5559c4662bc03b305da3f4d6a8c72e94a3eac480312.js?body=1" for 10.0.2.2 at 2015-10-28 14:49:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/maps" for 10.0.2.2 at 2015-10-28 14:50:21 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MapsController#index as HTML
+  Rendered maps/index.html within layouts/application (0.3ms)
+  Rendered layouts/_header.html.slim (0.2ms)
+  Rendered layouts/_footer.html.slim (0.1ms)
+Completed 200 OK in 677ms (Views: 676.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/vis/map.self-59ee7dbc8b72d25b42ad4ca46c4478d3af5622a2d3f7c063a68fcdd6acd957df.css?body=1" for 10.0.2.2 at 2015-10-28 14:50:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-167193cd81d9330d9ddb5c4ec7b44214fea529aa8a94f3a86e6526e4f652fc02.css?body=1" for 10.0.2.2 at 2015-10-28 14:50:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation_and_overrides.self-c518191427c621804a76e332288581abe46630e5944b17e80524ab928bb17d6f.css?body=1" for 10.0.2.2 at 2015-10-28 14:50:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/clock.self-05553614014495bce927d8431cbba0be21c7c02b540a86474e0725aa6e62791d.css?body=1" for 10.0.2.2 at 2015-10-28 14:50:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.self-2c3718981abe8e272e410af80c59228c254172ea8448e678e5dbf9cd1b051067.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.abide.self-abbd1d12f4b07471e1d21afbc1474e47e0ca27058726132c372c324998daa097.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.accordion.self-cf17d392ac337bf5953a2f26af9eee35eee3455045148a35f60108e028ffdbcd.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.alert.self-6429073a95ade9c505d9fa9e6734009beecccab384a68e134b54aede5f3d0d25.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.clearing.self-ea0ff6347e6dea4e4d923e67da877ab921a4471e4312abe545f5211aac721173.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.dropdown.self-a11d53a5f478013eb25c61c800e9d6dfe29a4dec2b1c6659e9cd31a17b0ab5d4.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.equalizer.self-958ef0a1750bda14d84686a008451b05fff4b365c3d293cde663d30238a3b8aa.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.interchange.self-21b12f023e0306fcd4026c3b1205d09e5da090ac470c0f56dc53008cf672eab0.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.joyride.self-b83fb588541fa943e1f46855e00523dfca46267bf4f6c379d01274f865af9ad5.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.magellan.self-b624d8108443673bb2bc000ec1a7e14f8ab67f51d668d1f16efb1f22a11e9c4b.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.offcanvas.self-5c6d43217cbf09ab4fc78f35d4b72d488cfe65a669a3ca507462a02903426883.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.orbit.self-ec655701cf725bacabbd5a465b48037431a69a64b32c72b9a4f845393f3f85ed.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.reveal.self-29ab6c47f5bd3598f0d7ae15e6b624fd8b08f2ce6bbe8c5e6aad373ebe26ddea.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.slider.self-b5ee1f2d54e2200db7fe9edc3b372b640b7755af3e5942b499bdf0fb7120c374.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.tab.self-714a4d80908e3fe1ee585fb44937eb63345c05dcafbf199858bb3b034c95cb94.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.tooltip.self-0199023f742be0c4496f028919a28303e4a3499acbcf9baeb63e63bfc76cc8c4.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.topbar.self-7ba72b08fc9d42f50a91b7c5ef026441b78b417c50e8a85639ec324d80f0934b.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation.self-abe4ee7a105042f73b12b1f1a28788522d2f253445a475a94ab4d6e1f7b0ec52.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/d3.self-bba644a88475fad716e03a8f92ecfc7e1c6ebcea622c39975002fd8356d00ba0.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/clock.self-dc62bd74098334c763a0b58c388865d4abcd86a40bd757e6e2feabc76ecb49ba.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/stripe.self-02966132df82044e48c3d1d756418b9bce1d50a1ead0cb07078e3fd705c0ccef.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-1141abc003dc121216b7b5559c4662bc03b305da3f4d6a8c72e94a3eac480312.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/maps" for 10.0.2.2 at 2015-10-28 14:50:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MapsController#index as HTML
+  Rendered maps/index.html within layouts/application (0.4ms)
+  Rendered layouts/_header.html.slim (0.2ms)
+  Rendered layouts/_footer.html.slim (0.1ms)
+Completed 200 OK in 698ms (Views: 698.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/vis/map.self-59ee7dbc8b72d25b42ad4ca46c4478d3af5622a2d3f7c063a68fcdd6acd957df.css?body=1" for 10.0.2.2 at 2015-10-28 14:50:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/clock.self-05553614014495bce927d8431cbba0be21c7c02b540a86474e0725aa6e62791d.css?body=1" for 10.0.2.2 at 2015-10-28 14:50:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-167193cd81d9330d9ddb5c4ec7b44214fea529aa8a94f3a86e6526e4f652fc02.css?body=1" for 10.0.2.2 at 2015-10-28 14:50:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation_and_overrides.self-c518191427c621804a76e332288581abe46630e5944b17e80524ab928bb17d6f.css?body=1" for 10.0.2.2 at 2015-10-28 14:50:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.self-2c3718981abe8e272e410af80c59228c254172ea8448e678e5dbf9cd1b051067.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.abide.self-abbd1d12f4b07471e1d21afbc1474e47e0ca27058726132c372c324998daa097.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.clearing.self-ea0ff6347e6dea4e4d923e67da877ab921a4471e4312abe545f5211aac721173.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.dropdown.self-a11d53a5f478013eb25c61c800e9d6dfe29a4dec2b1c6659e9cd31a17b0ab5d4.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.alert.self-6429073a95ade9c505d9fa9e6734009beecccab384a68e134b54aede5f3d0d25.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.accordion.self-cf17d392ac337bf5953a2f26af9eee35eee3455045148a35f60108e028ffdbcd.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.equalizer.self-958ef0a1750bda14d84686a008451b05fff4b365c3d293cde663d30238a3b8aa.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.interchange.self-21b12f023e0306fcd4026c3b1205d09e5da090ac470c0f56dc53008cf672eab0.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.joyride.self-b83fb588541fa943e1f46855e00523dfca46267bf4f6c379d01274f865af9ad5.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.magellan.self-b624d8108443673bb2bc000ec1a7e14f8ab67f51d668d1f16efb1f22a11e9c4b.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.offcanvas.self-5c6d43217cbf09ab4fc78f35d4b72d488cfe65a669a3ca507462a02903426883.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.orbit.self-ec655701cf725bacabbd5a465b48037431a69a64b32c72b9a4f845393f3f85ed.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.reveal.self-29ab6c47f5bd3598f0d7ae15e6b624fd8b08f2ce6bbe8c5e6aad373ebe26ddea.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.slider.self-b5ee1f2d54e2200db7fe9edc3b372b640b7755af3e5942b499bdf0fb7120c374.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.tab.self-714a4d80908e3fe1ee585fb44937eb63345c05dcafbf199858bb3b034c95cb94.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.tooltip.self-0199023f742be0c4496f028919a28303e4a3499acbcf9baeb63e63bfc76cc8c4.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.topbar.self-7ba72b08fc9d42f50a91b7c5ef026441b78b417c50e8a85639ec324d80f0934b.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation.self-abe4ee7a105042f73b12b1f1a28788522d2f253445a475a94ab4d6e1f7b0ec52.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/d3.self-bba644a88475fad716e03a8f92ecfc7e1c6ebcea622c39975002fd8356d00ba0.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/clock.self-dc62bd74098334c763a0b58c388865d4abcd86a40bd757e6e2feabc76ecb49ba.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/stripe.self-02966132df82044e48c3d1d756418b9bce1d50a1ead0cb07078e3fd705c0ccef.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-1141abc003dc121216b7b5559c4662bc03b305da3f4d6a8c72e94a3eac480312.js?body=1" for 10.0.2.2 at 2015-10-28 14:50:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/maps" for 10.0.2.2 at 2015-10-28 14:52:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MapsController#index as HTML
+  Rendered maps/index.html within layouts/application (0.3ms)
+  Rendered layouts/_header.html.slim (0.2ms)
+  Rendered layouts/_footer.html.slim (0.0ms)
+Completed 200 OK in 701ms (Views: 701.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/vis/map.self-59ee7dbc8b72d25b42ad4ca46c4478d3af5622a2d3f7c063a68fcdd6acd957df.css?body=1" for 10.0.2.2 at 2015-10-28 14:52:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/clock.self-05553614014495bce927d8431cbba0be21c7c02b540a86474e0725aa6e62791d.css?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-167193cd81d9330d9ddb5c4ec7b44214fea529aa8a94f3a86e6526e4f652fc02.css?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation_and_overrides.self-c518191427c621804a76e332288581abe46630e5944b17e80524ab928bb17d6f.css?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.self-2c3718981abe8e272e410af80c59228c254172ea8448e678e5dbf9cd1b051067.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.abide.self-abbd1d12f4b07471e1d21afbc1474e47e0ca27058726132c372c324998daa097.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.clearing.self-ea0ff6347e6dea4e4d923e67da877ab921a4471e4312abe545f5211aac721173.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.dropdown.self-a11d53a5f478013eb25c61c800e9d6dfe29a4dec2b1c6659e9cd31a17b0ab5d4.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.equalizer.self-958ef0a1750bda14d84686a008451b05fff4b365c3d293cde663d30238a3b8aa.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.alert.self-6429073a95ade9c505d9fa9e6734009beecccab384a68e134b54aede5f3d0d25.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.accordion.self-cf17d392ac337bf5953a2f26af9eee35eee3455045148a35f60108e028ffdbcd.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.interchange.self-21b12f023e0306fcd4026c3b1205d09e5da090ac470c0f56dc53008cf672eab0.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.joyride.self-b83fb588541fa943e1f46855e00523dfca46267bf4f6c379d01274f865af9ad5.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.magellan.self-b624d8108443673bb2bc000ec1a7e14f8ab67f51d668d1f16efb1f22a11e9c4b.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.offcanvas.self-5c6d43217cbf09ab4fc78f35d4b72d488cfe65a669a3ca507462a02903426883.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.orbit.self-ec655701cf725bacabbd5a465b48037431a69a64b32c72b9a4f845393f3f85ed.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.reveal.self-29ab6c47f5bd3598f0d7ae15e6b624fd8b08f2ce6bbe8c5e6aad373ebe26ddea.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.slider.self-b5ee1f2d54e2200db7fe9edc3b372b640b7755af3e5942b499bdf0fb7120c374.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.tab.self-714a4d80908e3fe1ee585fb44937eb63345c05dcafbf199858bb3b034c95cb94.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.tooltip.self-0199023f742be0c4496f028919a28303e4a3499acbcf9baeb63e63bfc76cc8c4.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.topbar.self-7ba72b08fc9d42f50a91b7c5ef026441b78b417c50e8a85639ec324d80f0934b.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation.self-abe4ee7a105042f73b12b1f1a28788522d2f253445a475a94ab4d6e1f7b0ec52.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/d3.self-bba644a88475fad716e03a8f92ecfc7e1c6ebcea622c39975002fd8356d00ba0.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/clock.self-dc62bd74098334c763a0b58c388865d4abcd86a40bd757e6e2feabc76ecb49ba.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:31 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/stripe.self-02966132df82044e48c3d1d756418b9bce1d50a1ead0cb07078e3fd705c0ccef.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:31 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-1141abc003dc121216b7b5559c4662bc03b305da3f4d6a8c72e94a3eac480312.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:31 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/maps" for 10.0.2.2 at 2015-10-28 14:52:36 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MapsController#index as HTML
+  Rendered maps/index.html within layouts/application (0.3ms)
+  Rendered layouts/_header.html.slim (0.3ms)
+  Rendered layouts/_footer.html.slim (0.0ms)
+Completed 200 OK in 683ms (Views: 682.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/vis/map.self-59ee7dbc8b72d25b42ad4ca46c4478d3af5622a2d3f7c063a68fcdd6acd957df.css?body=1" for 10.0.2.2 at 2015-10-28 14:52:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-167193cd81d9330d9ddb5c4ec7b44214fea529aa8a94f3a86e6526e4f652fc02.css?body=1" for 10.0.2.2 at 2015-10-28 14:52:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation_and_overrides.self-c518191427c621804a76e332288581abe46630e5944b17e80524ab928bb17d6f.css?body=1" for 10.0.2.2 at 2015-10-28 14:52:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/clock.self-05553614014495bce927d8431cbba0be21c7c02b540a86474e0725aa6e62791d.css?body=1" for 10.0.2.2 at 2015-10-28 14:52:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.self-2c3718981abe8e272e410af80c59228c254172ea8448e678e5dbf9cd1b051067.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.abide.self-abbd1d12f4b07471e1d21afbc1474e47e0ca27058726132c372c324998daa097.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.accordion.self-cf17d392ac337bf5953a2f26af9eee35eee3455045148a35f60108e028ffdbcd.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.alert.self-6429073a95ade9c505d9fa9e6734009beecccab384a68e134b54aede5f3d0d25.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.clearing.self-ea0ff6347e6dea4e4d923e67da877ab921a4471e4312abe545f5211aac721173.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.dropdown.self-a11d53a5f478013eb25c61c800e9d6dfe29a4dec2b1c6659e9cd31a17b0ab5d4.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.equalizer.self-958ef0a1750bda14d84686a008451b05fff4b365c3d293cde663d30238a3b8aa.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.interchange.self-21b12f023e0306fcd4026c3b1205d09e5da090ac470c0f56dc53008cf672eab0.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.joyride.self-b83fb588541fa943e1f46855e00523dfca46267bf4f6c379d01274f865af9ad5.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.magellan.self-b624d8108443673bb2bc000ec1a7e14f8ab67f51d668d1f16efb1f22a11e9c4b.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.offcanvas.self-5c6d43217cbf09ab4fc78f35d4b72d488cfe65a669a3ca507462a02903426883.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.orbit.self-ec655701cf725bacabbd5a465b48037431a69a64b32c72b9a4f845393f3f85ed.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.reveal.self-29ab6c47f5bd3598f0d7ae15e6b624fd8b08f2ce6bbe8c5e6aad373ebe26ddea.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.slider.self-b5ee1f2d54e2200db7fe9edc3b372b640b7755af3e5942b499bdf0fb7120c374.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.tab.self-714a4d80908e3fe1ee585fb44937eb63345c05dcafbf199858bb3b034c95cb94.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.tooltip.self-0199023f742be0c4496f028919a28303e4a3499acbcf9baeb63e63bfc76cc8c4.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.topbar.self-7ba72b08fc9d42f50a91b7c5ef026441b78b417c50e8a85639ec324d80f0934b.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation.self-abe4ee7a105042f73b12b1f1a28788522d2f253445a475a94ab4d6e1f7b0ec52.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/d3.self-bba644a88475fad716e03a8f92ecfc7e1c6ebcea622c39975002fd8356d00ba0.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/clock.self-dc62bd74098334c763a0b58c388865d4abcd86a40bd757e6e2feabc76ecb49ba.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/stripe.self-02966132df82044e48c3d1d756418b9bce1d50a1ead0cb07078e3fd705c0ccef.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-1141abc003dc121216b7b5559c4662bc03b305da3f4d6a8c72e94a3eac480312.js?body=1" for 10.0.2.2 at 2015-10-28 14:52:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/maps" for 10.0.2.2 at 2015-10-28 14:54:12 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MapsController#index as HTML
+  Rendered maps/index.html within layouts/application (0.4ms)
+  Rendered layouts/_header.html.slim (0.2ms)
+  Rendered layouts/_footer.html.slim (0.1ms)
+Completed 200 OK in 899ms (Views: 898.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/vis/map.self-9ecc1f4ab9d5b0f93f1a091b531f9815e14f85baa0011ac098ac13d160d34a4a.css?body=1" for 10.0.2.2 at 2015-10-28 14:54:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/clock.self-05553614014495bce927d8431cbba0be21c7c02b540a86474e0725aa6e62791d.css?body=1" for 10.0.2.2 at 2015-10-28 14:54:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-167193cd81d9330d9ddb5c4ec7b44214fea529aa8a94f3a86e6526e4f652fc02.css?body=1" for 10.0.2.2 at 2015-10-28 14:54:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation_and_overrides.self-c518191427c621804a76e332288581abe46630e5944b17e80524ab928bb17d6f.css?body=1" for 10.0.2.2 at 2015-10-28 14:54:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.self-2c3718981abe8e272e410af80c59228c254172ea8448e678e5dbf9cd1b051067.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.abide.self-abbd1d12f4b07471e1d21afbc1474e47e0ca27058726132c372c324998daa097.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.dropdown.self-a11d53a5f478013eb25c61c800e9d6dfe29a4dec2b1c6659e9cd31a17b0ab5d4.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.clearing.self-ea0ff6347e6dea4e4d923e67da877ab921a4471e4312abe545f5211aac721173.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.alert.self-6429073a95ade9c505d9fa9e6734009beecccab384a68e134b54aede5f3d0d25.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.accordion.self-cf17d392ac337bf5953a2f26af9eee35eee3455045148a35f60108e028ffdbcd.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.equalizer.self-958ef0a1750bda14d84686a008451b05fff4b365c3d293cde663d30238a3b8aa.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.interchange.self-21b12f023e0306fcd4026c3b1205d09e5da090ac470c0f56dc53008cf672eab0.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.joyride.self-b83fb588541fa943e1f46855e00523dfca46267bf4f6c379d01274f865af9ad5.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.magellan.self-b624d8108443673bb2bc000ec1a7e14f8ab67f51d668d1f16efb1f22a11e9c4b.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.offcanvas.self-5c6d43217cbf09ab4fc78f35d4b72d488cfe65a669a3ca507462a02903426883.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.orbit.self-ec655701cf725bacabbd5a465b48037431a69a64b32c72b9a4f845393f3f85ed.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.reveal.self-29ab6c47f5bd3598f0d7ae15e6b624fd8b08f2ce6bbe8c5e6aad373ebe26ddea.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.slider.self-b5ee1f2d54e2200db7fe9edc3b372b640b7755af3e5942b499bdf0fb7120c374.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.tab.self-714a4d80908e3fe1ee585fb44937eb63345c05dcafbf199858bb3b034c95cb94.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.tooltip.self-0199023f742be0c4496f028919a28303e4a3499acbcf9baeb63e63bfc76cc8c4.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.topbar.self-7ba72b08fc9d42f50a91b7c5ef026441b78b417c50e8a85639ec324d80f0934b.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation.self-abe4ee7a105042f73b12b1f1a28788522d2f253445a475a94ab4d6e1f7b0ec52.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/d3.self-bba644a88475fad716e03a8f92ecfc7e1c6ebcea622c39975002fd8356d00ba0.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/clock.self-dc62bd74098334c763a0b58c388865d4abcd86a40bd757e6e2feabc76ecb49ba.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/stripe.self-02966132df82044e48c3d1d756418b9bce1d50a1ead0cb07078e3fd705c0ccef.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-1141abc003dc121216b7b5559c4662bc03b305da3f4d6a8c72e94a3eac480312.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/maps" for 10.0.2.2 at 2015-10-28 14:54:28 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MapsController#index as HTML
+  Rendered maps/index.html within layouts/application (0.4ms)
+  Rendered layouts/_header.html.slim (0.2ms)
+  Rendered layouts/_footer.html.slim (0.1ms)
+Completed 200 OK in 704ms (Views: 703.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/vis/map.self-9ecc1f4ab9d5b0f93f1a091b531f9815e14f85baa0011ac098ac13d160d34a4a.css?body=1" for 10.0.2.2 at 2015-10-28 14:54:28 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:28 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-167193cd81d9330d9ddb5c4ec7b44214fea529aa8a94f3a86e6526e4f652fc02.css?body=1" for 10.0.2.2 at 2015-10-28 14:54:28 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation_and_overrides.self-c518191427c621804a76e332288581abe46630e5944b17e80524ab928bb17d6f.css?body=1" for 10.0.2.2 at 2015-10-28 14:54:28 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/clock.self-05553614014495bce927d8431cbba0be21c7c02b540a86474e0725aa6e62791d.css?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.self-2c3718981abe8e272e410af80c59228c254172ea8448e678e5dbf9cd1b051067.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.abide.self-abbd1d12f4b07471e1d21afbc1474e47e0ca27058726132c372c324998daa097.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.accordion.self-cf17d392ac337bf5953a2f26af9eee35eee3455045148a35f60108e028ffdbcd.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.alert.self-6429073a95ade9c505d9fa9e6734009beecccab384a68e134b54aede5f3d0d25.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.clearing.self-ea0ff6347e6dea4e4d923e67da877ab921a4471e4312abe545f5211aac721173.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.dropdown.self-a11d53a5f478013eb25c61c800e9d6dfe29a4dec2b1c6659e9cd31a17b0ab5d4.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.equalizer.self-958ef0a1750bda14d84686a008451b05fff4b365c3d293cde663d30238a3b8aa.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.interchange.self-21b12f023e0306fcd4026c3b1205d09e5da090ac470c0f56dc53008cf672eab0.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.joyride.self-b83fb588541fa943e1f46855e00523dfca46267bf4f6c379d01274f865af9ad5.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.magellan.self-b624d8108443673bb2bc000ec1a7e14f8ab67f51d668d1f16efb1f22a11e9c4b.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.offcanvas.self-5c6d43217cbf09ab4fc78f35d4b72d488cfe65a669a3ca507462a02903426883.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.orbit.self-ec655701cf725bacabbd5a465b48037431a69a64b32c72b9a4f845393f3f85ed.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.reveal.self-29ab6c47f5bd3598f0d7ae15e6b624fd8b08f2ce6bbe8c5e6aad373ebe26ddea.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.slider.self-b5ee1f2d54e2200db7fe9edc3b372b640b7755af3e5942b499bdf0fb7120c374.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.tab.self-714a4d80908e3fe1ee585fb44937eb63345c05dcafbf199858bb3b034c95cb94.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.tooltip.self-0199023f742be0c4496f028919a28303e4a3499acbcf9baeb63e63bfc76cc8c4.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation/foundation.topbar.self-7ba72b08fc9d42f50a91b7c5ef026441b78b417c50e8a85639ec324d80f0934b.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/foundation.self-abe4ee7a105042f73b12b1f1a28788522d2f253445a475a94ab4d6e1f7b0ec52.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/d3.self-bba644a88475fad716e03a8f92ecfc7e1c6ebcea622c39975002fd8356d00ba0.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/clock.self-dc62bd74098334c763a0b58c388865d4abcd86a40bd757e6e2feabc76ecb49ba.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/stripe.self-02966132df82044e48c3d1d756418b9bce1d50a1ead0cb07078e3fd705c0ccef.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-1141abc003dc121216b7b5559c4662bc03b305da3f4d6a8c72e94a3eac480312.js?body=1" for 10.0.2.2 at 2015-10-28 14:54:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
