@@ -1,6 +1,6 @@
 function clock(element, data, width, height) {
-  var width = width | 250;
-  var height = height | 250;
+  if (width === null) width = 300
+  if (height === null) height = 300
   var margin = 5;
   var radius = Math.min(width, height) / 2 - margin;
   var sunRadius = 0.92 * radius;
@@ -205,7 +205,14 @@ function showDataForClockSlice(element, user_id, date, hour, clock_width) {
     success: function(data) {
       slice.classed("ajax-error", false);
 
-      slice.append("p").text("data => " + data);
+      slice.append("ul").selectAll(".hourly-info")
+          .data(data)
+        .enter().append("li")
+          .attr("class", "hourly-info")
+          .text(function(d) {
+            dd = new Date(d.datetime);
+            return dd.getHours() + ":" + dd.getMinutes() + " => " + d.activity;
+          });
     },
     error: function() {
       slice.classed("ajax-error", true);

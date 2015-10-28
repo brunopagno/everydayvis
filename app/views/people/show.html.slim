@@ -3,7 +3,9 @@ h3 = "Data from #{@person.name}"
 .userclock[data-userclock="#{@person.daily}"]
 
 javascript:
-  var data = {
+  var clock_data = {
+    user_id: 1,
+    date: new Date(2013, 4, 30),
     max_activity: 100,
     activities: [
       'sleep', 'sleep', 'sleep', 'sleep', 'sleep', 'sleep',
@@ -21,4 +23,5 @@ javascript:
     sunset: new Date(0, 0, 0, 18, 29)
   }
 
-  clock('.userclock', data);
+
+  clock('.userclock', clock_data, 400, 400);
