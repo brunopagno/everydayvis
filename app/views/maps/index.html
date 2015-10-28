@@ -15,8 +15,12 @@
       '<h3 id="firstHeading" class="firstHeading">This is a test</h3>'+
       '<div id="bodyContent">'+
       '<p>This is the test</p>'+
+
+      //adicionei uma foto e um canvas
       '<img src="https://scontent-atl3-1.xx.fbcdn.net/hphotos-xtf1/v/t1.0-9/11895965_964789006917806_7559308059866769096_n.jpg?oh=6b971e5636a75602635e85243b5fb094&oe=56BD82D9" >' +
       '<canvas id="canvas" width="502" height="108"></canvas>' + 
+
+
       '</div>'+
       '</div>';
 
@@ -27,7 +31,7 @@
         content: contentString
       });
 
-      //Aqui um exemplo. Podemos pegar varias imagens de vários lugares e botar em um array, ou usá-las diretamente como fiz ali embaixo
+      //Aqui um exemplo. Podemos pegar varias imagens de vários lugares e botar em um dicionario, ou usá-las diretamente como fiz ali embaixo
       var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
       var icons = {
         parking: {
@@ -42,13 +46,73 @@
       };
 
 
+      //Essa função só vai ser executada quando a infowindow for aberta
+      google.maps.event.addListener(infowindow, 'domready', function() {
+
+        draw();
+
+      });
+
+
+
+
+
+//FUNÇÕES PARA DESENHAR
+function fun1(x) {return Math.sin(x);  }
+function fun2(x) {return Math.cos(3*x);}
+
+function draw() {
+ var canvas = document.getElementById("canvas");
+ if (null==canvas || !canvas.getContext) return;
+
+ var axes={}, ctx=canvas.getContext("2d");
+ axes.x0 = .5 + .5*canvas.width;  // x0 pixels from left to x=0
+ axes.y0 = .5 + .5*canvas.height; // y0 pixels from top to y=0
+ axes.scale = 40;                 // 40 pixels from x=0 to x=1
+ axes.doNegativeX = true;
+
+ showAxes(ctx,axes);
+ funGraph(ctx,axes,fun1,"rgb(11,153,11)",1); 
+ funGraph(ctx,axes,fun2,"rgb(66,44,255)",2);
+}
+
+function funGraph (ctx,axes,func,color,thick) {
+ var xx, yy, dx=4, x0=axes.x0, y0=axes.y0, scale=axes.scale;
+ var iMax = Math.round((ctx.canvas.width-x0)/dx);
+ var iMin = axes.doNegativeX ? Math.round(-x0/dx) : 0;
+ ctx.beginPath();
+ ctx.lineWidth = thick;
+ ctx.strokeStyle = color;
+
+ for (var i=iMin;i<=iMax;i++) {
+  xx = dx*i; yy = scale*func(xx/scale);
+  if (i==iMin) ctx.moveTo(x0+xx,y0-yy);
+  else         ctx.lineTo(x0+xx,y0-yy);
+ }
+ ctx.stroke();
+}
+
+function showAxes(ctx,axes) {
+ var x0=axes.x0, w=ctx.canvas.width;
+ var y0=axes.y0, h=ctx.canvas.height;
+ var xmin = axes.doNegativeX ? 0 : x0;
+ ctx.beginPath();
+ ctx.strokeStyle = "rgb(128,128,128)"; 
+ ctx.moveTo(xmin,y0); ctx.lineTo(w,y0);  // X axis
+ ctx.moveTo(x0,0);    ctx.lineTo(x0,h);  // Y axis
+ ctx.stroke();
+}
+//FIM DAS FUNÇÕES PARA DESENHAR
+
 
 
       var marker = new google.maps.Marker({
         position: lalo,
         map: map,
         title: 'Stuffy stuff',
+        //icone direto por URL
        // icon: 'https://scontent-atl3-1.xx.fbcdn.net/hphotos-xtf1/v/t1.0-9/11895965_964789006917806_7559308059866769096_n.jpg?oh=6b971e5636a75602635e85243b5fb094&oe=56BD82D9'
+       //icone usando o dicionario
         icon: icons['library'].icon
       });
 
@@ -63,7 +127,8 @@
 
 
 
-
+<!--Aqui tem uma ideia inicial para desenhar no mapa
+  Não é um marcador, é como se tu pegasse uma imagem e sobreposse no mapa. Pode vir a ser útil, então deixei-->
 
 <!--
 <!DOCTYPE html>
