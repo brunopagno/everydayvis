@@ -40,4 +40,19 @@
   .ajax-error {
     background-color: #faa;
   }
+
+  .graph {
+    font-size: 10px;
+  }
+
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+
+  .area {
+    fill: steelblue;
+  }
 }
