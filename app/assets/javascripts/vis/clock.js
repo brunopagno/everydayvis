@@ -212,7 +212,7 @@ function showDataForClockSlice(element, user_id, date, hour, clock_width) {
     success: function(data) {
       slice.classed("ajax-error", false);
 
-      var margin = {top: 12, right: 24, bottom: 18, left: 32};
+      var margin = {top: 12, right: 24, bottom: 18, left: 40};
       var width = 450 - margin.left - margin.right;
       var height = 220 - margin.top - margin.bottom;
 
