@@ -29,7 +29,7 @@ class Person < ActiveRecord::Base
   end
 
   def at_hour(datetime)
-    acts = activities.where("datetime BETWEEN ? AND ?", datetime, datetime + 1.hour)
+    activities.where("datetime BETWEEN ? AND ?", datetime - 1.hour, datetime)
   end
 
 end
