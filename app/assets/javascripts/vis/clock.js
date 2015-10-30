@@ -7,9 +7,23 @@ function clock(element, data, width, height) {
   var luminosityRadius = 0.84 * radius;
   var activityRadius = 0.54 * radius;
 
+  var max_activity = d3.max(data.activities);
+  var max_luminosity = d3.max(data.luminosity);
   var sun_scale = d3.scale.linear().domain([0, 24]).range([0, 360]);
-  var luminosity_scale = d3.scale.linear().domain([0, data.max_luminosity]).range(["#000", "#fff"]);
-  var activity_scale = d3.scale.linear().domain([0, data.max_activity]).range([0, 100]);
+  var activity_scale = d3.scale.linear().domain([0, max_activity]).range([0, 100]);
+  var luminosity_scale = d3.scale.linear().domain([0, max_luminosity]).range(["#000", "#fff"]);
+
+  if (!(data.date instanceof Date)) data.date = new Date(data.date);
+  if (!(data.sunrise instanceof Date)) data.sunrise = new Date(data.sunrise);
+  if (!(data.sunset instanceof Date)) data.sunset = new Date(data.sunset);
+  
+  // Not best solution. Fix this, plz.
+  while (data.activities.length < 24) {
+    data.activities.push(0);
+  }
+  while (data.luminosity.length < 24) {
+    data.luminosity.push(0);
+  }
 
   var pie = d3.layout.pie()
       .sort(null)
@@ -97,7 +111,7 @@ function clock(element, data, width, height) {
       .innerRadius(activityRadius)
       .outerRadius(function(d) { 
         if (d.data == "sleep") {
-          return (luminosityRadius - activityRadius) * (activity_scale(data.max_activity) / 100.0) + activityRadius;
+          return (luminosityRadius - activityRadius) * (activity_scale(max_activity) / 100.0) + activityRadius;
         } else {
           return (luminosityRadius - activityRadius) * (activity_scale(d.data) / 100.0) + activityRadius;
         }
