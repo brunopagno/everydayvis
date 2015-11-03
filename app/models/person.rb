@@ -1,6 +1,11 @@
 class Person < ActiveRecord::Base
 
   has_many :activities
+  DAY_HOURS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+
+  def on_date(datetime)
+    activities.where("datetime BETWEEN ? AND ?", datetime, datetime + 1.day - 1.second).order("datetime ASC")
+  end
 
   def daily
     days = []
@@ -9,9 +14,10 @@ class Person < ActiveRecord::Base
     date = Time.zone.local(date.year, date.month, date.day, 0, 0, 0)
 
     while (activities.last.datetime > date) do
-      one_day = activities.where("datetime BETWEEN ? AND ?", date, date + 1.day - 1.second).order("datetime ASC")
+      one_day = self.on_date(date)
       day = []
       day << { activity: 0, light: 0, datetime: one_day.first.datetime }
+
       one_day.each do |activity|
         if day.last[:datetime].hour != activity.datetime.hour
           day << { activity: 0, light: 0, datetime: activity.datetime }
@@ -19,6 +25,13 @@ class Person < ActiveRecord::Base
         end
         day.last[:activity] += activity.activity
         day.last[:light] += activity.light
+      end
+
+      hrs = day.map { |d| d[:datetime].hour }
+      (DAY_HOURS - hrs).each do |hour|
+        day.insert(hour - 1, { activity: 0,
+                               light: 0,
+                               datetime: Time.zone.local(date.year, date.month, date.day, hour, 0, 0) })
       end
 
       days << day

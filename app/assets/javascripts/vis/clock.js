@@ -17,14 +17,6 @@ function clock(element, data, width, height) {
   if (!(data.sunrise instanceof Date)) data.sunrise = new Date(data.sunrise);
   if (!(data.sunset instanceof Date)) data.sunset = new Date(data.sunset);
   
-  // Not best solution. Fix this, plz.
-  while (data.activities.length < 24) {
-    data.activities.push(0);
-  }
-  while (data.luminosity.length < 24) {
-    data.luminosity.push(0);
-  }
-
   var pie = d3.layout.pie()
       .sort(null)
       .value(function(d) { return 1; });
@@ -207,6 +199,7 @@ function showDataForClockSlice(element, user_id, date, hour, clock_width) {
       .text(" of day " + date.getDate());
 
   var url = "/person/" + user_id + "/" + date.getFullYear() + "/" + (date.getMonth()+1) + "/" + date.getDate() + "/" + hour;
+  console.log("request to " + url);
   $.ajax({
     url: url,
     success: function(data) {
