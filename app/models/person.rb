@@ -9,7 +9,7 @@ class Person < ActiveRecord::Base
     date = Time.zone.local(date.year, date.month, date.day, 0, 0, 0)
 
     while (activities.last.datetime > date) do
-      one_day = activities.where("datetime BETWEEN ? AND ?", date, date + 1.day - 1.second)
+      one_day = activities.where("datetime BETWEEN ? AND ?", date, date + 1.day - 1.second).order("datetime ASC")
       day = []
       day << { activity: 0, light: 0, datetime: one_day.first.datetime }
       one_day.each do |activity|
@@ -29,7 +29,7 @@ class Person < ActiveRecord::Base
   end
 
   def at_hour(datetime)
-    activities.where("datetime BETWEEN ? AND ?", datetime - 1.hour, datetime)
+    activities.where("datetime BETWEEN ? AND ?", datetime - 1.hour, datetime).order("datetime ASC")
   end
 
 end
