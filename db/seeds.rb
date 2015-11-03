@@ -1,5 +1,6 @@
 require 'csv'
 
+personame = 1
 Dir['quidata/*.csv'].each do |file_name|
   next if File.directory? file_name
   puts 'Importing: ' + file_name.split('/')[-1]
@@ -36,6 +37,8 @@ Dir['quidata/*.csv'].each do |file_name|
       person.name = row[1]
     elsif row.join(',').start_with? "Age (at start of data collection)"
       person.age = row[1].to_i
+    elsif person.name.empty?
+      person.name = "person_" + personame.to_s
     end
 
     relevant_stuff = true if !relevant_stuff and row.join(',').start_with? "Line,Date,Time,Activity,Marker,White Light,Sleep/Wake,Interval Status"
