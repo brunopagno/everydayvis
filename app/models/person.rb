@@ -7,6 +7,27 @@ class Person < ActiveRecord::Base
     activities.where("datetime BETWEEN ? AND ?", datetime, datetime + 1.day - 1.second).order("datetime ASC")
   end
 
+  def monthly
+    days = []
+
+    date = activities.first.datetime
+    date = Time.zone.local(date.year, date.month, date.day, 0, 0, 0)
+
+    while (activities.last.datetime > date) do
+      day = { activity: 0, light: 0, datetime: date }
+
+      self.on_date(date).each do |activity|
+        day[:activity] += activity.activity
+        day[:light] += activity.light
+      end
+
+      days << day
+      date += 1.day;
+    end
+
+    return days
+  end
+
   def daily
     days = []
 

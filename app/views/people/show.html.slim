@@ -1,9 +1,14 @@
 h3 = "Data from #{@person.name}"
 
-- @person.daily.each do |day|
-  .clock[data-userclock="#{daily_activities_to_json(@person, day)}"]
+.calendar[data-calendar="#{@person.monthly.to_json}"]
 
 javascript:
-  $(".clock").each(function(i, c) {
-    clock(c, $(c).data("userclock"), 400, 400);
-  });
+  fillCalendar('.calendar', $('.calendar').data('calendar'));
+
+/ - @person.daily.each do |day|
+/   .clock[data-userclock="#{daily_activities_to_json(@person, day)}"]
+
+/ javascript:
+/   $(".clock").each(function(i, c) {
+/     clock(c, $(c).data("userclock"), 400, 400);
+/   });
