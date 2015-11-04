@@ -5,11 +5,6 @@ $(document).ready(function() {
       this.checked = check;
     });
   });
-
-  $('#view-clocks').click(function() {
-    
-    return false;
-  });
 });
 
 function fillCalendar(element, data) {
