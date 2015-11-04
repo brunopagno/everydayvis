@@ -5,6 +5,11 @@ $(document).ready(function() {
       this.checked = check;
     });
   });
+
+  $('#view-clocks').click(function() {
+    
+    return false;
+  });
 });
 
 function fillCalendar(element, data) {
@@ -44,19 +49,6 @@ function fillCalendar(element, data) {
         checkbox.attr("value", ev.start);
 
         el.append(checkbox);
-
-        // var svg = $("<svg></svg>");
-        // svg.attr("width", 100)
-        //    .attr("height", 100);
-
-        // var circle = $("<circle></circle>");
-        // circle.attr("cx", 10)
-        //       .attr("cy", 10)
-        //       .attr("r", 50)
-        //       .attr("fill", "red");
-
-        // el.append(svg);
-        // svg.append(circle);
       }
   });
 }
