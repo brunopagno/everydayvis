@@ -1,3 +1,12 @@
+$(document).ready(function() {
+  $('.calendar-select-all').change(function() {
+    var check = $(this).is(":checked");
+    $('.calendar-box').each(function() {
+      this.checked = check;
+    });
+  });
+});
+
 function fillCalendar(element, data) {
   var max_activity = d3.max(data, function(d) { return d.activity } );
   var steps_scale = d3.scale.linear().domain([0, max_activity]).range([0, 144]);

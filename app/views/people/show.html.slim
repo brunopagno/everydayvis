@@ -1,10 +1,7 @@
 h3 = "Data from #{@person.name}"
 
-
-= check_box_tag 'select_all'
-= label_tag 'select_all'
 .calendar[data-calendar="#{@person.monthly.to_json}"]
-= check_box_tag 'select_all'
+= check_box_tag 'select_all', nil, false, class: 'calendar-select-all'
 = label_tag 'select_all'
 
 javascript:
