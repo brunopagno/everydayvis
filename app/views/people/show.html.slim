@@ -14,5 +14,7 @@ javascript:
   fillCalendar('.calendar', $('.calendar').data('calendar'));
 
   $(".clock").each(function(i, c) {
-    clock(c, $(c).data("userclock"), 400, 400);
+    var data = $(c).data("userclock");
+    data['size'] = 400;
+    new Clock().draw(c, data);
   });

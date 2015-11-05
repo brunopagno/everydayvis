@@ -1,48 +1,159 @@
-function clock(element, data, width, height) {
-  if (width === null) width = 300
-  if (height === null) height = 300
-  var margin = 5;
-  var radius = Math.min(width, height) / 2 - margin;
-  var sunRadius = 0.92 * radius;
-  var luminosityRadius = 0.84 * radius;
-  var activityRadius = 0.54 * radius;
+/////////////////////////////////////////////////
+// Clock
+/////////////////////////////////////////////////
 
-  var max_activity = d3.max(data.activities);
-  var max_luminosity = d3.max(data.luminosity);
-  var sun_scale = d3.scale.linear().domain([0, 24]).range([0, 360]);
-  var activity_scale = d3.scale.linear().domain([0, max_activity]).range([0, 100]);
-  var luminosity_scale = d3.scale.linear().domain([0, max_luminosity]).range(["#000", "#fff"]);
+function Clock() {
+  this._arcs = [
+    new SunArc(this),
+    new LuminosityArc(this),
+    new ActivityArc(this)
+  ];
+  this._size = 300;
+  this._margin = 5;
+  this._data = [];
+}
 
+Clock.prototype.preprocess = function(data) {
+  if (data.size) this._size = data.size;
+  if (data.margin) this._margin = data.margin;
   if (!(data.date instanceof Date)) data.date = new Date(data.date);
-  if (!(data.sunrise instanceof Date)) data.sunrise = new Date(data.sunrise);
-  if (!(data.sunset instanceof Date)) data.sunset = new Date(data.sunset);
-  
+
+  this._radius = this._size / 2 - this._margin;
+}
+
+Clock.prototype.validate = function(data) {
+  for (var i = 0; i < this._arcs.length; i++) {
+    this._arcs[i].validate(data);
+  };
+
+  return true;
+}
+
+Clock.prototype.draw = function(element, data) {
+  if (!this.validate(data)) {
+    console.log("There was an error in the data provided to the clock");
+    return;
+  }
+
+  this.preprocess(data);
+
+  var svg = d3.select(element).append("svg")
+      .attr("class", "clock-arcs")
+      .attr("width", this._size)
+      .attr("height", this._size);
+
+  var outerRadius = this._radius;
+  var walkedRadius = 0;
+  for (var i = 0; i < this._arcs.length; i++) {
+    var arc = this._arcs[i];
+    var innerRadius = this._radius * (1 - arc._width) - walkedRadius;
+    arc.draw(svg, data, outerRadius, innerRadius)
+    outerRadius = innerRadius;
+    walkedRadius += this._radius - innerRadius;
+  };
+
+  this.drawText(svg, data);
+
+  this.setInteraction(element, svg, data);
+}
+
+Clock.prototype.drawText = function(svg, data) {
+  var textSvg = svg.append("g")
+      .attr("class", "text-arc")
+      .attr("transform", "translate(" + this._size / 2 + "," + this._size / 2 + ")");
+
+  var hours = -1;
+  var time = 0;
+  var degrees = 15 * Math.PI / 180;
+  var textOffset = this._size / 35;
+  var radiusPercent = this._radius * 0.75;
+  var textLayer = textSvg.selectAll(".clock-label")
+      .data(data.activities)
+    .enter().append("text")
+      .attr("class", "clock-label")
+      .attr("x", function(d) {
+        hours += 1;
+        return radiusPercent * Math.cos((degrees * hours) + (degrees / 2) - 1.5708) - textOffset;
+      })
+      .attr("y", function(d) {
+        hours += 1;
+        return radiusPercent * Math.sin((degrees * hours) + (degrees / 2) - 1.5708) + textOffset;
+      })
+      .text(function(d) {
+        if (time >= 23) time = -1;
+        return time += 1;
+      });
+
+  svg.append("svg:text")
+    .attr("class", "clock-date")
+    .attr("dy", ".35em")
+    .attr("text-anchor", "middle")
+    .attr("transform", "translate(" + this._size / 2 + "," + this._size / 2 + ")")
+    .text(data.date.getDate() + "/" + (data.date.getMonth() + 1) + "/" + data.date.getFullYear());
+}
+
+Clock.prototype.setInteraction = function(element, svg, data) {
   var pie = d3.layout.pie()
       .sort(null)
       .value(function(d) { return 1; });
 
-  var innerPie = d3.layout.pie()
+  var interactionSvg = svg.append("g")
+      .attr("class", "luminosity-arc")
+      .attr("transform", "translate(" + this._size / 2 + "," + this._size / 2 + ")");
+
+  var interactionArc = d3.svg.arc()
+      .innerRadius(this._radius * 0.5)
+      .outerRadius(this._radius);
+
+  var interactionPath = interactionSvg.selectAll(".interaction-arc")
+      .data(pie(data.luminosity))
+    .enter().append("path")
+      .attr("class", "interaction-arc")
+      .attr("fill", "transparent")
+      .attr("d", interactionArc)
+      .on("mousedown", function(d, hourNumber) {
+        $(".interaction-arc").attr("class", "interaction-arc");
+        $(this).attr("class", "interaction-arc highlight");
+        showDataForClockSlice(element, data.user_id, data.date, hourNumber + 1, this._size);
+      });
+}
+
+/////////////////////////////////////////////////
+// Sun Arc
+/////////////////////////////////////////////////
+
+function SunArc(clock) {
+  this._clock = clock;
+  this._active = true;
+  this._width = 0.08;
+  this._pie = d3.layout.pie()
       .sort(null)
-      .padAngle(-0.01)
       .value(function(d) { return 1; });
+}
 
-  var svg = d3.select(element).append("svg")
-      .attr("class", "daily-clock")
-      .attr("width", width)
-      .attr("height", height);
+SunArc.prototype.validate = function(data) {
+  if (!data.sunrise || !data.sunset) {
+    this._active = false;
+  } else {
+    if (!(data.sunrise instanceof Date)) data.sunrise = new Date(data.sunrise);
+    if (!(data.sunset instanceof Date)) data.sunset = new Date(data.sunset);
+  }
+  return this._active;
+}
 
-  // Sun
+SunArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
+  var sun_scale = d3.scale.linear().domain([0, 24]).range([0, 360]);
 
   var sunSvg = svg.append("g")
       .attr("class", "sun-arc")
-      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+      .attr("transform", "translate(" + this._clock._size / 2 + "," + this._clock._size / 2 + ")");
 
   var dayStartAngle = sun_scale(data.sunrise.getHours() + data.sunrise.getMinutes() / 60) * Math.PI / 180;
   var dayEndAngle = sun_scale(data.sunset.getHours() + data.sunset.getMinutes() / 60) * Math.PI / 180;
 
   var sunArc = d3.svg.arc()
-    .innerRadius(radius)
-    .outerRadius(sunRadius);
+    .innerRadius(outerRadius)
+    .outerRadius(innerRadius);
 
   var dayPath = sunSvg.append("path")
       .attr("class", "sun-outline-arc")
@@ -65,8 +176,8 @@ function clock(element, data, width, height) {
       );
 
   var alpha = (dayStartAngle + dayEndAngle) / 2;
-  var r = (radius + sunRadius) / 2;
-  var sunSize = radius * 0.03;
+  var r = (outerRadius + innerRadius) / 2;
+  var sunSize = outerRadius * 0.03;
 
   var sunCircleSvg = sunSvg.append("circle")
       .attr("fill", "yellow")
@@ -79,16 +190,41 @@ function clock(element, data, width, height) {
       .attr("cx", -r * Math.sin(alpha))
       .attr("cy", r * Math.cos(alpha))
       .attr("r", sunSize);
+}
 
-  // Luminosity
+/////////////////////////////////////////////////
+// Luminosity Arc
+/////////////////////////////////////////////////
+
+function LuminosityArc(clock) {
+  this._clock = clock;
+  this._active = true;
+  this._width = 0.08;
+}
+
+LuminosityArc.prototype.validate = function(data) {
+  if (!data.luminosity) {
+    this._active = false;
+  }
+  return this._active;
+}
+
+LuminosityArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
+  var max_luminosity = d3.max(data.luminosity);
+  var luminosity_scale = d3.scale.linear().domain([0, max_luminosity]).range(["#000", "#fff"]);
+
+  var innerPie = d3.layout.pie()
+      .sort(null)
+      .padAngle(-0.01)
+      .value(function(d) { return 1; });
 
   var luminositySvg = svg.append("g")
       .attr("class", "luminosity-arc")
-      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+      .attr("transform", "translate(" + this._clock._size / 2 + "," + this._clock._size / 2 + ")");
 
   var luminosityArc = d3.svg.arc()
-      .innerRadius(sunRadius)
-      .outerRadius(luminosityRadius);
+      .innerRadius(innerRadius)
+      .outerRadius(outerRadius);
 
   var luminosityOuterPath = luminositySvg.selectAll(".luminosity-outline-arc")
       .data(innerPie(data.luminosity))
@@ -96,26 +232,50 @@ function clock(element, data, width, height) {
       .attr("class", "luminosity-outline-arc")
       .attr("fill", function(d) { return luminosity_scale(d.data); })
       .attr("d", luminosityArc);
+}
 
-  // Activity
+/////////////////////////////////////////////////
+// Activity Arc
+/////////////////////////////////////////////////
+
+function ActivityArc(clock) {
+  this._clock = clock;
+  this._active = true;
+  this._width = 0.3;
+}
+
+ActivityArc.prototype.validate = function(data) {
+  if (!data.activity) {
+    this._active = false;
+  }
+  return this._active;
+}
+
+ActivityArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
+  var max_activity = d3.max(data.activities);
+  var activity_scale = d3.scale.linear().domain([0, max_activity]).range([0, 100]);
+
+  var pie = d3.layout.pie()
+      .sort(null)
+      .value(function(d) { return 1; });
 
   var activityArc = d3.svg.arc()
-      .innerRadius(activityRadius)
+      .innerRadius(innerRadius)
       .outerRadius(function(d) { 
         if (d.data == "sleep") {
-          return (luminosityRadius - activityRadius) * (activity_scale(max_activity) / 100.0) + activityRadius;
+          return (outerRadius - innerRadius) * (activity_scale(max_activity) / 100.0) + innerRadius;
         } else {
-          return (luminosityRadius - activityRadius) * (activity_scale(d.data) / 100.0) + activityRadius;
+          return (outerRadius - innerRadius) * (activity_scale(d.data) / 100.0) + innerRadius;
         }
       });
 
   var activityOutlineArc = d3.svg.arc()
-      .innerRadius(activityRadius)
-      .outerRadius(luminosityRadius);
+      .innerRadius(innerRadius)
+      .outerRadius(outerRadius);
 
   var activitySvg = svg.append("g")
       .attr("class", "activity-arc")
-      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+      .attr("transform", "translate(" + this._clock._size / 2 + "," + this._clock._size / 2 + ")");
 
   var path = activitySvg.selectAll(".solid-arc")
       .data(pie(data.activities))
@@ -129,63 +289,11 @@ function clock(element, data, width, height) {
     .enter().append("path")
       .attr("class", "outline-arc")
       .attr("d", activityOutlineArc);
-
-  // Text
-
-  var textSvg = svg.append("g")
-      .attr("class", "text-arc")
-      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-  var hours = -1;
-  var time = 0;
-  var degrees = 15 * Math.PI / 180;
-  var textOffset = width / 35;
-  var textLayer = textSvg.selectAll(".clock-label")
-      .data(data.activities)
-    .enter().append("text")
-      .attr("class", "clock-label")
-      .attr("x", function(d) {
-        hours += 1;
-        return 0.88 * luminosityRadius * Math.cos((degrees * hours) + (degrees / 2) - 1.5708) - textOffset;
-      })
-      .attr("y", function(d) {
-        hours += 1;
-        return 0.88 * luminosityRadius * Math.sin((degrees * hours) + (degrees / 2) - 1.5708) + textOffset;
-      })
-      .text(function(d) {
-        if (time >= 23) time = -1;
-        return time += 1;
-      });
-
-  svg.append("svg:text")
-    .attr("class", "clock-date")
-    .attr("dy", ".35em")
-    .attr("text-anchor", "middle")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
-    .text(data.date.getDate() + "/" + (data.date.getMonth() + 1) + "/" + data.date.getFullYear());
-
-  // Interaction
-
-  var interactionSvg = svg.append("g")
-      .attr("class", "luminosity-arc")
-      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-  var interactionArc = d3.svg.arc()
-      .innerRadius(activityRadius)
-      .outerRadius(radius);
-
-  var interactionPath = interactionSvg.selectAll(".interaction-arc")
-      .data(pie(data.luminosity))
-    .enter().append("path")
-      .attr("class", "interaction-arc")
-      .attr("fill", "transparent")
-      .attr("d", interactionArc)
-      .on("mousedown", function(d, hourNumber) {
-        $(".interaction-arc").attr("class", "interaction-arc");
-        $(this).attr("class", "interaction-arc highlight");
-        showDataForClockSlice(element, data.user_id, data.date, hourNumber + 1, width);
-      });
 }
+
+/////////////////////////////////////////////////
+// Ajax function to load subdata
+/////////////////////////////////////////////////
 
 function showDataForClockSlice(element, user_id, date, hour, clock_width) {
   $(".slice-info").remove();
