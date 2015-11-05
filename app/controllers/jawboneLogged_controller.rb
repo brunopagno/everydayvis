@@ -1,4 +1,4 @@
-class JawboneLoggedController < ApplicationController
+class JawboneloggedController < ApplicationController
 
   def index
   end
