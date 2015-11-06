@@ -37,8 +37,9 @@ Dir['quidata/*.csv'].each do |file_name|
       person.name = row[1]
     elsif row.join(',').start_with? "Age (at start of data collection)"
       person.age = row[1].to_i
-    elsif person.name.empty?
+    elsif !person.name || person.name.empty?
       person.name = "person_" + personame.to_s
+      personame += 1;
     end
 
     relevant_stuff = true if !relevant_stuff and row.join(',').start_with? "Line,Date,Time,Activity,Marker,White Light,Sleep/Wake,Interval Status"
