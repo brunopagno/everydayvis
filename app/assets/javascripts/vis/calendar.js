@@ -37,7 +37,7 @@ function fillCalendar(element, data) {
         var checkbox = $('<input type=checkbox class="calendar-box">')
         checkbox.attr("dayid", dayid);
         checkbox.attr("value", ev.start);
-        checkbox.prop("checked", calendarSelectedDays.indexOf(dayid) >= 0);
+        checkbox.prop("checked", calendarSelectedDays.indexOf(dayid) >= 0 || $('.calendar-select-all').prop('checked'));
 
         // CHECK CALENDAR DAY
         checkbox.change(function() {

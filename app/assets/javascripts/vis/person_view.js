@@ -7,6 +7,8 @@ $(document).ready(function() {
     }
     $('.calendar').fadeOut(547);
     $('.clocks').fadeIn(547);
+
+    console.log("selected => " + calendarSelectedDays);
     return false;
   });
 
@@ -15,6 +17,14 @@ $(document).ready(function() {
     var check = $(this).is(":checked");
     $('.calendar-box').each(function() {
       this.checked = check;
+      if (this.checked) {
+        var dayid = $(this).attr("dayid");
+        if (calendarSelectedDays.indexOf(dayid) < 0) {
+          calendarSelectedDays.push($(this).attr("dayid"));
+        }
+      } else {
+        calendarSelectedDays = [];
+      }
     });
   });
 });
