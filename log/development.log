@@ -7810,3 +7810,85 @@ Processing by PagesController#index as HTML
   Rendered layouts/_header.html.slim (0.2ms)
   Rendered layouts/_footer.html.slim (0.0ms)
 Completed 200 OK in 714ms (Views: 713.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-11-06 00:19:05 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.slim within layouts/application (16.4ms)
+  Rendered layouts/_header.html.slim (2.7ms)
+  Rendered layouts/_footer.html.slim (2.1ms)
+Completed 200 OK in 1557ms (Views: 1556.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/vis/common.self-050d0907a6fd3d34b7cf7dd3c14f6de1b5102cc96452eaaa7a4cb8de9e03faa6.css?body=1" for 10.0.2.2 at 2015-11-06 00:19:07 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/map.self-d776b3d622cbee4b75ddc2862b0685db6c67af3e364b9b6564eb45f4ec535e47.css?body=1" for 10.0.2.2 at 2015-11-06 00:19:07 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/login" for 10.0.2.2 at 2015-11-06 00:19:08 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#index as HTML
+  Rendered login/index.html within layouts/application (25.1ms)
+  Rendered layouts/_header.html.slim (0.2ms)
+  Rendered layouts/_footer.html.slim (0.0ms)
+Completed 200 OK in 679ms (Views: 678.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/jawbone" for 10.0.2.2 at 2015-11-06 00:19:10 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JawboneController#index as HTML
+  Rendered jawbone/index.html within layouts/application (0.4ms)
+  Rendered layouts/_header.html.slim (0.2ms)
+  Rendered layouts/_footer.html.slim (0.0ms)
+Completed 200 OK in 739ms (Views: 738.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-11-06 00:20:03 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.slim within layouts/application (16.4ms)
+  Rendered layouts/_header.html.slim (2.7ms)
+  Rendered layouts/_footer.html.slim (2.0ms)
+Completed 200 OK in 1298ms (Views: 1298.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-11-06 00:20:07 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#index as HTML
+  Rendered login/index.html within layouts/application (3.1ms)
+  Rendered layouts/_header.html.slim (0.3ms)
+  Rendered layouts/_footer.html.slim (0.0ms)
+Completed 200 OK in 652ms (Views: 652.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/jawbone" for 10.0.2.2 at 2015-11-06 00:20:08 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JawboneController#index as HTML
+  Rendered jawbone/index.html within layouts/application (0.3ms)
+  Rendered layouts/_header.html.slim (0.2ms)
+  Rendered layouts/_footer.html.slim (0.0ms)
+Completed 200 OK in 646ms (Views: 645.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/jawbonelogged" for 10.0.2.2 at 2015-11-06 00:20:25 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JawboneloggedController#index as HTML
+  Rendered jawbonelogged/index.html within layouts/application (0.3ms)
+  Rendered layouts/_header.html.slim (0.3ms)
+  Rendered layouts/_footer.html.slim (0.0ms)
+Completed 200 OK in 665ms (Views: 664.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-11-06 00:24:01 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.slim within layouts/application (0.3ms)
+  Rendered layouts/_header.html.slim (0.2ms)
+  Rendered layouts/_footer.html.slim (0.0ms)
+Completed 200 OK in 692ms (Views: 692.0ms | ActiveRecord: 0.0ms)

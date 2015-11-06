@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get 'C:\Users\Bruno\Workspace\maquinaVirtual\pagno\app\views\login\jawbone', to: 'jawbone#frame'
 
-  get '/home/azureuser/everydayvis/app/views/jawbonelogged', to: 'jawbonelogged#iframe'
+  get 'C:\Users\Bruno\Workspace\maquinaVirtual\pagno\app\views\jawboneLogged', to: 'jawbonelogged#iframe'
 
   resources :login,:people,:maps,:jawbone,:jawbonelogged, only: [:index, :show]
 
