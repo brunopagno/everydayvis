@@ -19,7 +19,7 @@ function fillCalendar(element, data) {
 
   $(element).fullCalendar({
     header: {
-        left: 'prev,next today',
+        left: 'prev,next',
         center: 'title',
       },
       defaultDate: data[0].datetime,

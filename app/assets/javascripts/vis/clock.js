@@ -11,12 +11,16 @@ function Clock() {
   this._size = 300;
   this._margin = 5;
   this._data = [];
+  this._elid = "";
+  this._innerRadius = 0;
 }
 
 Clock.prototype.preprocess = function(data) {
   if (data.size) this._size = data.size;
   if (data.margin) this._margin = data.margin;
-  if (!(data.date instanceof Date)) data.date = new Date(data.date);
+
+  this._elid = data.date.substr(0, 10);
+  data.date = new Date(data.date);
 
   this._radius = this._size / 2 - this._margin;
 }
@@ -38,6 +42,7 @@ Clock.prototype.draw = function(element, data) {
   this.preprocess(data);
 
   var svg = d3.select(element).append("svg")
+      .attr("id", this._elid)
       .attr("class", "clock-arcs")
       .attr("width", this._size)
       .attr("height", this._size);
@@ -51,6 +56,7 @@ Clock.prototype.draw = function(element, data) {
     outerRadius = innerRadius;
     walkedRadius += this._radius - innerRadius;
   };
+  this._innerRadius = outerRadius;
 
   this.drawText(svg, data);
 
@@ -102,9 +108,10 @@ Clock.prototype.setInteraction = function(element, svg, data) {
       .attr("transform", "translate(" + this._size / 2 + "," + this._size / 2 + ")");
 
   var interactionArc = d3.svg.arc()
-      .innerRadius(this._radius * 0.5)
+      .innerRadius(this._innerRadius)
       .outerRadius(this._radius);
 
+  var clock_width = this._size;
   var interactionPath = interactionSvg.selectAll(".interaction-arc")
       .data(pie(data.luminosity))
     .enter().append("path")
@@ -114,7 +121,7 @@ Clock.prototype.setInteraction = function(element, svg, data) {
       .on("mousedown", function(d, hourNumber) {
         $(".interaction-arc").attr("class", "interaction-arc");
         $(this).attr("class", "interaction-arc highlight");
-        showDataForClockSlice(element, data.user_id, data.date, hourNumber + 1, this._size);
+        showDataForClockSlice(element, data.user_id, data.date, hourNumber + 1, clock_width);
       });
 }
 

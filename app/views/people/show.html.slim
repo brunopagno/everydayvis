@@ -7,6 +7,7 @@ h3 = "Data from #{@person.name}"
   = link_to 'View clocks', '#', id: 'view-clocks', class: 'button expand'
 
 .clocks.hide
+  = link_to 'Back to calendar', '#', id: 'back-to-calendar', class: 'button expand'
   - @person.daily.each do |day|
     .clock[data-userclock="#{daily_activities_to_json(@person, day)}"]
 

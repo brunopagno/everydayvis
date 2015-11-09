@@ -5,10 +5,21 @@ $(document).ready(function() {
       alert("Plsease select at least one day.");
       return false;
     }
+    $('.clock-arcs').hide();
     $('.calendar').fadeOut(547);
+    calendarSelectedDays.forEach(function(id) {
+      $('#' + id).show();
+    });
     $('.clocks').fadeIn(547);
 
     console.log("selected => " + calendarSelectedDays);
+    return false;
+  });
+
+  // BACK TO CALENDAR
+  $('#back-to-calendar').click(function() {
+    $('.clocks').fadeOut(547);
+    $('.calendar').fadeIn(547);
     return false;
   });
 
