@@ -1,11 +1,4 @@
-$(document).ready(function() {
-  $('.calendar-select-all').change(function() {
-    var check = $(this).is(":checked");
-    $('.calendar-box').each(function() {
-      this.checked = check;
-    });
-  });
-});
+var calendarSelectedDays = [];
 
 function fillCalendar(element, data) {
   var max_activity = d3.max(data, function(d) { return d.activity } );
@@ -40,8 +33,23 @@ function fillCalendar(element, data) {
         el.css('padding', '6px 12px 14px 12px');
         el.css('font-weight', 'bold');
 
-        var checkbox = $('<input type=checkbox class="calendar-box"></input>')
+        var dayid = ev.d.datetime.substr(0, 10);
+        var checkbox = $('<input type=checkbox class="calendar-box">')
+        checkbox.attr("dayid", dayid);
         checkbox.attr("value", ev.start);
+        checkbox.prop("checked", calendarSelectedDays.indexOf(dayid) >= 0 || $('.calendar-select-all').prop('checked'));
+
+        // CHECK CALENDAR DAY
+        checkbox.change(function() {
+          if (this.checked) {
+            calendarSelectedDays.push($(this).attr("dayid"));
+          } else {
+            var index = calendarSelectedDays.indexOf($(this).attr("dayid"));
+            if (index > -1) {
+              calendarSelectedDays.splice(index, 1);
+            }
+          }
+        });
 
         el.append(checkbox);
       }
