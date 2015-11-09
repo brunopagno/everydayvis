@@ -7892,3 +7892,90 @@ Processing by PagesController#index as HTML
   Rendered layouts/_header.html.slim (0.2ms)
   Rendered layouts/_footer.html.slim (0.0ms)
 Completed 200 OK in 692ms (Views: 692.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-11-09 16:16:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.slim within layouts/application (16.2ms)
+  Rendered layouts/_header.html.slim (2.5ms)
+  Rendered layouts/_footer.html.slim (2.0ms)
+Completed 200 OK in 1599ms (Views: 1599.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-11-09 16:16:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.slim within layouts/application (0.2ms)
+  Rendered layouts/_header.html.slim (0.3ms)
+  Rendered layouts/_footer.html.slim (0.0ms)
+Completed 200 OK in 758ms (Views: 757.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/vis/common.self-050d0907a6fd3d34b7cf7dd3c14f6de1b5102cc96452eaaa7a4cb8de9e03faa6.css?body=1" for 10.0.2.2 at 2015-11-09 16:16:58 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/clock.self-05553614014495bce927d8431cbba0be21c7c02b540a86474e0725aa6e62791d.css?body=1" for 10.0.2.2 at 2015-11-09 16:16:58 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/login.self-e064991f9e37158f61de9e1c197b185047bf4bd244005a7eaf24345ca3997d4b.css?body=1" for 10.0.2.2 at 2015-11-09 16:16:58 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/map.self-d776b3d622cbee4b75ddc2862b0685db6c67af3e364b9b6564eb45f4ec535e47.css?body=1" for 10.0.2.2 at 2015-11-09 16:16:58 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-167193cd81d9330d9ddb5c4ec7b44214fea529aa8a94f3a86e6526e4f652fc02.css?body=1" for 10.0.2.2 at 2015-11-09 16:16:58 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/clock.self-dc62bd74098334c763a0b58c388865d4abcd86a40bd757e6e2feabc76ecb49ba.js?body=1" for 10.0.2.2 at 2015-11-09 16:16:58 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/vis/stripe.self-02966132df82044e48c3d1d756418b9bce1d50a1ead0cb07078e3fd705c0ccef.js?body=1" for 10.0.2.2 at 2015-11-09 16:16:58 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-1141abc003dc121216b7b5559c4662bc03b305da3f4d6a8c72e94a3eac480312.js?body=1" for 10.0.2.2 at 2015-11-09 16:16:58 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/maps" for 10.0.2.2 at 2015-11-09 16:17:00 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MapsController#index as HTML
+  Rendered maps/index.html within layouts/application (7.1ms)
+  Rendered layouts/_header.html.slim (0.3ms)
+  Rendered layouts/_footer.html.slim (0.1ms)
+Completed 200 OK in 771ms (Views: 770.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 10.0.2.2 at 2015-11-09 16:17:12 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LoginController#index as HTML
+  Rendered login/index.html within layouts/application (0.3ms)
+  Rendered layouts/_header.html.slim (0.4ms)
+  Rendered layouts/_footer.html.slim (0.0ms)
+Completed 200 OK in 754ms (Views: 753.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/jawbone" for 10.0.2.2 at 2015-11-09 16:17:14 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by JawboneController#index as HTML
+  Rendered jawbone/index.html within layouts/application (0.3ms)
+  Rendered layouts/_header.html.slim (0.3ms)
+  Rendered layouts/_footer.html.slim (0.0ms)
+Completed 200 OK in 794ms (Views: 793.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-11-09 16:17:22 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.slim within layouts/application (0.3ms)
+  Rendered layouts/_header.html.slim (0.2ms)
+  Rendered layouts/_footer.html.slim (0.0ms)
+Completed 200 OK in 744ms (Views: 744.1ms | ActiveRecord: 0.0ms)
