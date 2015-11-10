@@ -8324,3 +8324,308 @@ Processing by PeopleController#person_hour as */*
   [1m[36mPerson Load (0.5ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT 1[0m  [["id", 6]]
   [1m[35mActivity Load (10.7ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-07 10:00:00.000000' AND '2013-06-07 11:00:00.000000')  ORDER BY datetime ASC  [["person_id", 6]]
 Completed 200 OK in 36ms (Views: 22.0ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-11-10 12:13:28 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.slim within layouts/application (19.7ms)
+  Rendered layouts/_header.html.slim (3.1ms)
+  Rendered layouts/_footer.html.slim (2.1ms)
+Completed 200 OK in 2198ms (Views: 2197.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2015-11-10 12:13:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PagesController#index as HTML
+  Rendered pages/index.html.slim within layouts/application (0.2ms)
+  Rendered layouts/_header.html.slim (0.3ms)
+  Rendered layouts/_footer.html.slim (0.0ms)
+Completed 200 OK in 940ms (Views: 939.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/people" for 10.0.2.2 at 2015-11-10 12:13:33 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PeopleController#index as HTML
+  [1m[35mPerson Load (4.4ms)[0m  SELECT "people".* FROM "people"
+  Rendered people/index.html.slim within layouts/application (18.8ms)
+  Rendered layouts/_header.html.slim (0.3ms)
+  Rendered layouts/_footer.html.slim (0.0ms)
+Completed 200 OK in 1019ms (Views: 948.1ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/people/1" for 10.0.2.2 at 2015-11-10 12:13:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PeopleController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPerson Load (0.4ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mActivity Load (4.0ms)[0m  SELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" ASC LIMIT 1  [["person_id", 1]]
+  [1m[36mActivity Load (977.4ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (64.4ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-05-30 03:00:00.000000' AND '2013-05-31 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (16.1ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-05-31 03:00:00.000000' AND '2013-06-01 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (11.2ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-01 03:00:00.000000' AND '2013-06-02 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (11.3ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-02 03:00:00.000000' AND '2013-06-03 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (11.5ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-03 03:00:00.000000' AND '2013-06-04 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (11.0ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-04 03:00:00.000000' AND '2013-06-05 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (11.9ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-05 03:00:00.000000' AND '2013-06-06 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (16.7ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-06 03:00:00.000000' AND '2013-06-07 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (11.7ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-07 03:00:00.000000' AND '2013-06-08 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (10.8ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-08 03:00:00.000000' AND '2013-06-09 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (11.9ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-09 03:00:00.000000' AND '2013-06-10 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (11.4ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-10 03:00:00.000000' AND '2013-06-11 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (11.2ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-11 03:00:00.000000' AND '2013-06-12 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (11.2ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-12 03:00:00.000000' AND '2013-06-13 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (15.1ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-13 03:00:00.000000' AND '2013-06-14 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (9.9ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-14 03:00:00.000000' AND '2013-06-15 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (9.7ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-15 03:00:00.000000' AND '2013-06-16 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" ASC LIMIT 1  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (4.8ms)[0m  SELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-05-30 03:00:00.000000' AND '2013-05-31 02:59:59.000000')  ORDER BY datetime ASC LIMIT 1  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-05-30 03:00:00.000000' AND '2013-05-31 02:59:59.000000')  ORDER BY datetime ASC[0m  [["person_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1  [["person_id", 1]]
+  [1m[36mActivity Load (6.5ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-05-31 03:00:00.000000' AND '2013-06-01 02:59:59.000000')  ORDER BY datetime ASC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-05-31 03:00:00.000000' AND '2013-06-01 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (5.0ms)[0m  SELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-01 03:00:00.000000' AND '2013-06-02 02:59:59.000000')  ORDER BY datetime ASC LIMIT 1  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-01 03:00:00.000000' AND '2013-06-02 02:59:59.000000')  ORDER BY datetime ASC[0m  [["person_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1  [["person_id", 1]]
+  [1m[36mActivity Load (4.5ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-02 03:00:00.000000' AND '2013-06-03 02:59:59.000000')  ORDER BY datetime ASC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-02 03:00:00.000000' AND '2013-06-03 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (4.8ms)[0m  SELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-03 03:00:00.000000' AND '2013-06-04 02:59:59.000000')  ORDER BY datetime ASC LIMIT 1  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-03 03:00:00.000000' AND '2013-06-04 02:59:59.000000')  ORDER BY datetime ASC[0m  [["person_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1  [["person_id", 1]]
+  [1m[36mActivity Load (4.8ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-04 03:00:00.000000' AND '2013-06-05 02:59:59.000000')  ORDER BY datetime ASC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-04 03:00:00.000000' AND '2013-06-05 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (4.9ms)[0m  SELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-05 03:00:00.000000' AND '2013-06-06 02:59:59.000000')  ORDER BY datetime ASC LIMIT 1  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-05 03:00:00.000000' AND '2013-06-06 02:59:59.000000')  ORDER BY datetime ASC[0m  [["person_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1  [["person_id", 1]]
+  [1m[36mActivity Load (5.1ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-06 03:00:00.000000' AND '2013-06-07 02:59:59.000000')  ORDER BY datetime ASC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-06 03:00:00.000000' AND '2013-06-07 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (5.9ms)[0m  SELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-07 03:00:00.000000' AND '2013-06-08 02:59:59.000000')  ORDER BY datetime ASC LIMIT 1  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-07 03:00:00.000000' AND '2013-06-08 02:59:59.000000')  ORDER BY datetime ASC[0m  [["person_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1  [["person_id", 1]]
+  [1m[36mActivity Load (6.2ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-08 03:00:00.000000' AND '2013-06-09 02:59:59.000000')  ORDER BY datetime ASC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-08 03:00:00.000000' AND '2013-06-09 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (4.8ms)[0m  SELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-09 03:00:00.000000' AND '2013-06-10 02:59:59.000000')  ORDER BY datetime ASC LIMIT 1  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-09 03:00:00.000000' AND '2013-06-10 02:59:59.000000')  ORDER BY datetime ASC[0m  [["person_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1  [["person_id", 1]]
+  [1m[36mActivity Load (4.8ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-10 03:00:00.000000' AND '2013-06-11 02:59:59.000000')  ORDER BY datetime ASC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-10 03:00:00.000000' AND '2013-06-11 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (4.5ms)[0m  SELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-11 03:00:00.000000' AND '2013-06-12 02:59:59.000000')  ORDER BY datetime ASC LIMIT 1  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-11 03:00:00.000000' AND '2013-06-12 02:59:59.000000')  ORDER BY datetime ASC[0m  [["person_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1  [["person_id", 1]]
+  [1m[36mActivity Load (7.7ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-12 03:00:00.000000' AND '2013-06-13 02:59:59.000000')  ORDER BY datetime ASC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-12 03:00:00.000000' AND '2013-06-13 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (5.7ms)[0m  SELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-13 03:00:00.000000' AND '2013-06-14 02:59:59.000000')  ORDER BY datetime ASC LIMIT 1  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-13 03:00:00.000000' AND '2013-06-14 02:59:59.000000')  ORDER BY datetime ASC[0m  [["person_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1  [["person_id", 1]]
+  [1m[36mActivity Load (4.8ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-14 03:00:00.000000' AND '2013-06-15 02:59:59.000000')  ORDER BY datetime ASC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-14 03:00:00.000000' AND '2013-06-15 02:59:59.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1[0m  [["person_id", 1]]
+  [1m[35mActivity Load (6.0ms)[0m  SELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-15 03:00:00.000000' AND '2013-06-16 02:59:59.000000')  ORDER BY datetime ASC LIMIT 1  [["person_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-15 03:00:00.000000' AND '2013-06-16 02:59:59.000000')  ORDER BY datetime ASC[0m  [["person_id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "activities".* FROM "activities" WHERE "activities"."person_id" = $1  ORDER BY "activities"."id" DESC LIMIT 1  [["person_id", 1]]
+  Rendered people/show.html.slim within layouts/application (4078.7ms)
+  Rendered layouts/_header.html.slim (0.3ms)
+  Rendered layouts/_footer.html.slim (0.1ms)
+Completed 200 OK in 5096ms (Views: 3740.5ms | ActiveRecord: 1332.0ms)
+
+
+Started GET "/person/1/2013/5/31/22" for 10.0.2.2 at 2015-11-10 12:13:48 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PeopleController#person_hour as */*
+  Parameters: {"id"=>"1", "year"=>"2013", "month"=>"5", "day"=>"31", "hour"=>"22"}
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mActivity Load (4.8ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-01 00:00:00.000000' AND '2013-06-01 01:00:00.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+Completed 200 OK in 27ms (Views: 20.1ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/person/1/2013/5/31/20" for 10.0.2.2 at 2015-11-10 12:14:04 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+SyntaxError (/vagrant/everydayvis/app/controllers/people_controller.rb:18: syntax error, unexpected keyword_end, expecting end-of-input):
+  app/controllers/people_controller.rb:18: syntax error, unexpected keyword_end, expecting end-of-input
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.4ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (0.8ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (19.8ms)
+
+
+Started GET "/person/1/2013/5/31/19" for 10.0.2.2 at 2015-11-10 12:14:21 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PeopleController#person_hour as */*
+  Parameters: {"id"=>"1", "year"=>"2013", "month"=>"5", "day"=>"31", "hour"=>"19"}
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mActivity Load (5.7ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-05-31 21:00:00.000000' AND '2013-05-31 22:00:00.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+Completed 200 OK in 75ms (Views: 31.0ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/person/1/2013/5/31/15" for 10.0.2.2 at 2015-11-10 12:14:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PeopleController#person_hour as */*
+  Parameters: {"id"=>"1", "year"=>"2013", "month"=>"5", "day"=>"31", "hour"=>"15"}
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mActivity Load (8.6ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-05-31 17:00:00.000000' AND '2013-05-31 18:00:00.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+Completed 200 OK in 29ms (Views: 18.8ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/person/1/2013/5/31/15" for 10.0.2.2 at 2015-11-10 12:14:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PeopleController#person_hour as HTML
+  Parameters: {"id"=>"1", "year"=>"2013", "month"=>"5", "day"=>"31", "hour"=>"15"}
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mActivity Load (4.9ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-05-31 17:00:00.000000' AND '2013-05-31 18:00:00.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+Completed 200 OK in 23ms (Views: 16.3ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/person/1/2013/5/31/14" for 10.0.2.2 at 2015-11-10 12:26:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PeopleController#person_hour as */*
+  Parameters: {"id"=>"1", "year"=>"2013", "month"=>"5", "day"=>"31", "hour"=>"14"}
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mActivity Load (5.3ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-05-31 16:00:00.000000' AND '2013-05-31 17:00:00.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+Completed 200 OK in 73ms (Views: 30.8ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/person/1/2013/5/31/15" for 10.0.2.2 at 2015-11-10 12:26:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PeopleController#person_hour as */*
+  Parameters: {"id"=>"1", "year"=>"2013", "month"=>"5", "day"=>"31", "hour"=>"15"}
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mActivity Load (5.2ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-05-31 17:00:00.000000' AND '2013-05-31 18:00:00.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+Completed 200 OK in 27ms (Views: 19.6ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/person/1/2013/5/31/15" for 10.0.2.2 at 2015-11-10 12:26:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PeopleController#person_hour as */*
+  Parameters: {"id"=>"1", "year"=>"2013", "month"=>"5", "day"=>"31", "hour"=>"15"}
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mActivity Load (5.3ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-05-31 17:00:00.000000' AND '2013-05-31 18:00:00.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+Completed 200 OK in 27ms (Views: 20.7ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/person/1/2013/5/31/14" for 10.0.2.2 at 2015-11-10 12:26:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PeopleController#person_hour as */*
+  Parameters: {"id"=>"1", "year"=>"2013", "month"=>"5", "day"=>"31", "hour"=>"14"}
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mActivity Load (4.8ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-05-31 16:00:00.000000' AND '2013-05-31 17:00:00.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+Completed 200 OK in 28ms (Views: 21.8ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/person/1/2013/6/7/16" for 10.0.2.2 at 2015-11-10 12:26:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PeopleController#person_hour as */*
+  Parameters: {"id"=>"1", "year"=>"2013", "month"=>"6", "day"=>"7", "hour"=>"16"}
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mActivity Load (7.7ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-07 18:00:00.000000' AND '2013-06-07 19:00:00.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+Completed 200 OK in 45ms (Views: 36.1ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/person/1/2013/6/7/12" for 10.0.2.2 at 2015-11-10 12:26:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PeopleController#person_hour as */*
+  Parameters: {"id"=>"1", "year"=>"2013", "month"=>"6", "day"=>"7", "hour"=>"12"}
+  [1m[36mPerson Load (0.2ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mActivity Load (11.7ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-07 14:00:00.000000' AND '2013-06-07 15:00:00.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+Completed 200 OK in 36ms (Views: 22.1ms | ActiveRecord: 11.9ms)
+
+
+Started GET "/person/1/2013/6/7/10" for 10.0.2.2 at 2015-11-10 12:26:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PeopleController#person_hour as */*
+  Parameters: {"id"=>"1", "year"=>"2013", "month"=>"6", "day"=>"7", "hour"=>"10"}
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mActivity Load (5.0ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-07 12:00:00.000000' AND '2013-06-07 13:00:00.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+Completed 200 OK in 27ms (Views: 20.0ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/person/1/2013/6/7/9" for 10.0.2.2 at 2015-11-10 12:26:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PeopleController#person_hour as */*
+  Parameters: {"id"=>"1", "year"=>"2013", "month"=>"6", "day"=>"7", "hour"=>"9"}
+  [1m[36mPerson Load (0.3ms)[0m  [1mSELECT  "people".* FROM "people" WHERE "people"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mActivity Load (4.9ms)[0m  SELECT "activities".* FROM "activities" WHERE "activities"."person_id" = $1 AND (datetime BETWEEN '2013-06-07 11:00:00.000000' AND '2013-06-07 12:00:00.000000')  ORDER BY datetime ASC  [["person_id", 1]]
+Completed 200 OK in 26ms (Views: 19.7ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/weather/2015/10/3/31/53" for 10.0.2.2 at 2015-11-10 12:47:08 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+SyntaxError (/vagrant/everydayvis/app/controllers/weather_controller.rb:27: syntax error, unexpected tLABEL, expecting keyword_do or '{' or '('
+    render json: the_one_dictionary_with_all_the_info
+                ^):
+  app/controllers/weather_controller.rb:27: syntax error, unexpected tLABEL, expecting keyword_do or '{' or '('
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.5ms)
+
+
+Started GET "/weather/2015/10/3/31/53" for 10.0.2.2 at 2015-11-10 12:47:58 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WeatherController#show as HTML
+  Parameters: {"year"=>"2015", "month"=>"10", "day"=>"3", "latitude"=>"31", "longitude"=>"53"}
+Completed 500 Internal Server Error in 2ms
+
+NameError (undefined local variable or method `month' for #<WeatherController:0xb21a2234>):
+  app/controllers/weather_controller.rb:12:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.4ms)
+
+
+Started GET "/weather/2015/10/3/31/53" for 10.0.2.2 at 2015-11-10 12:48:05 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WeatherController#show as HTML
+  Parameters: {"year"=>"2015", "month"=>"10", "day"=>"3", "latitude"=>"31", "longitude"=>"53"}
+Completed 500 Internal Server Error in 1ms
+
+NoMethodError (undefined method `div' for "3":String):
+  app/controllers/weather_controller.rb:12:in `new'
+  app/controllers/weather_controller.rb:12:in `show'
+
+
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.5ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/vagrant/.rvm/gems/ruby-2.1.5/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.3ms)
+
+
+Started GET "/weather/2015/10/3/31/53" for 10.0.2.2 at 2015-11-10 12:48:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WeatherController#show as HTML
+  Parameters: {"year"=>"2015", "month"=>"10", "day"=>"3", "latitude"=>"31", "longitude"=>"53"}
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
