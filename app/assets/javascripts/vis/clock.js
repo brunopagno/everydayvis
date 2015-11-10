@@ -86,7 +86,7 @@ Clock.prototype.drawText = function(svg, data) {
         return radiusPercent * Math.sin((degrees * hours) + (degrees / 2) - 1.5708) + textOffset;
       })
       .text(function(d) {
-        if (time >= 23) time = -1;
+        if (time >= 24) time = 0;
         return time += 1;
       });
 
@@ -103,6 +103,10 @@ Clock.prototype.setInteraction = function(element, svg, data) {
       .sort(null)
       .value(function(d) { return 1; });
 
+  var tooltip = d3.select(element).append("div")
+    .attr("class", "clock-tooltip")
+    .style("opacity", 0);
+
   var interactionSvg = svg.append("g")
       .attr("class", "luminosity-arc")
       .attr("transform", "translate(" + this._size / 2 + "," + this._size / 2 + ")");
@@ -118,10 +122,28 @@ Clock.prototype.setInteraction = function(element, svg, data) {
       .attr("class", "interaction-arc")
       .attr("fill", "transparent")
       .attr("d", interactionArc)
+      .on("mouseover", function(d) {
+        tooltip.transition()    
+            .duration(200)    
+            .style("opacity", .9);    
+        tooltip.text("Activity: " + d.data)
+            .style("left", (d3.event.pageX - clock_width - 50) + "px")
+            .style("top", (d3.event.pageY - clock_width / 2) + "px");
+      })
+      .on("mouseout", function(d) {
+        tooltip.transition()
+            .duration(500)
+            .style("opacity", 0);
+      })
       .on("mousedown", function(d, hourNumber) {
-        $(".interaction-arc").attr("class", "interaction-arc");
-        $(this).attr("class", "interaction-arc highlight");
-        showDataForClockSlice(element, data.user_id, data.date, hourNumber + 1, clock_width);
+        if ($(this).attr('class').indexOf("highlight") > 0) {
+          $(".slice-info").remove();
+          $(".interaction-arc").attr("class", "interaction-arc");
+        } else {
+          $(".interaction-arc").attr("class", "interaction-arc");
+          $(this).attr("class", "interaction-arc highlight");
+          showDataForClockSlice(element, data.user_id, data.date, hourNumber + 1, clock_width);
+        }
       });
 }
 
@@ -272,6 +294,9 @@ ActivityArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
         if (d.data == "sleep") {
           return (outerRadius - innerRadius) * (activity_scale(max_activity) / 100.0) + innerRadius;
         } else {
+          if (d.data < 1000 && d.data != 0) {
+            d.data = 1000;
+          }
           return (outerRadius - innerRadius) * (activity_scale(d.data) / 100.0) + innerRadius;
         }
       });
