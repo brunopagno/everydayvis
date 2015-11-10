@@ -108,7 +108,7 @@ Clock.prototype.setInteraction = function(element, svg, data) {
     .style("opacity", 0);
 
   var interactionSvg = svg.append("g")
-      .attr("class", "luminosity-arc")
+      .attr("class", "interaction-svg")
       .attr("transform", "translate(" + this._size / 2 + "," + this._size / 2 + ")");
 
   var interactionArc = d3.svg.arc()
@@ -117,7 +117,7 @@ Clock.prototype.setInteraction = function(element, svg, data) {
 
   var clock_width = this._size;
   var interactionPath = interactionSvg.selectAll(".interaction-arc")
-      .data(pie(data.luminosity))
+      .data(pie(data.activities))
     .enter().append("path")
       .attr("class", "interaction-arc")
       .attr("fill", "transparent")
@@ -127,7 +127,7 @@ Clock.prototype.setInteraction = function(element, svg, data) {
             .duration(200)    
             .style("opacity", .9);    
         tooltip.text("Activity: " + d.data)
-            .style("left", (d3.event.pageX - clock_width - 50) + "px")
+            .style("left", (d3.event.pageX - clock_width / 2) + "px")
             .style("top", (d3.event.pageY - clock_width / 2) + "px");
       })
       .on("mouseout", function(d) {
@@ -294,10 +294,8 @@ ActivityArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
         if (d.data == "sleep") {
           return (outerRadius - innerRadius) * (activity_scale(max_activity) / 100.0) + innerRadius;
         } else {
-          if (d.data < 1000 && d.data != 0) {
-            d.data = 1000;
-          }
-          return (outerRadius - innerRadius) * (activity_scale(d.data) / 100.0) + innerRadius;
+          var value = (d.data < 5000 && d.data != 0) ? 5000 : d.data
+          return (outerRadius - innerRadius) * (activity_scale(value) / 100.0) + innerRadius;
         }
       });
 
