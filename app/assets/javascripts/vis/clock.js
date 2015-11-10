@@ -123,12 +123,13 @@ Clock.prototype.setInteraction = function(element, svg, data) {
       .attr("fill", "transparent")
       .attr("d", interactionArc)
       .on("mouseover", function(d) {
-        tooltip.transition()    
-            .duration(200)    
-            .style("opacity", .9);    
+        tooltip.transition()
+            .duration(200)
+            .style("opacity", .9);
+        var offset = $(element).offset();
         tooltip.text("Activity: " + d.data)
-            .style("left", (d3.event.pageX - clock_width / 2) + "px")
-            .style("top", (d3.event.pageY - clock_width / 2) + "px");
+            .style("left", (d3.event.pageX - offset.left - 50) + "px")
+            .style("top", (d3.event.pageY - offset.top - 10) + "px");
       })
       .on("mouseout", function(d) {
         tooltip.transition()
@@ -294,7 +295,7 @@ ActivityArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
         if (d.data == "sleep") {
           return (outerRadius - innerRadius) * (activity_scale(max_activity) / 100.0) + innerRadius;
         } else {
-          var value = (d.data < 5000 && d.data != 0) ? 5000 : d.data
+          var value = (d.data < 5000 && d.data != 0) ? 3000 : d.data
           return (outerRadius - innerRadius) * (activity_scale(value) / 100.0) + innerRadius;
         }
       });
