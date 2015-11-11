@@ -3,7 +3,7 @@ var calendarSelectedDays = [];
 function fillCalendar(element, data) {
   var max_activity = d3.max(data, function(d) { return d.activity } );
   var steps_scale = d3.scale.linear().domain([0, max_activity]).range([0, 144]);
-  var steps_color = d3.scale.linear().domain([0, max_activity]).range(["#7f7f6e", "#7f7fff"]);
+  var steps_color = d3.scale.linear().domain([0, max_activity]).range(["#1A75FF", "#FF471A"]);
 
   evs = [];
   data.forEach(function(d, i) {
@@ -11,6 +11,7 @@ function fillCalendar(element, data) {
       d: d,
       title: d.activity + " activity",
       start: d.datetime,
+      allDay: true,
       color: steps_color(d.activity),
       textColor: 'black',
       steps_scaled: Math.round(steps_color(d.activity))
@@ -21,6 +22,7 @@ function fillCalendar(element, data) {
     header: {
         left: 'prev,next',
         center: 'title',
+        right: 'month'
       },
       defaultDate: data[0].datetime,
       displayEventTime: false,
@@ -51,7 +53,10 @@ function fillCalendar(element, data) {
           }
         });
 
-        el.append(checkbox);
+        var holder = $("<div>").attr("class", "ev-cal-holder");
+        holder.append(checkbox);
+        holder.append(el);
+        return holder;
       }
   });
 }

@@ -2,6 +2,16 @@
 // Clock
 /////////////////////////////////////////////////
 
+var week_day = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday"
+];
+
 function Clock() {
   this._arcs = [
     new SunArc(this),

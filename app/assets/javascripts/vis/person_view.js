@@ -6,7 +6,10 @@ $(document).ready(function() {
       return false;
     }
     $('.clock-arcs').hide();
-    $('.calendar').fadeOut(547);
+    // DO SOME AMAZING STUFF HERE
+    // $('.calendar').animate({
+    //   "left": "-225"
+    // }, 547);
     calendarSelectedDays.forEach(function(id) {
       $('#' + id).show();
     });

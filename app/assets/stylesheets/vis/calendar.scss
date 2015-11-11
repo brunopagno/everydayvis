@@ -1,39 +1,9 @@
-.rainy {
-  background-image: image-url('rainy.png');
-  background-repeat: no-repeat;
-  background-size: 40px;
-  background-position: top right;
+.ev-cal-holder {
+  position: relative;
 }
 
-.thunderstorm {
-  background-image: image-url('thunderstorm.png');
-  background-repeat: no-repeat;
-  background-size: 40px;
-  background-position: top right;
-}
-
-.sunny {
-  background-image: image-url('sunny.png');
-  background-repeat: no-repeat;
-  background-size: 40px;
-  background-position: top right;
-}
-
-.cal-temp {
-  height: 60px;
-
-  .cal-item {
-    height: 50px;
-    line-height: 48px;
-    font-weight: bold;
-  }
-}
-
-.cal-steps {
-  padding-top: 18px;
-  background-color: #f0e9f0;
-
-  p {
-    text-align: center;
-  }
+.calendar-box {
+  position: absolute;
+  top: -18px;
+  right: 25px;
 }
