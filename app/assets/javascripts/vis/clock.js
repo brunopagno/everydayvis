@@ -305,7 +305,7 @@ ActivityArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
         if (d.data == "sleep") {
           return (outerRadius - innerRadius) * (activity_scale(max_activity) / 100.0) + innerRadius;
         } else {
-          var value = (d.data < 5000 && d.data != 0) ? 3000 : d.data
+          var value = (d.data < (max_activity * 0.05) && d.data != 0) ? (max_activity * 0.05) : d.data
           return (outerRadius - innerRadius) * (activity_scale(value) / 100.0) + innerRadius;
         }
       });
