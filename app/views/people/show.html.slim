@@ -1,15 +1,16 @@
-h3 = "Data from #{@person.name}"
+h3.center = "Data from #{@person.name}"
 
-.calendar[data-calendar="#{@person.monthly.to_json}"]
-  = check_box_tag 'select_all', nil, false, class: 'calendar-select-all'
-  = label_tag 'select_all'
+.person-wrapper
+  .calendar.person-block[data-calendar="#{@person.monthly.to_json}"]
+    = check_box_tag 'select_all', nil, false, class: 'calendar-select-all'
+    = label_tag 'select_all'
 
-  = link_to 'View clocks', '#', id: 'view-clocks', class: 'button expand'
+    = link_to 'Show clocks', '#', id: 'view-clocks', class: 'button expand'
 
-.clocks.hide
-  = link_to 'Back to calendar', '#', id: 'back-to-calendar', class: 'button expand'
-  - @person.daily.each do |day|
-    .clock[data-userclock="#{daily_activities_to_json(@person, day)}"]
+  .clocks.person-block.hide
+    = link_to 'Hide clocks', '#', id: 'back-to-calendar', class: 'button float-right', style: 'z-index: 10;'
+    - @person.daily.each do |day|
+      .clock[data-userclock="#{daily_activities_to_json(@person, day)}"]
 
 javascript:
   fillCalendar('.calendar', $('.calendar').data('calendar'));

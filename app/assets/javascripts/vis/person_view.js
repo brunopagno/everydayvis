@@ -2,14 +2,12 @@ $(document).ready(function() {
   // VIEW CLOCKS
   $('#view-clocks').click(function() {
     if ($(".calendar-box:checked").length === 0) {
-      alert("Plsease select at least one day.");
+      alert("Please select at least one day.");
       return false;
     }
+
+    $(".person-wrapper").animate({"margin-left": "0"}, 650);
     $('.clock-arcs').hide();
-    // DO SOME AMAZING STUFF HERE
-    // $('.calendar').animate({
-    //   "left": "-225"
-    // }, 547);
     calendarSelectedDays.forEach(function(id) {
       $('#' + id).show();
     });
@@ -22,7 +20,7 @@ $(document).ready(function() {
   // BACK TO CALENDAR
   $('#back-to-calendar').click(function() {
     $('.clocks').fadeOut(547);
-    $('.calendar').fadeIn(547);
+    $(".person-wrapper").animate({"margin-left": "24.5%"}, 650);
     return false;
   });
 

@@ -12,7 +12,7 @@ html
       = render 'layouts/header'
     .flash
       = render partial: 'layouts/flash', locals: { flash: flash } unless flash.empty?
-    .content.row
+    .content
       = yield
     footer
       = render 'layouts/footer'
