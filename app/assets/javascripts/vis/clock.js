@@ -125,9 +125,17 @@ Clock.prototype.setInteraction = function(element, svg, data) {
       .innerRadius(this._innerRadius)
       .outerRadius(this._radius);
 
+  var datarray = [];
+  for (var i = 0; i < data.activities.length; i++) {
+    datarray.push({
+      activity: data.activities[i],
+      light: data.luminosity[i]
+    });
+  }
+
   var clock_width = this._size;
   var interactionPath = interactionSvg.selectAll(".interaction-arc")
-      .data(pie(data.activities))
+      .data(pie(datarray))
     .enter().append("path")
       .attr("class", "interaction-arc")
       .attr("fill", "transparent")
@@ -137,7 +145,7 @@ Clock.prototype.setInteraction = function(element, svg, data) {
             .duration(200)
             .style("opacity", .9);
         var offset = $(element).offset();
-        tooltip.text("Activity: " + d.data)
+        tooltip.text("Activity: " + d.data.activity + " Luminosity: " + d.data.light)
             .style("left", (d3.event.pageX - offset.left - 50) + "px")
             .style("top", (d3.event.pageY - offset.top - 10) + "px");
       })
@@ -339,8 +347,7 @@ ActivityArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
 function showDataForClockSlice(element, user_id, date, hour, clock_width) {
   $(".slice-info").remove();
   var slice = d3.select(element).append("div")
-      .attr("class", "slice-info")
-      .style("left", clock_width + -15 + "px");
+      .attr("class", "slice-info");
 
   slice.append("h3")
       .text(hour + "h")
@@ -356,7 +363,7 @@ function showDataForClockSlice(element, user_id, date, hour, clock_width) {
 
       var margin = {top: 12, right: 24, bottom: 18, left: 40};
       var width = 450 - margin.left - margin.right;
-      var height = 220 - margin.top - margin.bottom;
+      var height = 150 - margin.top - margin.bottom;
 
       var x = d3.time.scale().range([0, width]);
       var y = d3.scale.linear().range([height, 0]);

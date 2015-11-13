@@ -37,6 +37,7 @@
   border-radius: 12px;
   background-color: #ddd; 
   top: 0;
+  right: 0;
   padding: 8px;
 
   .ajax-error {
@@ -55,14 +56,18 @@
   }
 
   .area {
-    fill: steelblue;
+    fill: rgba(101, 44, 215, 0.6);
+  }
+
+  .luminosity-area {
+    fill: rgba(255, 255, 255, 0.6);
   }
 }
 
 .clock-tooltip { 
     position: absolute;
     text-align: center;
-    width: 120px;
+    width: 140px;
     height: 40px;
     line-height: 38px;
     padding: 8px;
