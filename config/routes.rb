@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'pages#index'
 
+  devise_for :users
+  
   resources :people, only: [:index, :show]
 
   get 'person/:id/:year/:month/:day/:hour', to: 'people#person_hour', constraints: { format: :json }

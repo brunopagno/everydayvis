@@ -1,0 +1,7 @@
+p = "Hello #{@resource.email} !"
+
+p Your account was blocked because of the excessive number of unsuccessful login attempts
+
+p Please click on the link below to unlock your account:
+
+p = link_to 'Unlock my account', unlock_url(@resource, unlock_token: @token)
