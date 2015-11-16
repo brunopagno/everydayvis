@@ -1,6 +1,6 @@
-.container
+.row
   h3 Change my password
-  = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: 'col-lg-4 col-md-6 col-sm-6' }) do |f|
+  = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: 'large-4 small-6 columns' }) do |f|
     = f.error_notification
 
     = f.input :reset_password_token, as: :hidden

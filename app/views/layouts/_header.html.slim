@@ -9,7 +9,7 @@
     = link_to "login", login_index_path
   .user-menu.float-right
     - if current_user
-      = link_to "my account", user_path(current_user)
+      = link_to "my account", edit_user_registration_path(current_user)
     - else
       = link_to "login", new_user_session_path
       |  | 

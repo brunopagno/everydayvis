@@ -1,6 +1,6 @@
-.container
+.row
   h3 Recover password
-  = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'col-lg-4 col-md-6 col-sm-6' }) do |f|
+  = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'large-4 small-6 columns' }) do |f|
     = f.error_notification
     .form-group
        = f.input :email, required: true, autofocus: true
