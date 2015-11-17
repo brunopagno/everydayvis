@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151116135956) do
+ActiveRecord::Schema.define(version: 20151117203458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,20 @@ ActiveRecord::Schema.define(version: 20151116135956) do
 
   add_index "activities", ["person_id"], name: "index_activities_on_person_id", using: :btree
 
+  create_table "locations", force: :cascade do |t|
+    t.datetime "datetime"
+    t.string   "name"
+    t.string   "city"
+    t.string   "country"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.integer  "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "locations", ["person_id"], name: "index_locations_on_person_id", using: :btree
+
   create_table "people", force: :cascade do |t|
     t.string   "code"
     t.string   "identity"
@@ -38,6 +52,16 @@ ActiveRecord::Schema.define(version: 20151116135956) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
   end
+
+  create_table "sleeps", force: :cascade do |t|
+    t.date     "date"
+    t.integer  "sleep_time"
+    t.integer  "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "sleeps", ["person_id"], name: "index_sleeps_on_person_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -57,5 +81,21 @@ ActiveRecord::Schema.define(version: 20151116135956) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "weathers", force: :cascade do |t|
+    t.date     "date"
+    t.integer  "max_temperature"
+    t.integer  "mean_temperature"
+    t.integer  "min_temperature"
+    t.integer  "precipitation"
+    t.string   "events"
+    t.integer  "person_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "weathers", ["person_id"], name: "index_weathers_on_person_id", using: :btree
+
   add_foreign_key "activities", "people"
+  add_foreign_key "locations", "people"
+  add_foreign_key "weathers", "people"
 end

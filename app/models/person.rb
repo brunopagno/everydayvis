@@ -2,7 +2,11 @@ class Person < ActiveRecord::Base
 
   belongs_to :user
 
-  has_many :activities
+  has_many :activities, dependent: :destroy
+  has_many :locations, dependent: :destroy
+  has_many :sleeps, dependent: :destroy
+  has_many :weathers, dependent: :destroy
+
   DAY_HOURS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
 
   scope :with_user, -> { where("user_id IS NOT NULL") }
@@ -22,7 +26,7 @@ class Person < ActiveRecord::Base
 
       self.on_date(date).each do |activity|
         day[:activity] += activity.activity
-        day[:light] += activity.light
+        day[:light] += activity.light if activity.light
       end
 
       days << day
@@ -49,7 +53,7 @@ class Person < ActiveRecord::Base
           lasthour = activity.datetime.hour
         end
         day.last[:activity] += activity.activity
-        day.last[:light] += activity.light
+        day.last[:light] += activity.light if activity.light
       end
 
       hrs = day.map { |d| d[:datetime].hour }
