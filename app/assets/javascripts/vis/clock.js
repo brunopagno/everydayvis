@@ -17,6 +17,7 @@ function Clock() {
     new SunArc(this),
     new LuminosityArc(this),
     new ActivityArc(this)
+    // new TextArc(this),
   ];
   this._size = 300;
   this._margin = 5;
@@ -51,6 +52,10 @@ Clock.prototype.draw = function(element, data) {
 
   this.preprocess(data);
 
+  this._tooltip = d3.select(element).append("div")
+      .attr("class", "clock-tooltip")
+      .style("opacity", 0);
+
   var svg = d3.select(element).append("svg")
       .attr("id", this._elid)
       .attr("class", "clock-arcs")
@@ -68,103 +73,70 @@ Clock.prototype.draw = function(element, data) {
   };
   this._innerRadius = outerRadius;
 
-  this.drawText(svg, data);
-
-  this.setInteraction(element, svg, data);
+  // this.drawText(svg, data);
 }
 
-Clock.prototype.drawText = function(svg, data) {
-  var textSvg = svg.append("g")
-      .attr("class", "text-arc")
-      .attr("transform", "translate(" + this._size / 2 + "," + this._size / 2 + ")");
-
-  var hours = -1;
-  var time = 0;
-  var degrees = 15 * Math.PI / 180;
-  var textOffset = this._size / 35;
-  var radiusPercent = this._radius * 0.75;
-  var textLayer = textSvg.selectAll(".clock-label")
-      .data(data.activities)
-    .enter().append("text")
-      .attr("class", "clock-label")
-      .attr("x", function(d) {
-        hours += 1;
-        return radiusPercent * Math.cos((degrees * hours) + (degrees / 2) - 1.5708) - textOffset;
-      })
-      .attr("y", function(d) {
-        hours += 1;
-        return radiusPercent * Math.sin((degrees * hours) + (degrees / 2) - 1.5708) + textOffset;
-      })
-      .text(function(d) {
-        if (time >= 24) time = 0;
-        return time += 1;
-      });
-
-  svg.append("svg:text")
-    .attr("class", "clock-date")
-    .attr("dy", ".35em")
-    .attr("text-anchor", "middle")
-    .attr("transform", "translate(" + this._size / 2 + "," + this._size / 2 + ")")
-    .text(data.date.getDate() + "/" + (data.date.getMonth() + 1) + "/" + data.date.getFullYear());
+Clock.prototype.arcMouseOn = function(element, text) {
+  this._tooltip.transition()
+      .duration(200)
+      .style("opacity", .9);
+  var offset = $(element).offset();
+  this._tooltip.text(text)
+      .style("left", (d3.event.pageX - offset.left - 50) + "px")
+      .style("top", (d3.event.pageY - offset.top - 10) + "px");
 }
 
-Clock.prototype.setInteraction = function(element, svg, data) {
-  var pie = d3.layout.pie()
-      .sort(null)
-      .value(function(d) { return 1; });
-
-  var tooltip = d3.select(element).append("div")
-    .attr("class", "clock-tooltip")
-    .style("opacity", 0);
-
-  var interactionSvg = svg.append("g")
-      .attr("class", "interaction-svg")
-      .attr("transform", "translate(" + this._size / 2 + "," + this._size / 2 + ")");
-
-  var interactionArc = d3.svg.arc()
-      .innerRadius(this._innerRadius)
-      .outerRadius(this._radius);
-
-  var datarray = [];
-  for (var i = 0; i < data.activities.length; i++) {
-    datarray.push({
-      activity: data.activities[i],
-      light: data.luminosity[i]
-    });
-  }
-
-  var clock_width = this._size;
-  var interactionPath = interactionSvg.selectAll(".interaction-arc")
-      .data(pie(datarray))
-    .enter().append("path")
-      .attr("class", "interaction-arc")
-      .attr("fill", "transparent")
-      .attr("d", interactionArc)
-      .on("mouseover", function(d) {
-        tooltip.transition()
-            .duration(200)
-            .style("opacity", .9);
-        var offset = $(element).offset();
-        tooltip.text("Activity: " + d.data.activity + " Luminosity: " + d.data.light)
-            .style("left", (d3.event.pageX - offset.left - 50) + "px")
-            .style("top", (d3.event.pageY - offset.top - 10) + "px");
-      })
-      .on("mouseout", function(d) {
-        tooltip.transition()
-            .duration(500)
-            .style("opacity", 0);
-      })
-      .on("mousedown", function(d, hourNumber) {
-        if ($(this).attr('class').indexOf("highlight") > 0) {
-          $(".slice-info").remove();
-          $(".interaction-arc").attr("class", "interaction-arc");
-        } else {
-          $(".interaction-arc").attr("class", "interaction-arc");
-          $(this).attr("class", "interaction-arc highlight");
-          showDataForClockSlice(element, data.user_id, data.date, hourNumber + 1, clock_width);
-        }
-      });
+Clock.prototype.arcMouseOut = function() {
+  this._tooltip.transition()
+      .duration(500)
+      .style("opacity", 0);
 }
+
+Clock.prototype.clockArcMouseClick = function() {
+  // if ($(this).attr('class').indexOf("highlight") > 0) {
+  //   $(".slice-info").remove();
+  //   $(".interaction-arc").attr("class", "interaction-arc");
+  // } else {
+  //   $(".interaction-arc").attr("class", "interaction-arc");
+  //   $(this).attr("class", "interaction-arc highlight");
+  //   showDataForClockSlice(element, data.user_id, data.date, hourNumber + 1, clock_width);
+  // }
+}
+
+// Clock.prototype.drawText = function(svg, data) {
+//   var textSvg = svg.append("g")
+//       .attr("class", "text-arc")
+//       .attr("transform", "translate(" + this._size / 2 + "," + this._size / 2 + ")");
+
+//   var hours = -1;
+//   var time = 0;
+//   var degrees = 15 * Math.PI / 180;
+//   var textOffset = this._size / 35;
+//   var radiusPercent = this._radius * 0.75;
+//   var textLayer = textSvg.selectAll(".clock-label")
+//       .data(data.activities)
+//     .enter().append("text")
+//       .attr("class", "clock-label")
+//       .attr("x", function(d) {
+//         hours += 1;
+//         return radiusPercent * Math.cos((degrees * hours) + (degrees / 2) - 1.5708) - textOffset;
+//       })
+//       .attr("y", function(d) {
+//         hours += 1;
+//         return radiusPercent * Math.sin((degrees * hours) + (degrees / 2) - 1.5708) + textOffset;
+//       })
+//       .text(function(d) {
+//         if (time >= 24) time = 0;
+//         return time += 1;
+//       });
+
+//   svg.append("svg:text")
+//     .attr("class", "clock-date")
+//     .attr("dy", ".35em")
+//     .attr("text-anchor", "middle")
+//     .attr("transform", "translate(" + this._size / 2 + "," + this._size / 2 + ")")
+//     .text(data.date.getDate() + "/" + (data.date.getMonth() + 1) + "/" + data.date.getFullYear());
+// }
 
 /////////////////////////////////////////////////
 // Sun Arc
@@ -203,6 +175,7 @@ SunArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
     .innerRadius(outerRadius)
     .outerRadius(innerRadius);
 
+  var clock = this._clock;
   var dayPath = sunSvg.append("path")
       .attr("class", "sun-outline-arc")
       .attr("fill", "#7ec7ee")
@@ -210,8 +183,9 @@ SunArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
                           return dayStartAngle;
                         }).endAngle(function(d) {
                           return dayEndAngle;
-                        })
-      );
+                        }))
+      .on("mouseover", function(d) { clock.arcMouseOn($(this), 'sunny :)'); })
+      .on("mouseout", function(d) { clock.arcMouseOut(); });
 
   var nightPath = sunSvg.append("path")
       .attr("class", "sun-outline-arc")
@@ -220,8 +194,9 @@ SunArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
                           return dayEndAngle;
                         }).endAngle(function(d) {
                          return dayStartAngle + Math.PI * 2;
-                       })
-      );
+                       }))
+      .on("mouseover", function(d) { clock.arcMouseOn($(this), 'nighty :('); })
+      .on("mouseout", function(d) { clock.arcMouseOut(); });
 
   var alpha = (dayStartAngle + dayEndAngle) / 2;
   var r = (outerRadius + innerRadius) / 2;
