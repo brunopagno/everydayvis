@@ -13,7 +13,6 @@ $(document).ready(function() {
     });
     $('.clocks').fadeIn(547);
 
-    console.log("selected => " + calendarSelectedDays);
     return false;
   });
 

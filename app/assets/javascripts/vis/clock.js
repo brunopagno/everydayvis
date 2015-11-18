@@ -17,11 +17,12 @@ function Clock() {
     new SunArc(this),
     new LuminosityArc(this),
     new ActivityArc(this)
-    // new TextArc(this),
   ];
   this._size = 300;
   this._margin = 5;
   this._data = [];
+  this._tooltip = "";
+  this._element = "";
   this._elid = "";
   this._innerRadius = 0;
 }
@@ -52,9 +53,13 @@ Clock.prototype.draw = function(element, data) {
 
   this.preprocess(data);
 
+  this._data = data;
+
   this._tooltip = d3.select(element).append("div")
       .attr("class", "clock-tooltip")
       .style("opacity", 0);
+
+  this._element = element;
 
   var svg = d3.select(element).append("svg")
       .attr("id", this._elid)
@@ -73,7 +78,7 @@ Clock.prototype.draw = function(element, data) {
   };
   this._innerRadius = outerRadius;
 
-  // this.drawText(svg, data);
+  new TextArc(this).draw(svg, data.date);
 }
 
 Clock.prototype.arcMouseOn = function(element, text) {
@@ -92,51 +97,20 @@ Clock.prototype.arcMouseOut = function() {
       .style("opacity", 0);
 }
 
-Clock.prototype.clockArcMouseClick = function() {
-  // if ($(this).attr('class').indexOf("highlight") > 0) {
-  //   $(".slice-info").remove();
-  //   $(".interaction-arc").attr("class", "interaction-arc");
-  // } else {
-  //   $(".interaction-arc").attr("class", "interaction-arc");
-  //   $(this).attr("class", "interaction-arc highlight");
-  //   showDataForClockSlice(element, data.user_id, data.date, hourNumber + 1, clock_width);
-  // }
+Clock.prototype.arcMouseClick = function(element, hour) {
+  if ($(element).attr('class').indexOf("highlight") > 0) {
+    $(this._element).children(".slice-info").remove();
+    
+    var pathClass = $(element).attr("class").replace(new RegExp('(\\s|^)' + 'highlight' + '(\\s|$)', 'g'), '$2');
+    $(element).parent().children(".interaction-path").attr("class", pathClass);
+  } else {
+    var pathClass = $(element).attr("class").replace(new RegExp('(\\s|^)' + 'highlight' + '(\\s|$)', 'g'), '$2');
+    $(element).parent().children(".interaction-path").attr("class", pathClass);
+    
+    $(element).attr("class", $(element).attr("class") + " highlight");
+    showDataForClockSlice(this._element, this._data.user_id, this._data.date, hour, this._size);
+  }
 }
-
-// Clock.prototype.drawText = function(svg, data) {
-//   var textSvg = svg.append("g")
-//       .attr("class", "text-arc")
-//       .attr("transform", "translate(" + this._size / 2 + "," + this._size / 2 + ")");
-
-//   var hours = -1;
-//   var time = 0;
-//   var degrees = 15 * Math.PI / 180;
-//   var textOffset = this._size / 35;
-//   var radiusPercent = this._radius * 0.75;
-//   var textLayer = textSvg.selectAll(".clock-label")
-//       .data(data.activities)
-//     .enter().append("text")
-//       .attr("class", "clock-label")
-//       .attr("x", function(d) {
-//         hours += 1;
-//         return radiusPercent * Math.cos((degrees * hours) + (degrees / 2) - 1.5708) - textOffset;
-//       })
-//       .attr("y", function(d) {
-//         hours += 1;
-//         return radiusPercent * Math.sin((degrees * hours) + (degrees / 2) - 1.5708) + textOffset;
-//       })
-//       .text(function(d) {
-//         if (time >= 24) time = 0;
-//         return time += 1;
-//       });
-
-//   svg.append("svg:text")
-//     .attr("class", "clock-date")
-//     .attr("dy", ".35em")
-//     .attr("text-anchor", "middle")
-//     .attr("transform", "translate(" + this._size / 2 + "," + this._size / 2 + ")")
-//     .text(data.date.getDate() + "/" + (data.date.getMonth() + 1) + "/" + data.date.getFullYear());
-// }
 
 /////////////////////////////////////////////////
 // Sun Arc
@@ -249,12 +223,15 @@ LuminosityArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
       .innerRadius(innerRadius)
       .outerRadius(outerRadius);
 
+  var clock = this._clock;
   var luminosityOuterPath = luminositySvg.selectAll(".luminosity-outline-arc")
       .data(innerPie(data.luminosity))
     .enter().append("path")
       .attr("class", "luminosity-outline-arc")
       .attr("fill", function(d) { return luminosity_scale(d.data); })
-      .attr("d", luminosityArc);
+      .attr("d", luminosityArc)
+      .on("mouseover", function(d) { clock.arcMouseOn($(this), d.data); })
+      .on("mouseout", function(d) { clock.arcMouseOut(); });
 }
 
 /////////////////////////////////////////////////
@@ -305,14 +282,57 @@ ActivityArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
       .data(pie(data.activities))
     .enter().append("path")
       .attr("class", "solid-arc")
-      .attr("fill", function(d) { return d.data == "sleep" ? "#3d3d76" : "#4147f0"})
       .attr("d", activityArc);
 
+  var clock = this._clock;
   var outerPath = activitySvg.selectAll(".outline-arc")
       .data(pie(data.activities))
     .enter().append("path")
-      .attr("class", "outline-arc")
-      .attr("d", activityOutlineArc);
+      .attr("class", "outline-arc interaction-path")
+      .attr("d", activityOutlineArc)
+      .on("mouseover", function(d) { clock.arcMouseOn($(this), d.data); })
+      .on("mouseout", function(d) { clock.arcMouseOut(); })
+      .on("mousedown", function(d, i) { clock.arcMouseClick(this, i); });
+}
+
+/////////////////////////////////////////////////
+// Text Arc
+/////////////////////////////////////////////////
+
+function TextArc(clock) {
+  this._clock = clock;
+  this._active = true;
+}
+
+TextArc.prototype.draw = function(svg, date) {
+  var hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
+  var textSvg = svg.append("g")
+      .attr("class", "text-arc")
+      .attr("transform", "translate(" + this._clock._size / 2 + "," + this._clock._size / 2 + ")");
+
+  var degrees = 15 * Math.PI / 180;
+  var textOffset = this._clock._size / 35;
+  var radiusPercent = this._clock._radius * 0.75;
+  var textLayer = textSvg.selectAll(".clock-label")
+      .data(hours)
+    .enter().append("text")
+      .attr("class", "clock-label")
+      .attr("x", function(d) {
+        return radiusPercent * Math.cos((degrees * d) + (degrees / 2) - 1.5708) - textOffset;
+      })
+      .attr("y", function(d) {
+        return radiusPercent * Math.sin((degrees * d) + (degrees / 2) - 1.5708) + textOffset;
+      })
+      .text(function(d) {
+        return d;
+      });
+
+  svg.append("svg:text")
+    .attr("class", "clock-date")
+    .attr("dy", ".35em")
+    .attr("text-anchor", "middle")
+    .attr("transform", "translate(" + this._clock._size / 2 + "," + this._clock._size / 2 + ")")
+    .text(date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear());
 }
 
 /////////////////////////////////////////////////
@@ -320,7 +340,7 @@ ActivityArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
 /////////////////////////////////////////////////
 
 function showDataForClockSlice(element, user_id, date, hour, clock_width) {
-  $(".slice-info").remove();
+  $(element).children(".slice-info").remove();
   var slice = d3.select(element).append("div")
       .attr("class", "slice-info");
 

@@ -4,12 +4,16 @@
   position: relative;
 }
 
+.solid-arc {
+  fill: #4147f0;
+}
+
 .clock-arcs {
   font-family: Arial, sans-serif;
   font-weight: bold;
 
   .outline-arc {
-    fill: none;
+    fill: transparent;
     stroke: #000;
     stroke-width: 2;
   }

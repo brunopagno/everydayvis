@@ -3,7 +3,7 @@ var calendarSelectedDays = [];
 function fillCalendar(element, data) {
   var max_activity = d3.max(data, function(d) { return d.activity } );
   var steps_scale = d3.scale.linear().domain([0, max_activity]).range([0, 144]);
-  var steps_color = d3.scale.linear().domain([0, max_activity]).range(["#1A75FF", "#FF471A"]);
+  var steps_color = d3.scale.linear().domain([0, max_activity / 2, max_activity]).range(["#ff1a1a", "#ffff1a", "#1aff1a"]);
 
   evs = [];
   data.forEach(function(d, i) {
