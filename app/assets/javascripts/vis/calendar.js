@@ -14,7 +14,8 @@ function fillCalendar(element, data) {
       allDay: true,
       color: steps_color(d.activity),
       textColor: 'black',
-      steps_scaled: Math.round(steps_color(d.activity))
+      steps_scaled: Math.round(steps_color(d.activity)),
+      weather: d.weather
     });
   });
 
@@ -53,8 +54,14 @@ function fillCalendar(element, data) {
           }
         });
 
+        var weather = $("<div>");
+        if (!ev.weather) { weather.attr("class", "cal-weather sun"); }
+        else if (ev.weather.indexOf("Rain")) { weather.attr("class", "cal-weather rain"); }
+        else if (ev.weather.indexOf("Thunderstorm")) { weather.attr("class", "cal-weather thunder"); }
+
         var holder = $("<div>").attr("class", "ev-cal-holder");
         holder.append(checkbox);
+        holder.append(weather);
         holder.append(el);
         return holder;
       }

@@ -292,7 +292,7 @@ ActivityArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
       .attr("d", activityOutlineArc)
       .on("mouseover", function(d) { clock.arcMouseOn("Activity " + d.data); })
       .on("mouseout", function(d) { clock.arcMouseOut(); })
-      .on("mousedown", function(d, i) { clock.arcMouseClick(this, i); });
+      .on("mousedown", function(d, i) { clock.arcMouseClick(this, i + 1); });
 }
 
 /////////////////////////////////////////////////
@@ -305,7 +305,7 @@ function TextArc(clock) {
 }
 
 TextArc.prototype.draw = function(svg, date) {
-  var hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
+  var hours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
   var textSvg = svg.append("g")
       .attr("class", "text-arc")
       .attr("transform", "translate(" + this._clock._size / 2 + "," + this._clock._size / 2 + ")");
@@ -324,7 +324,7 @@ TextArc.prototype.draw = function(svg, date) {
         return radiusPercent * Math.sin((degrees * d) + (degrees / 2) - 1.5708) + textOffset;
       })
       .text(function(d) {
-        return d;
+        return d + 1;
       });
 
   svg.append("svg:text")
@@ -344,8 +344,17 @@ function showDataForClockSlice(element, user_id, date, hour, clock_width) {
   var slice = d3.select(element).append("div")
       .attr("class", "slice-info");
 
+  slice.append("div")
+    .attr("class", "close-slice")
+  .append("a")
+    .attr("class", "button round alert tiny")
+    .text("X")
+    .on("mousedown", function() {
+      slice.remove();
+    });
+
   slice.append("h3")
-      .text(hour + "h")
+      .text((hour - 1) + "h - " + hour + "h")
     .append("small")
       .text(" of day " + date.getDate());
 

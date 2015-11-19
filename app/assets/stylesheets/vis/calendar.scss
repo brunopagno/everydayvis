@@ -1,4 +1,25 @@
-.calendar {}
+.calendar {
+  .cal-weather {
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    z-index: 10;
+    top: -20px;
+    background-repeat: no-repeat;
+    background-size: 28px;
+    background-position: top right;
+  }
+
+  .sun {
+    background-image: image-url('sun.png');    
+  }
+  .rain {
+    background-image: image-url('rain.png');
+  }
+  .thunder {
+    background-image: image-url('thunder.png');
+  }
+}
 
 .ev-cal-holder {
   position: relative;

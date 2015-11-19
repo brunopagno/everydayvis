@@ -38,4 +38,11 @@ $(document).ready(function() {
       }
     });
   });
+
+  // press escape closes all graphics
+  $(document).keydown(function(event) {
+    if (event.which === 27) {
+      $(".slice-info").remove();
+    }
+  }); 
 });

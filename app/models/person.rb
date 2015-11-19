@@ -22,7 +22,7 @@ class Person < ActiveRecord::Base
     date = Time.zone.local(date.year, date.month, date.day, 0, 0, 0)
 
     while (activities.last.datetime > date) do
-      day = { activity: 0, light: 0, datetime: date }
+      day = { activity: 0, light: 0, weather: weathers.on_date(date).events, datetime: date }
 
       self.on_date(date).each do |activity|
         day[:activity] += activity.activity
