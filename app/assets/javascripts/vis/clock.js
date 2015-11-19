@@ -81,11 +81,11 @@ Clock.prototype.draw = function(element, data) {
   new TextArc(this).draw(svg, data.date);
 }
 
-Clock.prototype.arcMouseOn = function(element, text) {
+Clock.prototype.arcMouseOn = function(text) {
   this._tooltip.transition()
       .duration(200)
       .style("opacity", .9);
-  var offset = $(element).offset();
+  var offset = $(this._element).offset();
   this._tooltip.text(text)
       .style("left", (d3.event.pageX - offset.left - 50) + "px")
       .style("top", (d3.event.pageY - offset.top - 10) + "px");
@@ -158,7 +158,7 @@ SunArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
                         }).endAngle(function(d) {
                           return dayEndAngle;
                         }))
-      .on("mouseover", function(d) { clock.arcMouseOn($(this), 'sunny :)'); })
+      .on("mouseover", function(d) { clock.arcMouseOn('Day'); })
       .on("mouseout", function(d) { clock.arcMouseOut(); });
 
   var nightPath = sunSvg.append("path")
@@ -169,7 +169,7 @@ SunArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
                         }).endAngle(function(d) {
                          return dayStartAngle + Math.PI * 2;
                        }))
-      .on("mouseover", function(d) { clock.arcMouseOn($(this), 'nighty :('); })
+      .on("mouseover", function(d) { clock.arcMouseOn('Night'); })
       .on("mouseout", function(d) { clock.arcMouseOut(); });
 
   var alpha = (dayStartAngle + dayEndAngle) / 2;
@@ -230,7 +230,7 @@ LuminosityArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
       .attr("class", "luminosity-outline-arc")
       .attr("fill", function(d) { return luminosity_scale(d.data); })
       .attr("d", luminosityArc)
-      .on("mouseover", function(d) { clock.arcMouseOn($(this), d.data); })
+      .on("mouseover", function(d) { clock.arcMouseOn("Luminosity " + d.data); })
       .on("mouseout", function(d) { clock.arcMouseOut(); });
 }
 
@@ -290,7 +290,7 @@ ActivityArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
     .enter().append("path")
       .attr("class", "outline-arc interaction-path")
       .attr("d", activityOutlineArc)
-      .on("mouseover", function(d) { clock.arcMouseOn($(this), d.data); })
+      .on("mouseover", function(d) { clock.arcMouseOn("Activity " + d.data); })
       .on("mouseout", function(d) { clock.arcMouseOut(); })
       .on("mousedown", function(d, i) { clock.arcMouseClick(this, i); });
 }
