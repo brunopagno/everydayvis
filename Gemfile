@@ -22,6 +22,9 @@ gem 'devise'
 # forms
 gem 'simple_form'
 
+# utility
+gem 'draper', '~> 1.3'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

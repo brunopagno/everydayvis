@@ -2,7 +2,4 @@ h3 The people in this project
 
 ul
   - @people.each do |person|
-    - if person.code?
-      li = link_to "#{person.code}", person
-    - else
-      li = link_to "#{person.name}", person
+    li = link_to "#{person.display_name}", person

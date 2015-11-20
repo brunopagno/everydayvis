@@ -1,7 +1,8 @@
 class PeopleController < ApplicationController
+  decorates_assigned :person
 
   def index
-    @people = Person.all
+    @people = Person.all.decorate
   end
 
   def show

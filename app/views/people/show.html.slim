@@ -1,9 +1,9 @@
-#current-person.hide[data-id="#{@person.id}"]
+#current-person.hide[data-id="#{person.id}"]
 
-h3.center = "Data from #{@person.name}"
+h3.center = "Data from #{person.display_name}"
 
 .person-wrapper
-  .calendar.person-block[data-calendar="#{@person.monthly.to_json}"]
+  .calendar.person-block[data-calendar="#{person.monthly.to_json}"]
     = check_box_tag 'select_all', nil, false, class: 'calendar-select-all'
     = label_tag 'select_all'
 
