@@ -111,4 +111,23 @@ if !nedel
         })
     end
   end
+
+  day = 1
+  month = 3
+  year = 2015
+  CSV.foreach('db/data/sunrise_sunset_poa_march2015.csv', headers: true) do |row|
+    d = row['rise'].split(':')
+    rise = DateTime.new(year, month, day, d[0].to_i, d[1].to_i, 0)
+
+    d = row['set'].split(':')
+    set = DateTime.new(year, month, day, d[0].to_i, d[1].to_i, 0)
+
+    Daylight.create!(
+        person:  person,
+        sunrise: rise,
+        sunset:  set,
+      )
+
+    day += 1
+  end
 end

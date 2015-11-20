@@ -1,3 +1,5 @@
+#current-person.hide[data-id="#{@person.id}"]
+
 h3.center = "Data from #{@person.name}"
 
 .person-wrapper
@@ -9,14 +11,7 @@ h3.center = "Data from #{@person.name}"
 
   .clocks.person-block.hide
     = link_to 'Hide clocks', '#', id: 'back-to-calendar', class: 'button float-right', style: 'z-index: 10;'
-    - @person.daily.each do |day|
-      .clock[data-userclock="#{daily_activities_to_json(@person, day)}"]
 
 javascript:
   fillCalendar('.calendar', $('.calendar').data('calendar'));
 
-  $(".clock").each(function(i, c) {
-    var data = $(c).data("userclock");
-    data['size'] = 300;
-    new Clock().draw(c, data);
-  });

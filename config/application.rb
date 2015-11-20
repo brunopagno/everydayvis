@@ -10,6 +10,7 @@ module Everydayvis
   class Application < Rails::Application
     config.generators.assets = false
     config.generators.helper = false
+    config.generators.test_framework = false
     config.generators do |g|
       g.view_specs false
       g.helper_specs false

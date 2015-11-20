@@ -9,7 +9,7 @@ $(document).ready(function() {
     $(".person-wrapper").animate({"margin-left": "0"}, 650);
     $('.clock-arcs').hide();
     calendarSelectedDays.forEach(function(id) {
-      $('#' + id).show();
+      addClockToView(id);
     });
     $('.clocks').fadeIn(547);
 
@@ -44,5 +44,19 @@ $(document).ready(function() {
     if (event.which === 27) {
       $(".slice-info").remove();
     }
-  }); 
+  });
+
+  function addClockToView(date) {
+    person_id = $("#current-person").data("id");
+    url = "/person/" + person_id + "/clock/" + date.substr(0, 4) + "/"  + date.substr(5, 2) + "/"  + date.substr(8, 2);
+    $.ajax({
+      url: url,
+      success: function(data) {
+        new Clock().draw(".clocks", data);
+      },
+      error: function() {
+        console.log("Something went wrong with clocks request.");
+      }
+    });
+  }
 });

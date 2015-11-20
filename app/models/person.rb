@@ -6,6 +6,7 @@ class Person < ActiveRecord::Base
   has_many :locations, dependent: :destroy
   has_many :sleeps, dependent: :destroy
   has_many :weathers, dependent: :destroy
+  has_many :daylights, dependent: :destroy
 
   DAY_HOURS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
 
@@ -22,7 +23,9 @@ class Person < ActiveRecord::Base
     date = Time.zone.local(date.year, date.month, date.day, 0, 0, 0)
 
     while (activities.last.datetime > date) do
-      day = { activity: 0, light: 0, weather: weathers.on_date(date).events, datetime: date }
+      ws = weathers.on_date(date)
+      ws = ws.events unless ws.empty?
+      day = { activity: 0, light: 0, weather: ws, datetime: date }
 
       self.on_date(date).each do |activity|
         day[:activity] += activity.activity
@@ -36,42 +39,58 @@ class Person < ActiveRecord::Base
     return days
   end
 
-  def daily
-    days = []
-
-    date = activities.first.datetime
-    date = Time.zone.local(date.year, date.month, date.day, 0, 0, 0)
-
-    while (activities.last.datetime > date) do
-      one_day = self.on_date(date)
-      day = []
-      day << { activity: 0, light: 0, datetime: one_day.first.datetime }
-
-      one_day.each do |activity|
-        if day.last[:datetime].hour != activity.datetime.hour
-          day << { activity: 0, light: 0, datetime: activity.datetime }
-          lasthour = activity.datetime.hour
-        end
-        day.last[:activity] += activity.activity
-        day.last[:light] += activity.light if activity.light
-      end
-
-      hrs = day.map { |d| d[:datetime].hour }
-      (DAY_HOURS - hrs).each do |hour|
-        day.insert(hour - 1, { activity: 0,
-                               light: 0,
-                               datetime: Time.zone.local(date.year, date.month, date.day, hour, 0, 0) })
-      end
-
-      days << day
-      date += 1.day;
-    end
-
-    return days
-  end
-
   def at_hour(datetime)
     activities.where("datetime BETWEEN ? AND ?", datetime - 1.hour, datetime).order("datetime ASC")
+  end
+
+  def activities_with_interval(date, interval)
+    day = []
+    current = date.dup
+    sum = 0
+    on_date(date).map{|a| [a.datetime, a.activity]}.each do |activity|
+      if activity[0] - current < 1.hour
+        sum += activity[1]
+      else
+        current += 1.hour
+        day << sum
+        sum = 0
+      end
+    end
+    while day.count < 24
+      day << 0
+    end
+    return day
+  end
+
+  def luminosity_with_interval(date, interval)
+    day = []
+    current = date.dup
+    sum = 0
+    on_date(date).map{|a| [a.datetime, a.light]}.each do |activity|
+      if activity[0] - current < 1.hour
+        sum += activity[1]
+      else
+        current += 1.hour
+        day << sum
+        sum = 0
+      end
+    end
+    while day.count < 24
+      day << 0
+    end
+    return day
+  end
+
+  def sunrise_at(date)
+    sunrise = daylights.where("sunrise BETWEEN ? AND ?", date.beginning_of_day, date.end_of_day).first
+    return sunrise.sunrise if sunrise
+    return DateTime.new(2015, 1, 1, 6, 12, 0)
+  end
+
+  def sunset_at(date)
+    sunset = daylights.where("sunset BETWEEN ? AND ?", date.beginning_of_day, date.end_of_day).first
+    return sunset.sunset if sunset
+    return DateTime.new(2015, 1, 1, 19, 14, 0)
   end
 
 end
