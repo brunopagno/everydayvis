@@ -55,13 +55,13 @@ Clock.prototype.draw = function(element, data) {
 
   this._data = data;
 
-  this._tooltip = d3.select(element).append("div")
+  this._element = d3.select(element).append("div").attr("class", "clock");
+
+  this._tooltip = this._element.append("div")
       .attr("class", "clock-tooltip")
       .style("opacity", 0);
 
-  this._element = element;
-
-  var svg = d3.select(element).append("svg")
+  var svg = this._element.append("svg")
       .attr("id", this._elid)
       .attr("class", "clock-arcs")
       .attr("width", this._size)
@@ -85,7 +85,7 @@ Clock.prototype.arcMouseOn = function(text) {
   this._tooltip.transition()
       .duration(200)
       .style("opacity", .9);
-  var offset = $(this._element).offset();
+  var offset = $(this._element[0]).offset();
   this._tooltip.text(text)
       .style("left", (d3.event.pageX - offset.left - 50) + "px")
       .style("top", (d3.event.pageY - offset.top - 10) + "px");
@@ -99,7 +99,7 @@ Clock.prototype.arcMouseOut = function() {
 
 Clock.prototype.arcMouseClick = function(element, hour) {
   if ($(element).attr('class').indexOf("highlight") > 0) {
-    $(this._element).children(".slice-info").remove();
+    $(this._element[0]).children(".slice-info").remove();
     
     var pathClass = $(element).attr("class").replace(new RegExp('(\\s|^)' + 'highlight' + '(\\s|$)', 'g'), '$2');
     $(element).parent().children(".interaction-path").attr("class", pathClass);
@@ -341,7 +341,7 @@ TextArc.prototype.draw = function(svg, date) {
 
 function showDataForClockSlice(element, user_id, date, hour, clock_width) {
   $(element).children(".slice-info").remove();
-  var slice = d3.select(element).append("div")
+  var slice = element.append("div")
       .attr("class", "slice-info");
 
   slice.append("div")
