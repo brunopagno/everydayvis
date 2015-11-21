@@ -22,11 +22,14 @@ class Person < ActiveRecord::Base
     date = activities.first.datetime
     date = Time.zone.local(date.year, date.month, date.day, 0, 0, 0)
 
-    while (activities.last.datetime > date) do
-      ws = weathers.on_date(date)
-      ws = ws.events if ws and !ws.empty?
+    ordered_activities = activities.order("datetime ASC")
+    last_date = activities.last.datetime
+    while (last_date > date) do
+      ws = weathers.select{|w| w.date == date.to_date}
+      ws = ws.first.events unless ws.empty?
       day = { activity: 0, light: 0, weather: ws, datetime: date }
 
+      # optimizing number of queries here causes too much of a processing impact
       self.on_date(date).each do |activity|
         day[:activity] += activity.activity
         day[:light] += activity.light if activity.light
