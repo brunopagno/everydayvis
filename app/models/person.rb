@@ -24,7 +24,7 @@ class Person < ActiveRecord::Base
 
     while (activities.last.datetime > date) do
       ws = weathers.on_date(date)
-      ws = ws.events unless ws.empty?
+      ws = ws.events if ws and !ws.empty?
       day = { activity: 0, light: 0, weather: ws, datetime: date }
 
       self.on_date(date).each do |activity|
@@ -48,12 +48,14 @@ class Person < ActiveRecord::Base
     current = date.dup
     sum = 0
     on_date(date).map{|a| [a.datetime, a.activity]}.each do |activity|
-      if activity[0] - current < 1.hour
+      if activity[0] - current < interval.minutes
         sum += activity[1]
       else
-        current += 1.hour
-        day << sum
-        sum = 0
+        while activity[0] - current > interval.minutes
+          current += 1.hour
+          day << sum
+        end
+        sum = activity[1]
       end
     end
     while day.count < 24
@@ -67,12 +69,14 @@ class Person < ActiveRecord::Base
     current = date.dup
     sum = 0
     on_date(date).map{|a| [a.datetime, a.light]}.each do |activity|
-      if activity[0] - current < 1.hour
+      if activity[0] - current < interval.minutes
         sum += activity[1]
       else
-        current += 1.hour
-        day << sum
-        sum = 0
+        while activity[0] - current > interval.minutes
+          current += 1.hour
+          day << sum
+        end
+        sum = activity[1]
       end
     end
     while day.count < 24
