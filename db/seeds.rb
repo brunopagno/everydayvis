@@ -15,8 +15,8 @@ if Person.all.empty?
         dd = row[1].split('/')
         tt = row[2].split(':')
 
-        datetime = DateTime.new(dd[2].to_i, dd[1].to_i, dd[0].to_i,
-                                tt[0].to_i, tt[1].to_i, tt[2].to_i)
+        datetime = Time.zone.local(dd[2].to_i, dd[1].to_i, dd[0].to_i,
+                                   tt[0].to_i, tt[1].to_i, tt[2].to_i)
         activity = row[3].to_i
         light = row[5].to_f
 
@@ -104,7 +104,7 @@ if !nedel
   timesteps['data']['items'].each do |item|
     item['details']['hourly_totals'].each do |hourly|
       dd = hourly[0] #key
-      d = DateTime.new(dd[0..3].to_i, dd[4..5].to_i, dd[6..7].to_i, dd[8..9].to_i, 0, 0)
+      d = Time.zone.local(dd[0..3].to_i, dd[4..5].to_i, dd[6..7].to_i, dd[8..9].to_i, 0, 0)
 
       Activity.create!({
           person: person,
@@ -119,10 +119,10 @@ if !nedel
   year = 2015
   CSV.foreach('db/data/sunrise_sunset_poa_march2015.csv', headers: true) do |row|
     d = row['rise'].split(':')
-    rise = DateTime.new(year, month, day, d[0].to_i, d[1].to_i, 0)
+    rise = Time.zone.local(year, month, day, d[0].to_i, d[1].to_i, 0)
 
     d = row['set'].split(':')
-    set = DateTime.new(year, month, day, d[0].to_i, d[1].to_i, 0)
+    set = Time.zone.local(year, month, day, d[0].to_i, d[1].to_i, 0)
 
     Daylight.create!(
         person:  person,

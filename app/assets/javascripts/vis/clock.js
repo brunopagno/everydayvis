@@ -154,7 +154,6 @@ SunArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
       .attr("class", "sun-outline-arc")
       .attr("fill", "#7ec7ee")
       .attr("d", sunArc.startAngle(function(d) {
-                          console.log("d => " + d);
                           return dayStartAngle;
                         }).endAngle(function(d) {
                           return dayEndAngle;
