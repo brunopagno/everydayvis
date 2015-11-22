@@ -19,14 +19,16 @@ if Person.all.empty?
                                 tt[0].to_i, tt[1].to_i, tt[2].to_i)
         activity = row[3].to_i
         light = row[5].to_f
-        awake = row[7] == 'ACTIVE'
 
         Activity.create!({
           person: person,
           datetime: datetime,
           activity: activity,
+        })
+        Luminosity.create!({
+          person: person,
+          datetime: datetime,
           light: light,
-          awake: awake
         })
       elsif row.join(',').start_with? "Code"
         person.code = row[1]
