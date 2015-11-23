@@ -21,11 +21,12 @@ class PeopleController < ApplicationController
     clock_data = {
       user_id: person.id,
       date: date,
-      activities: person.activities_with_interval(date, 60),
-      luminosity: person.luminosity_with_interval(date, 60),
       sunrise: person.sunrise_at(date),
       sunset: person.sunset_at(date)
     }
+
+    clock_data[:activities] = person.activities_with_interval(date, 60) if person.has(:activities)
+    clock_data[:luminosity] = person.luminosity_with_interval(date, 60) if person.has(:luminosities)
 
     render json: clock_data
   end

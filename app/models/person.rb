@@ -104,4 +104,8 @@ class Person < ActiveRecord::Base
     return DateTime.new(2015, 1, 1, 19, 14, 0)
   end
 
+  def has(attribute)
+    !self.send(attribute).empty?
+  end
+
 end

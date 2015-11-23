@@ -71,6 +71,9 @@ Clock.prototype.draw = function(element, data) {
   var walkedRadius = 0;
   for (var i = 0; i < this._arcs.length; i++) {
     var arc = this._arcs[i];
+    if (!arc._active) {
+      continue;
+    }
     var innerRadius = this._radius * (1 - arc._width) - walkedRadius;
     arc.draw(svg, data, outerRadius, innerRadius)
     outerRadius = innerRadius;
@@ -245,7 +248,7 @@ function ActivityArc(clock) {
 }
 
 ActivityArc.prototype.validate = function(data) {
-  if (!data.activity) {
+  if (!data.activities) {
     this._active = false;
   }
   return this._active;
