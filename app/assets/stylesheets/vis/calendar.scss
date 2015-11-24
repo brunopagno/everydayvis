@@ -36,3 +36,29 @@
   left: 58px;
   padding: 4px 8px !important;
 }
+
+.full-histogram {
+  position: absolute;
+  z-index: 10;
+  border: 2px solid #999;
+  border-radius: 12px;
+  background-color: #ddd;
+  top: 70px;
+  left: 70px;
+  padding: 8px;
+
+  .graph {
+    font-size: 10px;
+  }
+
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+
+  .area {
+    fill: rgba(101, 44, 215, 0.6);
+  }
+}
