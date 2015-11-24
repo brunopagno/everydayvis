@@ -4,7 +4,7 @@
     height: 24px;
     position: absolute;
     z-index: 10;
-    top: -24px;
+    top: -22px;
     background-repeat: no-repeat;
     background-size: 24px;
     background-position: top right;
@@ -29,12 +29,15 @@
   position: absolute;
   top: -18px;
   right: 18px;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .full-histogram-link {
   top: -22px;
-  right: 58px;
+  right: -22px;
   padding: 4px 8px !important;
+  margin: 0 !important;
 }
 
 .full-histogram {

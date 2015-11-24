@@ -22,7 +22,8 @@ class PeopleController < ApplicationController
       user_id: person.id,
       date: date,
       sunrise: person.sunrise_at(date),
-      sunset: person.sunset_at(date)
+      sunset: person.sunset_at(date),
+      max_activity: person.activities.map(&:activity).max
     }
 
     clock_data[:activities] = person.activities_with_interval(date, 60) if person.has(:activities)

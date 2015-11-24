@@ -1,19 +1,10 @@
 $(document).ready(function() {
   // VIEW CLOCKS
-  $('#view-clocks').click(function() {
-    if ($(".calendar-box:checked").length === 0) {
-      alert("Please select at least one day.");
-      return false;
-    }
+  $('#view-clocks').click(do_view_clocks);
 
-    $(".person-wrapper").animate({"margin-left": "0"}, 650);
-    $('.clock-arcs').hide();
-    calendarSelectedDays.forEach(function(id) {
-      addClockToView(id);
-    });
-    $('.clocks').fadeIn(547);
-
-    return false;
+  // CHANGE CLOCKS RELATIVE TO ALL
+  $('.clocks-relative-to-all').change(function() {
+    do_view_clocks();
   });
 
   // BACK TO CALENDAR
@@ -45,6 +36,22 @@ $(document).ready(function() {
       $(".slice-info").remove();
     }
   });
+
+  function do_view_clocks() {
+    if ($(".calendar-box:checked").length === 0) {
+      alert("Please select at least one day.");
+      return false;
+    }
+  
+    $(".person-wrapper").animate({"margin-left": "0"}, 650);
+    $('.clock-arcs').hide();
+    calendarSelectedDays.forEach(function(id) {
+      addClockToView(id);
+    });
+    $('.clocks').fadeIn(547);
+  
+    return false;
+  }
 
   function addClockToView(date) {
     person_id = $("#current-person").data("id");

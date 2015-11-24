@@ -10,6 +10,10 @@ h3.center = "Data from #{person.display_name}"
     = link_to 'Show clocks', '#', id: 'view-clocks', class: 'button expand'
 
   .clocks.person-block.hide
+    .switch
+      = check_box_tag 'relative_to_all', nil, false, class: 'clocks-relative-to-all'
+      = label_tag 'relative_to_all'
+      p Show activity relative to all days
     = link_to 'Hide clocks', '#', id: 'back-to-calendar', class: 'button float-right', style: 'z-index: 10;'
 
 - if person.has(:locations)

@@ -257,6 +257,9 @@ ActivityArc.prototype.validate = function(data) {
 
 ActivityArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
   var max_activity = d3.max(data.activities);
+  if ($('.clocks-relative-to-all').is(":checked")) {
+    max_activity = data.max_activity;
+  }
   var activity_scale = d3.scale.linear().domain([0, max_activity]).range([0, 100]);
 
   var pie = d3.layout.pie()
