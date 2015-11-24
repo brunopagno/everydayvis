@@ -32,3 +32,6 @@ bower.json
 
 #Ignore data from quilombolas
 /quidata
+
+# ignore visual studio code settings folder
+/.vscode
