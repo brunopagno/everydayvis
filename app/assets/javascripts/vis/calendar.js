@@ -59,9 +59,41 @@ function fillCalendar(element, data) {
         else if (ev.weather.indexOf("Rain")) { weather.attr("class", "cal-weather rain"); }
         else if (ev.weather.indexOf("Thunderstorm")) { weather.attr("class", "cal-weather thunder"); }
 
+        var fullHistogram = $('<a class="button tiny full-histogram-link">').text("H");
+        fullHistogram.on("mousedown", function() {
+          $(".full-histogram").remove();
+          var histo = d3.select(element).append("div").attr("class", "full-histogram");
+
+          histo.append("div")
+            .attr("class", "close-histo")
+          .append("a")
+            .attr("class", "button round alert tiny")
+            .text("X")
+            .on("mousedown", function() {
+              histo.remove();
+            });
+
+          histo.append("h3").text(dayid);
+          var user_id = $("#current-person").data("id");
+          var dd = new Date(ev.d.datetime);
+
+          var url = "/person/" + user_id + "/histogram/" + dd.getFullYear() + "/" + (dd.getMonth()+1) + "/" + dd.getDate();
+          console.log("request to " + url);
+          $.ajax({
+            url: url,
+            success: function(data) {
+              
+            },
+            error: function() {
+              console.log("error loading histogram data");
+            }
+          });
+        });
+
         var holder = $("<div>").attr("class", "ev-cal-holder");
         holder.append(checkbox);
         holder.append(weather);
+        holder.append(fullHistogram);
         holder.append(el);
         return holder;
       }

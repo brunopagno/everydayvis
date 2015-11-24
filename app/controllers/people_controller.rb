@@ -32,4 +32,11 @@ class PeopleController < ApplicationController
     render json: clock_data
   end
 
+  def histogram_day
+    person = Person.find(params[:id])
+    date = Time.zone.local(params[:year].to_i, params[:month].to_i, params[:day].to_i)
+
+    render json: person.on_date(date)
+  end
+
 end
