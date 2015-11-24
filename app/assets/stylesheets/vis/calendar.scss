@@ -1,12 +1,12 @@
 .calendar {
   .cal-weather {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     position: absolute;
     z-index: 10;
-    top: -20px;
+    top: -24px;
     background-repeat: no-repeat;
-    background-size: 28px;
+    background-size: 24px;
     background-position: top right;
   }
 
@@ -33,7 +33,7 @@
 
 .full-histogram-link {
   top: -22px;
-  left: 58px;
+  right: 58px;
   padding: 4px 8px !important;
 }
 
