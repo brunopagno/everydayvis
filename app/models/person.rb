@@ -8,6 +8,7 @@ class Person < ActiveRecord::Base
   has_many :sleeps, dependent: :destroy
   has_many :weathers, dependent: :destroy
   has_many :daylights, dependent: :destroy
+  has_many :works, dependent: :destroy
 
   DAY_HOURS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
 
@@ -19,6 +20,10 @@ class Person < ActiveRecord::Base
 
   def on_date_luminosity(datetime)
     luminosities.where("datetime BETWEEN ? AND ?", datetime, datetime + 1.day - 1.second).order("datetime ASC")
+  end
+
+  def on_date_works(datetime)
+    works.where("start BETWEEN ? AND ?", datetime, datetime + 1.day - 1.second).order("start ASC")
   end
 
   def monthly

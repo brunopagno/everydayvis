@@ -132,4 +132,67 @@ if !nedel
 
     day += 1
   end
+
+  # THE WORKTASKS ARE HAPPENING INSIDE HERE
+
+  # THE WORKTASKS END HERE
+end
+
+cd = Date.today
+CSV.foreach('db/data/work.csv', headers: false) do |row|
+  z = row[0]
+
+  if z.nil? or z.start_with?("Total") or z.start_with?("TOTAL") or z.start_with?("[") or z.start_with?("Nenhuma")
+    next
+  end
+
+  if z.start_with?("DOM") or
+     z.start_with?("SEG") or
+     z.start_with?("TER") or
+     z.start_with?("QUA") or
+     z.start_with?("QUI") or
+     z.start_with?("SEX") or
+     z.start_with?("SÁB")
+    dd = z.split(',')[1]
+    dd = dd.split('DE')
+    case dd[1].strip
+      when "JANEIRO"
+        dd[1] = 1
+      when "FEVEREIRO"
+        dd[1] = 2
+      when "MARÇO"
+        dd[1] = 3
+      when "ABRIL"
+        dd[1] = 4
+      when "MAIO"
+        dd[1] = 5
+      when "JUNHO"
+        dd[1] = 6
+      when "JULHO"
+        dd[1] = 7
+      when "AGOSTO"
+        dd[1] = 8
+      when "SETEMBRO"
+        dd[1] = 9
+      when "OUTUBRO"
+        dd[1] = 10
+      when "NOVEMBRO"
+        dd[1] = 11
+      when "DEZEMBRO"
+        dd[1] = 12
+      end
+    cd = Date.new(2015, dd[1], dd[0].to_i)
+  elsif !z.nil?
+    hhmm = row[1].split(':')
+    start = Time.zone.local(cd.year, cd.month, cd.day, hhmm[0].to_i, hhmm[1].to_i, 00)
+    hhmm = row[2].split(':')
+    finish = Time.zone.local(cd.year, cd.month, cd.day, hhmm[0].to_i, hhmm[1].to_i, 00)
+
+    Work.create!(
+      person: person,
+      name:   row[0],
+      start:  start,
+      finish: finish
+    )
+  end
 end

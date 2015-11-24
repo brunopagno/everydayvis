@@ -12,6 +12,33 @@ h3.center = "Data from #{person.display_name}"
   .clocks.person-block.hide
     = link_to 'Hide clocks', '#', id: 'back-to-calendar', class: 'button float-right', style: 'z-index: 10;'
 
+.map[data-map="#{person.locations.map{|l| {lat: l.latitude, lng: l.longitude}}.to_json}"]
+  script[src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktyvarPr54K1RG__mZF2j-xgwTLmTvi8&callback=initMap" async defer]
+
 javascript:
   fillCalendar('.calendar', $('.calendar').data('calendar'));
 
+  // MAP
+  function initMap() {
+    var lalo = $('.map').data('map');
+    var meanLalo = {lat: 0, lng: 0};
+    for (var i = 0; i < lalo.length; i++) {
+      meanLalo.lat += parseInt(lalo[i].lat);
+      meanLalo.lng += parseInt(lalo[i].lng);
+    }
+    meanLalo.lat /= lalo.length;
+    meanLalo.lng /= lalo.length;
+
+    var map = new google.maps.Map(document.getElementsByClassName('map')[0], {
+      center: meanLalo,
+      zoom: 3
+    });
+
+    for (var i = 0; i < lalo.length; i++) {
+      var marker = new google.maps.Marker({
+        position: {lat: parseInt(lalo[i].lat), lng: parseInt(lalo[i].lng)},
+        map: map,
+        title: 'Marker',
+      });
+    }
+  }

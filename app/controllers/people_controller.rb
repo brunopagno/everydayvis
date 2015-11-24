@@ -27,6 +27,7 @@ class PeopleController < ApplicationController
 
     clock_data[:activities] = person.activities_with_interval(date, 60) if person.has(:activities)
     clock_data[:luminosity] = person.luminosity_with_interval(date, 60) if person.has(:luminosities)
+    clock_data[:works] = person.on_date_works(date) if person.has(:works)
 
     render json: clock_data
   end

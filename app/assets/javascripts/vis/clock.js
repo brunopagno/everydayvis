@@ -16,7 +16,8 @@ function Clock() {
   this._arcs = [
     new SunArc(this),
     new LuminosityArc(this),
-    new ActivityArc(this)
+    new ActivityArc(this),
+    new WorkArc(this)
   ];
   this._size = 300;
   this._margin = 5;
@@ -296,6 +297,65 @@ ActivityArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
       .on("mouseover", function(d) { clock.arcMouseOn("Activity " + d.data); })
       .on("mouseout", function(d) { clock.arcMouseOut(); })
       .on("mousedown", function(d, i) { clock.arcMouseClick(this, i + 1); });
+}
+
+/////////////////////////////////////////////////
+// Work Arc
+/////////////////////////////////////////////////
+
+function WorkArc(clock) {
+  this._clock = clock;
+  this._active = true;
+  this._width = 0.02;
+}
+
+WorkArc.prototype.colorFor = function(name) {
+  if (name === "Aulas") return "#e5e600";
+  else if (name === "Misc") return "#339966";
+  else if (name === "Review") return "#0066cc";
+  else if (name === "Reuniões") return "#ff00ff";
+  else if (name === "Research") return "#ff6600";
+  else return "#669999";
+}
+
+WorkArc.prototype.validate = function(data) {
+  if (!data.works) {
+    this._active = false;
+  }
+
+  for (var i = 0; i < data.works.length; i++) {
+    dd = data.works[i];
+    dd.start = new Date(dd.start);
+    dd.finish = new Date(dd.finish);
+    dd.time_spent = dd.finish - dd.start;
+    dd.color = this.colorFor(dd.name);
+  };
+
+  return this._active;
+}
+
+WorkArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
+  var pie = d3.layout.pie()
+      .sort(null)
+      .value(function(d) { return d.time_spent; });
+
+  var workArc = d3.svg.arc()
+      .innerRadius(innerRadius)
+      .outerRadius(outerRadius);
+
+  var workSvg = svg.append("g")
+      .attr("class", "work-arc")
+      .attr("transform", "translate(" + this._clock._size / 2 + "," + this._clock._size / 2 + ")");
+
+  var clock = this._clock;
+  var path = workSvg.selectAll(".work-slice")
+      .data(pie(data.works))
+    .enter().append("path")
+      .attr("class", "work-slice")
+      .attr("fill", function(d) { return d.data.color; })
+      .attr("d", workArc)
+      .on("mouseover", function(d) { clock.arcMouseOn(d.data.name + ": " + d.data.time_spent / 60000 + " min"); })
+      .on("mouseout", function(d) { clock.arcMouseOut(); });
 }
 
 /////////////////////////////////////////////////
