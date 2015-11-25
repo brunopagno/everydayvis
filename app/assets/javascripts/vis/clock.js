@@ -324,15 +324,15 @@ WorkArc.prototype.colorFor = function(name) {
 WorkArc.prototype.validate = function(data) {
   if (!data.works) {
     this._active = false;
+  } else {
+    for (var i = 0; i < data.works.length; i++) {
+      dd = data.works[i];
+      dd.start = new Date(dd.start);
+      dd.finish = new Date(dd.finish);
+      dd.time_spent = dd.finish - dd.start;
+      dd.color = this.colorFor(dd.name);
+    };
   }
-
-  for (var i = 0; i < data.works.length; i++) {
-    dd = data.works[i];
-    dd.start = new Date(dd.start);
-    dd.finish = new Date(dd.finish);
-    dd.time_spent = dd.finish - dd.start;
-    dd.color = this.colorFor(dd.name);
-  };
 
   return this._active;
 }
