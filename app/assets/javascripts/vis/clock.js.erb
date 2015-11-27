@@ -92,9 +92,9 @@ Clock.prototype.drawWeather = function(svg) {
   var weather_size = 32;
   var icon = "<%= asset_path('sun.png') %>";
   if (this._data.weather && this._data.weather.events) {
-    if (this._data.weather.events.indexOf("Rain")) {
+    if (this._data.weather.events.indexOf("Rain") >= 0) {
       icon = "<%= asset_path('rain.png') %>";
-    } else if (this._data.weather.events.indexOf("Thunderstorm")) {
+    } else if (this._data.weather.events.indexOf("Thunderstorm") >= 0) {
       icon = "<%= asset_path('thunder.png') %>";
     }
   }

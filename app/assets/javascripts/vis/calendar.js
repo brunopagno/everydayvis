@@ -56,8 +56,8 @@ function fillCalendar(element, data) {
 
         var weather = $("<div>");
         if (!ev.weather) { weather.attr("class", "cal-weather sun"); }
-        else if (ev.weather.indexOf("Rain")) { weather.attr("class", "cal-weather rain"); }
-        else if (ev.weather.indexOf("Thunderstorm")) { weather.attr("class", "cal-weather thunder"); }
+        else if (ev.weather.indexOf("Rain") >= 0) { weather.attr("class", "cal-weather rain"); }
+        else if (ev.weather.indexOf("Thunderstorm") >= 0) { weather.attr("class", "cal-weather thunder"); }
 
         var fullHistogram = $('<a class="button tiny full-histogram-link">').text("H");
         fullHistogram.on("mousedown", function() {
