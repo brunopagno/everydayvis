@@ -82,7 +82,43 @@ Clock.prototype.draw = function(element, data) {
   };
   this._innerRadius = outerRadius;
 
+  if (data.weather) {
+    this.drawWeather(svg);
+  }
   new TextArc(this).draw(svg, data.date);
+}
+
+Clock.prototype.drawWeather = function(svg) {
+  var weather_size = 32;
+  var icon = "<%= asset_path('sun.png') %>";
+  if (this._data.weather && this._data.weather.events) {
+    if (this._data.weather.events.indexOf("Rain")) {
+      icon = "<%= asset_path('rain.png') %>";
+    } else if (this._data.weather.events.indexOf("Thunderstorm")) {
+      icon = "<%= asset_path('thunder.png') %>";
+    }
+  }
+
+  svg.append("svg:image")
+    .attr("class", "clock-weather-image")
+    .attr("text-anchor", "middle")
+    .attr("transform", "translate(" + (this._size / 2 - weather_size * 2.2) + "," + (this._size / 1.8 - weather_size / 2) + ")")
+    .attr("x", "0")
+    .attr("y", "0")
+    .attr("height", weather_size)
+    .attr("width", weather_size)
+    .attr("xlink:href", icon);
+
+  svg.append("svg:text")
+    .attr("class", "clock-weather-max")
+    .attr("text-anchor", "middle")
+    .attr("transform", "translate(" + this._size / 2 + "," + this._size / 1.8 + ")")
+    .text("max: " + this._data.weather.max_temperature + "°C");
+  svg.append("svg:text")
+    .attr("class", "clock-weather-min")
+    .attr("text-anchor", "middle")
+    .attr("transform", "translate(" + this._size / 2 + "," + this._size / 1.6 + ")")
+    .text("min: " + this._data.weather.min_temperature + "°C");
 }
 
 Clock.prototype.arcMouseOn = function(text) {
@@ -397,7 +433,7 @@ TextArc.prototype.draw = function(svg, date) {
     .attr("class", "clock-date")
     .attr("dy", ".35em")
     .attr("text-anchor", "middle")
-    .attr("transform", "translate(" + this._clock._size / 2 + "," + this._clock._size / 2 + ")")
+    .attr("transform", "translate(" + this._clock._size / 2 + "," + this._clock._size / 2.3 + ")")
     .text(date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear());
 }
 

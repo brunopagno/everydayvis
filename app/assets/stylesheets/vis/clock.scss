@@ -23,12 +23,20 @@
   }
 
   .clock-date {
-    font-size: 26px;
+    font-size: 18px;
     fill: #ccc;
   }
 
   .highlight {
     fill: rgba(192, 96, 192, 0.5);
+  }
+
+  .clock-weather-max {
+    fill: #ccc;
+  }
+
+  .clock-weather-min {
+    fill: #ccc;
   }
 }
 
@@ -67,18 +75,18 @@
 }
 
 .clock-tooltip { 
-    position: absolute;
-    text-align: center;
-    width: 140px;
-    height: 40px;
-    line-height: 38px;
-    padding: 8px;
-    font: 12px sans-serif;
-    font-weight: bold;
-    background: lightsteelblue;
-    border: 0px;
-    border-radius: 8px;
-    pointer-events: none;
+  position: absolute;
+  text-align: center;
+  width: 140px;
+  height: 40px;
+  line-height: 38px;
+  padding: 8px;
+  font: 12px sans-serif;
+  font-weight: bold;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
 }
 
 .close-slice {
