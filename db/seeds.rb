@@ -188,6 +188,10 @@ CSV.foreach('db/data/work.csv', headers: false) do |row|
     hhmm = row[2].split(':')
     finish = Time.zone.local(cd.year, cd.month, cd.day, hhmm[0].to_i, hhmm[1].to_i, 00)
 
+    if finish.hour < start.hour
+      finish += 1.day
+    end
+
     Work.create!(
       person: person,
       name:   row[0],

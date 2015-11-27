@@ -52,6 +52,7 @@ function fillCalendar(element, data) {
               calendarSelectedDays.splice(index, 1);
             }
           }
+          updateMapMarkers();
         });
 
         var weather = $("<div>");
