@@ -1,4 +1,4 @@
-BRT,Max TemperatureC,Mean TemperatureC,Min TemperatureC,Dew PointC,MeanDew PointC,Min DewpointC,Max Humidity, Mean Humidity, Min Humidity, Max Sea Level PressurehPa, Mean Sea Level PressurehPa, Min Sea Level PressurehPa, Max VisibilityKm, Mean VisibilityKm, Min VisibilitykM, Max Wind SpeedKm/h, Mean Wind SpeedKm/h, Max Gust SpeedKm/h,Precipitationmm, CloudCover, Events,WindDirDegrees
+BRST,max_temp,mean_temp,min_temp,orvalho,mean_dew,min_dew,max_humidity,mean_humidity,min_humidity,max_pressure_sea_level,mean_pressure_sea_level,min_pressure_sea_level,max_visibility_km,mean_visibility_km,min_visibility_km,max_wind_speed,mean_wind_speed,max_gust_speed,precipitation,cloud_cover,events,wind_dir_degrees
 2012-11-20,29,24,20,22,19,12,100,74,37,1014,1012,1010,19,10,7,24,8,,0.00,4,,207
 2012-11-21,29,23,17,20,17,16,100,72,36,1016,1014,1013,19,12,10,34,14,53,0.00,3,,112
 2012-11-22,35,27,18,23,18,2,94,66,19,1013,1010,1005,19,12,7,29,18,,0.00,4,Rain-Thunderstorm,109

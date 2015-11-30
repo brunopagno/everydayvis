@@ -204,7 +204,7 @@ Person.all.each do |person|
     lasto = oractivities.last.datetime
     if person.code.start_with?("IBMF")
       CSV.foreach('db/data/garopaba_weather.csv', headers: true) do |row|
-        d = row['BRT'].split('-')
+        d = row['BRST'].split('-')
         dd = Date.new(d[0].to_i, d[1].to_i, d[1].to_i)
         if dd > firsto and dd < lasto
           Weather.create!(
@@ -220,7 +220,7 @@ Person.all.each do |person|
       end
     elsif person.code.start_with?("VMPB")
       CSV.foreach('db/data/viamao_weather.csv', headers: true) do |row|
-        d = row['BRT'].split('-')
+        d = row['BRST'].split('-')
         dd = Date.new(d[0].to_i, d[1].to_i, d[1].to_i)
         if dd > firsto and dd < lasto
           Weather.create!(
