@@ -236,4 +236,45 @@ Person.all.each do |person|
       end
     end
   end
+  if person.code? and person.daylights.empty?
+    oractivities = person.activities.order("datetime ASC")
+    firsto = oractivities.first.datetime
+    lasto = oractivities.last.datetime
+    the_date = Time.zone.local(firsto.year, firsto.month, firsto.day, 0, 0, 0)
+    if person.code.start_with?("IBMF")
+      CSV.foreach('db/data/sun_garopaba.csv', headers: true) do |row|
+        d = row['rise'].split(':')
+        rise = Time.zone.local(the_date.year, the_date.month, the_date.day, d[0].to_i, d[1].to_i, 0)
+
+        d = row['set'].split(':')
+        set = Time.zone.local(the_date.year, the_date.month, the_date.day, d[0].to_i, d[1].to_i, 0)
+
+        Daylight.create!(
+            person:  person,
+            sunrise: rise,
+            sunset:  set,
+          )
+
+        the_date += 1.day
+        break if the_date > lasto
+      end
+    elsif person.code.start_with?("VMPB")
+      CSV.foreach('db/data/sun_viamao.csv', headers: true) do |row|
+        d = row['rise'].split(':')
+        rise = Time.zone.local(the_date.year, the_date.month, the_date.day, d[0].to_i, d[1].to_i, 0)
+
+        d = row['set'].split(':')
+        set = Time.zone.local(the_date.year, the_date.month, the_date.day, d[0].to_i, d[1].to_i, 0)
+
+        Daylight.create!(
+            person:  person,
+            sunrise: rise,
+            sunset:  set,
+          )
+
+        the_date += 1.day
+        break if the_date > lasto
+      end
+    end
+  end
 end
