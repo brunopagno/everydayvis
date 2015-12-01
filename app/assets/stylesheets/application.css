@@ -13,6 +13,7 @@
  *= require_tree ./pages
  *= require_tree ./vis
  *= require layout
+ *= require c3
  *= require_self
  *= require foundation_and_overrides
 

@@ -49,13 +49,23 @@
   top: 0;
   right: 0;
   padding: 8px;
-
-  .ajax-error {
-    background-color: #faa;
-  }
+  width: 500px;
+  height: 300px;
 
   .graph {
     font-size: 10px;
+  }
+
+  .bar {
+    fill: steelblue;
+  }
+
+  .bar:hover {
+    fill: brown;
+  }
+
+  .axis {
+    font: 10px sans-serif;
   }
 
   .axis path,
@@ -65,12 +75,8 @@
     shape-rendering: crispEdges;
   }
 
-  .area {
-    fill: rgba(101, 44, 215, 0.6);
-  }
-
-  .luminosity-area {
-    fill: rgba(255, 255, 255, 0.6);
+  .x.axis path {
+    display: none;
   }
 }
 
@@ -90,5 +96,7 @@
 }
 
 .close-slice {
+  position: relative;
   float: right;
+  z-index: 10;
 }

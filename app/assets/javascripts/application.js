@@ -16,6 +16,7 @@
 //= require d3
 //= require moment
 //= require fullcalendar
+//= require c3
 //= require_tree ./vis
 
 $(function(){ $(document).foundation(); });

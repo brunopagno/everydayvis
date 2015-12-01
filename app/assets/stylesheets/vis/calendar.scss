@@ -50,6 +50,11 @@
   top: 70px;
   left: 70px;
   padding: 8px;
+  width: 980px;
+
+  .c3-tooltip-container {
+    max-width: 220px;
+  }
 
   .graph {
     font-size: 10px;

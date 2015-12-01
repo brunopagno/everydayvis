@@ -26,6 +26,7 @@ function Clock() {
   this._element = "";
   this._elid = "";
   this._innerRadius = 0;
+  this._slice_info = "";
 }
 
 Clock.prototype.preprocess = function(data) {
@@ -61,6 +62,10 @@ Clock.prototype.draw = function(element, data) {
   this._tooltip = this._element.append("div")
       .attr("class", "clock-tooltip")
       .style("opacity", 0);
+
+  this._slice_info = this._element.append("div")
+      .attr("class", "slice-info")
+      .style("visibility", "hidden");
 
   var svg = this._element.append("svg")
       .attr("id", this._elid)
@@ -139,7 +144,7 @@ Clock.prototype.arcMouseOut = function() {
 
 Clock.prototype.arcMouseClick = function(element, hour) {
   if ($(element).attr('class').indexOf("highlight") > 0) {
-    $(this._element[0]).children(".slice-info").remove();
+    $(this._element[0]).children(".slice-info").style("visibility", "hidden");
     
     var pathClass = $(element).attr("class").replace(new RegExp('(\\s|^)' + 'highlight' + '(\\s|$)', 'g'), '$2');
     $(element).parent().children(".interaction-path").attr("class", pathClass);
@@ -148,7 +153,7 @@ Clock.prototype.arcMouseClick = function(element, hour) {
     $(element).parent().children(".interaction-path").attr("class", pathClass);
     
     $(element).attr("class", $(element).attr("class") + " highlight");
-    showDataForClockSlice(this._element, this._data.user_id, this._data.date, hour, this._size);
+    showDataForClockSlice(this._slice_info, this._data.user_id, this._data.date, hour, this._size);
   }
 }
 
@@ -442,81 +447,55 @@ TextArc.prototype.draw = function(svg, date) {
 /////////////////////////////////////////////////
 
 function showDataForClockSlice(element, user_id, date, hour, clock_width) {
-  $(element).children(".slice-info").remove();
-  var slice = element.append("div")
-      .attr("class", "slice-info");
+  element.selectAll("*").remove();
 
-  slice.append("div")
-    .attr("class", "close-slice")
-  .append("a")
-    .attr("class", "button round alert tiny")
-    .text("X")
-    .on("mousedown", function() {
-      slice.remove();
-    });
+  element.append("div")
+      .attr("class", "close-slice")
+    .append("a")
+      .attr("class", "button round alert tiny")
+      .text("X")
+      .on("mousedown", function() {
+        element.style("visibility", "hidden");
+      });
 
-  slice.append("h3")
+  element.append("h3")
       .text((hour - 1) + "h - " + hour + "h")
     .append("small")
       .text(" of day " + date.getDate());
 
   var url = "/person/" + user_id + "/" + date.getFullYear() + "/" + (date.getMonth()+1) + "/" + date.getDate() + "/" + hour;
-  console.log("request to " + url);
   $.ajax({
     url: url,
     success: function(data) {
-      slice.classed("ajax-error", false);
-
-      var margin = {top: 12, right: 24, bottom: 18, left: 40};
-      var width = 450 - margin.left - margin.right;
-      var height = 150 - margin.top - margin.bottom;
-
-      var x = d3.time.scale().range([0, width]);
-      var y = d3.scale.linear().range([height, 0]);
-      var xAxis = d3.svg.axis().scale(x).orient("bottom");
-      var yAxis = d3.svg.axis().scale(y).orient("left");
-
-      var area = d3.svg.area()
-          .x(function(d) { return x(d.datetime); })
-          .y0(height)
-          .y1(function(d) { return y(d.activity); });
-
-      var svg = slice.append("div").attr("class", "graph").append("svg")
-          .attr("width", width + margin.left + margin.right)
-          .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-          .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
+      var xaxis = ['x'];
+      var yaxis = ['activities'];
       data.forEach(function(d) {
-        d.datetime = new Date(d.datetime);
-        d.activity = +d.activity;
+        xaxis.push(new Date(d.datetime));
+        yaxis.push(+d.activity);
       });
 
-      x.domain(d3.extent(data, function(d) { return d.datetime; }));
-      y.domain([0, d3.max(data, function(d) { return d.activity; })]);
-
-      svg.append("path")
-          .datum(data)
-          .attr("class", "area")
-          .attr("d", area);
-
-      svg.append("g")
-          .attr("class", "x axis")
-          .attr("transform", "translate(0," + height + ")")
-          .call(xAxis);
-
-      svg.append("g")
-          .attr("class", "y axis")
-          .call(yAxis)
-        .append("text")
-          .attr("transform", "rotate(-90)")
-          .attr("y", 6)
-          .attr("dy", ".71em")
-          .style("text-anchor", "end")
-          .text("Activity");
+      var chart = c3.generate({
+        bindto: element.append("div"),
+        size: {
+          height: 220
+        },
+        data: {
+          x: 'x',
+          columns: [xaxis, yaxis],
+          type: 'bar'
+        },
+        axis: {
+          x: {
+            type: 'timeseries',
+            tick: {
+              format: '%H:%M'
+            }
+          }
+        }
+      });
     },
-    error: function() {
-      slice.classed("ajax-error", true);
-    }
+    error: function() { console.log("Error loading slice data"); }
   });
+
+  element.style("visibility", "visible");
 }
