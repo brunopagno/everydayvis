@@ -114,4 +114,15 @@ class Person < ActiveRecord::Base
     !self.send(attribute).empty?
   end
 
+  def map_data
+    locations.map do |l|
+      {
+        date: l.datetime.to_date,
+        lat: l.latitude,
+        lng: l.longitude,
+        activity: on_date(Time.zone.local(l.datetime.year, l.datetime.month, l.datetime.day, 0, 0, 0)).sum(:activity)
+      }
+    end
+  end
+
 end

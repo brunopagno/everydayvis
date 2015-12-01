@@ -17,7 +17,7 @@ h3.center = "Data from #{person.display_name}"
     = link_to 'Hide clocks', '#', id: 'back-to-calendar', class: 'button float-right', style: 'z-index: 10;'
 
 - if person.has(:locations)
-  .map[data-map="#{person.locations.map{|l| {date: l.datetime.to_date, lat: l.latitude, lng: l.longitude}}.to_json}"]
+  .map[data-map="#{person.map_data.to_json}"]
     script[src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktyvarPr54K1RG__mZF2j-xgwTLmTvi8&callback=initMap" async defer]
 
 javascript:
