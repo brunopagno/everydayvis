@@ -3,11 +3,14 @@ var markers = [];
 
 // MAP
 function initMap() {
+  // var max_activity = d3.max(data, function(d) { return d.activity } );
+  // var steps_color = d3.scale.linear().domain([0, max_activity / 2, max_activity]).range(["#ff1a1a", "#ffff1a", "#1aff1a"]);
+
   var lalo = $('.map').data('map');
   var meanLalo = {lat: 0, lng: 0};
   for (var i = 0; i < lalo.length; i++) {
-    meanLalo.lat += parseInt(lalo[i].lat);
-    meanLalo.lng += parseInt(lalo[i].lng);
+    meanLalo.lat += parseFloat(lalo[i].lat);
+    meanLalo.lng += parseFloat(lalo[i].lng);
   }
   meanLalo.lat /= lalo.length;
   meanLalo.lng /= lalo.length;
@@ -19,9 +22,13 @@ function initMap() {
 
   for (var i = 0; i < lalo.length; i++) {
     var marker = new google.maps.Marker({
-      position: {lat: parseInt(lalo[i].lat), lng: parseInt(lalo[i].lng)},
+      position: {lat: parseFloat(lalo[i].lat), lng: parseFloat(lalo[i].lng)},
       map: map,
       title: 'Marker',
+      icon: {
+        path: google.maps.SymbolPath.CIRCLE,
+        scale: 8
+      },
       dayid: lalo[i].date
     });
     markers.push(marker);

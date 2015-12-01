@@ -28,6 +28,7 @@ $(document).ready(function() {
         calendarSelectedDays = [];
       }
     });
+    updateMapMarkers();
   });
 
   // press escape closes all graphics
