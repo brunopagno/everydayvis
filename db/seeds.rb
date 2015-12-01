@@ -200,39 +200,22 @@ end
 Person.all.each do |person|
   if person.code? and person.weathers.empty?
     oractivities = person.activities.order("datetime ASC")
-    firsto = oractivities.first.datetime
-    lasto = oractivities.last.datetime
-    if person.code.start_with?("IBMF")
-      CSV.foreach('db/data/garopaba_weather.csv', headers: true) do |row|
-        d = row['BRST'].split('-')
-        dd = Date.new(d[0].to_i, d[1].to_i, d[1].to_i)
-        if dd > firsto and dd < lasto
-          Weather.create!(
-              person:           person,
-              date:             dd,
-              max_temperature:  row['max_temp'],
-              mean_temperature: row['mean_temp'],
-              min_temperature:  row['min_temp'],
-              precipitation:    row['precipitation'],
-              events:           row['events']
-            )
-        end
-      end
-    elsif person.code.start_with?("VMPB")
-      CSV.foreach('db/data/viamao_weather.csv', headers: true) do |row|
-        d = row['BRST'].split('-')
-        dd = Date.new(d[0].to_i, d[1].to_i, d[1].to_i)
-        if dd > firsto and dd < lasto
-          Weather.create!(
-              person:           person,
-              date:             dd,
-              max_temperature:  row['max_temp'],
-              mean_temperature: row['mean_temp'],
-              min_temperature:  row['min_temp'],
-              precipitation:    row['precipitation'],
-              events:           row['events']
-            )
-        end
+    firsto = oractivities.first.datetime.to_date
+    lasto = oractivities.last.datetime.to_date
+    filepath = person.code.start_with?("IBMF") ? 'db/data/garopaba_weather.csv' : 'db/data/viamao_weather.csv'
+    CSV.foreach(filepath, headers: true) do |row|
+      d = row['BRST'].split('-')
+      dd = Date.new(d[0].to_i, d[1].to_i, d[2].to_i)
+      if dd >= firsto and dd <= lasto
+        Weather.create!(
+            person:           person,
+            date:             dd,
+            max_temperature:  row['max_temp'],
+            mean_temperature: row['mean_temp'],
+            min_temperature:  row['min_temp'],
+            precipitation:    row['precipitation'],
+            events:           row['events']
+          )
       end
     end
   end
@@ -241,40 +224,22 @@ Person.all.each do |person|
     firsto = oractivities.first.datetime
     lasto = oractivities.last.datetime
     the_date = Time.zone.local(firsto.year, firsto.month, firsto.day, 0, 0, 0)
-    if person.code.start_with?("IBMF")
-      CSV.foreach('db/data/sun_garopaba.csv', headers: true) do |row|
-        d = row['rise'].split(':')
-        rise = Time.zone.local(the_date.year, the_date.month, the_date.day, d[0].to_i, d[1].to_i, 0)
+    filepath = person.code.start_with?("IBMF") ? 'db/data/sun_garopaba.csv' : 'db/data/sun_viamao.csv'
+    CSV.foreach('db/data/sun_garopaba.csv', headers: true) do |row|
+      d = row['rise'].split(':')
+      rise = Time.zone.local(the_date.year, the_date.month, the_date.day, d[0].to_i, d[1].to_i, 0)
 
-        d = row['set'].split(':')
-        set = Time.zone.local(the_date.year, the_date.month, the_date.day, d[0].to_i, d[1].to_i, 0)
+      d = row['set'].split(':')
+      set = Time.zone.local(the_date.year, the_date.month, the_date.day, d[0].to_i, d[1].to_i, 0)
 
-        Daylight.create!(
-            person:  person,
-            sunrise: rise,
-            sunset:  set,
-          )
+      Daylight.create!(
+          person:  person,
+          sunrise: rise,
+          sunset:  set,
+        )
 
-        the_date += 1.day
-        break if the_date > lasto
-      end
-    elsif person.code.start_with?("VMPB")
-      CSV.foreach('db/data/sun_viamao.csv', headers: true) do |row|
-        d = row['rise'].split(':')
-        rise = Time.zone.local(the_date.year, the_date.month, the_date.day, d[0].to_i, d[1].to_i, 0)
-
-        d = row['set'].split(':')
-        set = Time.zone.local(the_date.year, the_date.month, the_date.day, d[0].to_i, d[1].to_i, 0)
-
-        Daylight.create!(
-            person:  person,
-            sunrise: rise,
-            sunset:  set,
-          )
-
-        the_date += 1.day
-        break if the_date > lasto
-      end
+      the_date += 1.day
+      break if the_date > lasto
     end
   end
 end
