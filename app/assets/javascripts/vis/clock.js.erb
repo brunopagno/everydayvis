@@ -287,11 +287,15 @@ function ActivityArc(clock) {
   this._clock = clock;
   this._active = true;
   this._width = 0.3;
+  this._has_appointments = false;
 }
 
 ActivityArc.prototype.validate = function(data) {
   if (!data.activities) {
     this._active = false;
+  }
+  if (data.appointments) {
+    this._has_appointments = true;
   }
   return this._active;
 }
@@ -310,10 +314,10 @@ ActivityArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
   var activityArc = d3.svg.arc()
       .innerRadius(innerRadius)
       .outerRadius(function(d) { 
-        if (d.data == "sleep") {
+        if (d.data.activity == "sleep") {
           return (outerRadius - innerRadius) * (activity_scale(max_activity) / 100.0) + innerRadius;
         } else {
-          var value = (d.data < (max_activity * 0.05) && d.data != 0) ? (max_activity * 0.05) : d.data
+          var value = (d.data.activity < (max_activity * 0.05) && d.data.activity != 0) ? (max_activity * 0.05) : d.data.activity
           return (outerRadius - innerRadius) * (activity_scale(value) / 100.0) + innerRadius;
         }
       });
@@ -338,7 +342,8 @@ ActivityArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
     .enter().append("path")
       .attr("class", "outline-arc interaction-path")
       .attr("d", activityOutlineArc)
-      .on("mouseover", function(d) { clock.arcMouseOn("Activity " + d.data); })
+      .attr("stroke-width", function(d) { return d.data.ev ? 2 : 1 })
+      .on("mouseover", function(d) { clock.arcMouseOn("Activity " + d.data.activity); })
       .on("mouseout", function(d) { clock.arcMouseOut(); })
       .on("mousedown", function(d, i) { clock.arcMouseClick(this, i + 1); });
 }
@@ -395,7 +400,6 @@ WorkArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
     work = data.works[i];
     var workStartAngle = work_scale(work.start.getHours() * 60 + work.start.getMinutes()) * Math.PI / 180;
     var workEndAngle = work_scale(work.finish.getHours() * 60 + work.finish.getMinutes()) * Math.PI / 180;
-    console.log("trabalho " + work.name + ": " + workStartAngle + ", " + workEndAngle);
     if (workStartAngle > workEndAngle) {
       workEndAngle += 6.28319; // 360 degrees
     }

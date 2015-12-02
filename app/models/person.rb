@@ -9,6 +9,7 @@ class Person < ActiveRecord::Base
   has_many :weathers, dependent: :destroy
   has_many :daylights, dependent: :destroy
   has_many :works, dependent: :destroy
+  has_many :appointments, dependent: :destroy
 
   DAY_HOURS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
 
@@ -25,6 +26,10 @@ class Person < ActiveRecord::Base
 
   def on_date_works(datetime)
     works.where("start BETWEEN ? AND ?", datetime, datetime + 1.day - 1.second).order("start ASC")
+  end
+
+  def on_hour_appointments(datetime)
+    appointments.where("datetime BETWEEN ? AND ?", datetime, datetime + 1.hour - 1.second)
   end
 
   def monthly
@@ -66,13 +71,13 @@ class Person < ActiveRecord::Base
       else
         while activity[0] - current > interval.minutes
           current += 1.hour
-          day << sum
+          day << { activity: sum, ev: (on_hour_appointments(current).count > 0) }
         end
         sum = activity[1]
       end
     end
     while day.count < 24
-      day << 0
+      day << { activity: sum, ev: false }
     end
     return day
   end

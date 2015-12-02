@@ -26,10 +26,10 @@ class PeopleController < ApplicationController
       max_activity: person.activities.map(&:activity).max
     }
 
-    clock_data[:activities] = person.activities_with_interval(date, 60) if person.has(:activities)
-    clock_data[:luminosity] = person.luminosity_with_interval(date, 60) if person.has(:luminosities)
-    clock_data[:works] = person.on_date_works(date) if person.has(:works)
-    clock_data[:weather] = person.weathers.select{|w| w.date == date.to_date}.first if person.has(:weathers)
+    clock_data[:activities]   = person.activities_with_interval(date, 60) if person.has(:activities)
+    clock_data[:luminosity]   = person.luminosity_with_interval(date, 60) if person.has(:luminosities)
+    clock_data[:works]        = person.on_date_works(date)                if person.has(:works)
+    clock_data[:weather]      = person.weathers.select{|w| w.date == date.to_date}.first if person.has(:weathers)
 
     render json: clock_data
   end
