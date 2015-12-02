@@ -24,6 +24,7 @@ gem 'simple_form'
 
 # utility
 gem 'draper', '~> 1.3'
+gem 'icalendar', '2.0'
 
 group :development, :test do
   gem 'byebug'

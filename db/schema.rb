@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123213652) do
+ActiveRecord::Schema.define(version: 20151202134805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 20151123213652) do
   end
 
   add_index "activities", ["person_id"], name: "index_activities_on_person_id", using: :btree
+
+  create_table "appointments", force: :cascade do |t|
+    t.datetime "datetime"
+    t.text     "description"
+    t.text     "summary"
+    t.integer  "person_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "appointments", ["person_id"], name: "index_appointments_on_person_id", using: :btree
 
   create_table "daylights", force: :cascade do |t|
     t.datetime "sunrise"
@@ -125,6 +136,7 @@ ActiveRecord::Schema.define(version: 20151123213652) do
   add_index "works", ["person_id"], name: "index_works_on_person_id", using: :btree
 
   add_foreign_key "activities", "people"
+  add_foreign_key "appointments", "people"
   add_foreign_key "daylights", "people"
   add_foreign_key "locations", "people"
   add_foreign_key "luminosities", "people"

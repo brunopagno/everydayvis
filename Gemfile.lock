@@ -72,6 +72,7 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
+    icalendar (2.0.0)
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -181,6 +182,7 @@ DEPENDENCIES
   devise
   draper (~> 1.3)
   foundation-rails
+  icalendar (= 2.0)
   jbuilder (~> 2.0)
   jquery-rails
   pg (= 0.17.1)

@@ -1,4 +1,19 @@
 require 'csv'
+require 'icalendar'
+
+if Appointment.all.empty?
+  File.open("db/data/ical.ics") do |f|
+    cals = Icalendar.parse(f)
+    cal = cals.first
+    cal.events.each do |ev|
+      Appointment.create({
+        datetime: ev.dtstart,
+        description: ev.description,
+        summary: ev.summary
+      })
+    end
+  end
+end
 
 if Person.all.empty?
   personame = 1
@@ -194,6 +209,11 @@ if !nedel
         finish: finish
       )
     end
+  end
+
+  Appointment.all.each do |appointment|
+    appointment.person = person
+    appointment.save!
   end
 end
 
