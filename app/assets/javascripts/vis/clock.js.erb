@@ -191,8 +191,8 @@ SunArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
   var dayEndAngle = sun_scale(data.sunset.getHours() + data.sunset.getMinutes() / 60) * Math.PI / 180;
 
   var sunArc = d3.svg.arc()
-    .innerRadius(outerRadius)
-    .outerRadius(innerRadius);
+    .innerRadius(innerRadius)
+    .outerRadius(outerRadius);
 
   var clock = this._clock;
   var dayPath = sunSvg.append("path")
@@ -379,9 +379,7 @@ WorkArc.prototype.validate = function(data) {
 }
 
 WorkArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
-  var pie = d3.layout.pie()
-      .sort(null)
-      .value(function(d) { return d.time_spent; });
+  var work_scale = d3.scale.linear().domain([0, 1440]).range([0, 360]);
 
   var workArc = d3.svg.arc()
       .innerRadius(innerRadius)
@@ -392,14 +390,27 @@ WorkArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
       .attr("transform", "translate(" + this._clock._size / 2 + "," + this._clock._size / 2 + ")");
 
   var clock = this._clock;
-  var path = workSvg.selectAll(".work-slice")
-      .data(pie(data.works))
-    .enter().append("path")
-      .attr("class", "work-slice")
-      .attr("fill", function(d) { return d.data.color; })
-      .attr("d", workArc)
-      .on("mouseover", function(d) { clock.arcMouseOn(d.data.name + ": " + d.data.time_spent / 60000 + " min"); })
-      .on("mouseout", function(d) { clock.arcMouseOut(); });
+
+  for (var i = 0; i < data.works.length; i++) {
+    work = data.works[i];
+    var workStartAngle = work_scale(work.start.getHours() * 60 + work.start.getMinutes()) * Math.PI / 180;
+    var workEndAngle = work_scale(work.finish.getHours() * 60 + work.finish.getMinutes()) * Math.PI / 180;
+    console.log("trabalho " + work.name + ": " + workStartAngle + ", " + workEndAngle);
+    if (workStartAngle > workEndAngle) {
+      workEndAngle += 6.28319; // 360 degrees
+    }
+
+    var dayPath = workSvg.append("path")
+        .attr("class", "work-slice")
+        .attr("fill", function(d) { return work.color; })
+        .attr("d", workArc.startAngle(function(d) {
+                            return workStartAngle;
+                          }).endAngle(function(d) {
+                            return workEndAngle;
+                          }))
+        .on("mouseover", function(d) { clock.arcMouseOn(work.name + ": " + work.time_spent / 60000 + " min"); })
+        .on("mouseout", function(d) { clock.arcMouseOut(); });
+  }
 }
 
 /////////////////////////////////////////////////
