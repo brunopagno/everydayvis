@@ -301,7 +301,7 @@ ActivityArc.prototype.validate = function(data) {
 }
 
 ActivityArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
-  var max_activity = d3.max(data.activities);
+  var max_activity = d3.max(data.activities, function(d) { return d.activity; });
   if ($('.clocks-relative-to-all').is(":checked")) {
     max_activity = data.max_activity;
   }
