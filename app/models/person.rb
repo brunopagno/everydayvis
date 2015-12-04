@@ -5,7 +5,6 @@ class Person < ActiveRecord::Base
   has_many :activities, dependent: :destroy
   has_many :luminosities, dependent: :destroy
   has_many :locations, dependent: :destroy
-  has_many :sleeps, dependent: :destroy
   has_many :weathers, dependent: :destroy
   has_many :daylights, dependent: :destroy
   has_many :works, dependent: :destroy

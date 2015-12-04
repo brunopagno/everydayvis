@@ -90,17 +90,6 @@ if !nedel
       )
   end
 
-  CSV.foreach('db/data/jawbone.csv', headers: true) do |row|
-    d = row['DATE']
-    dd = Date.new(d[0..3].to_i, d[4..5].to_i, d[6..7].to_i)
-
-    Sleep.create!(
-        person:     person,
-        date:       dd,
-        sleep_time: row['s_asleep_time'],
-      )
-  end
-
   checkins = JSON(open('db/data/checkins.json').read)
   checkins['response']['checkins']['items'].each do |item|
     d = DateTime.strptime(item['createdAt'].to_s, '%s')
@@ -130,7 +119,7 @@ if !nedel
   end
 
   day = 1
-  month = 3
+  month = 9
   year = 2015
   CSV.foreach('db/data/sunrise_sunset_poa_march2015.csv', headers: true) do |row|
     d = row['rise'].split(':')
