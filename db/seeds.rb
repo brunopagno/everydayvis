@@ -118,15 +118,13 @@ if !nedel
     end
   end
 
-  day = 1
-  month = 9
-  year = 2015
+  ddate = Date.new(2015, 9, 1)
   CSV.foreach('db/data/sunrise_sunset_poa_march2015.csv', headers: true) do |row|
     d = row['rise'].split(':')
-    rise = Time.zone.local(year, month, day, d[0].to_i, d[1].to_i, 0)
+    rise = Time.zone.local(ddate.year, ddate.month, ddate.day, d[0].to_i, d[1].to_i, 0)
 
     d = row['set'].split(':')
-    set = Time.zone.local(year, month, day, d[0].to_i, d[1].to_i, 0)
+    set = Time.zone.local(ddate.year, ddate.month, ddate.day, d[0].to_i, d[1].to_i, 0)
 
     Daylight.create!(
         person:  person,
@@ -134,7 +132,7 @@ if !nedel
         sunset:  set,
       )
 
-    day += 1
+    ddate += 1.day
   end
 
   cd = Date.today
