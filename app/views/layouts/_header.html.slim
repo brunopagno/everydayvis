@@ -1,16 +1,15 @@
-.row
-  .nav-menu.float-left
-    = link_to "home", root_path
+.nav-menu.float-left
+  = link_to "home", root_path
+  |  | 
+  = link_to "people", people_path
+  |  | 
+  = link_to "maps", maps_path
+  |  | 
+  = link_to "login", login_index_path
+.user-menu.float-right
+  - if current_user
+    = link_to "my account", edit_user_registration_path(current_user)
+  - else
+    = link_to "login", new_user_session_path
     |  | 
-    = link_to "people", people_path
-    |  | 
-    = link_to "maps", maps_path
-    |  | 
-    = link_to "login", login_index_path
-  .user-menu.float-right
-    - if current_user
-      = link_to "my account", edit_user_registration_path(current_user)
-    - else
-      = link_to "login", new_user_session_path
-      |  | 
-      = link_to "register", new_user_registration_path
+    = link_to "register", new_user_registration_path
