@@ -76,7 +76,7 @@ class Person < ActiveRecord::Base
       end
     end
     while day.count < 24
-      day << { activity: sum, ev: false }
+      day << { activity: 0, ev: false }
     end
     return day
   end
