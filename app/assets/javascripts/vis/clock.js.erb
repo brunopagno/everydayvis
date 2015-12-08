@@ -342,7 +342,11 @@ ActivityArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
     .enter().append("path")
       .attr("class", "outline-arc interaction-path")
       .attr("d", activityOutlineArc)
-      .attr("stroke-width", function(d) { return d.data.ev ? 2 : 1 })
+      .attr("stroke-width", function(d) {
+        console.log("ué? " + d.data.ev)
+        return d.data.ev ? '4px' : '2px'
+      })
+      .attr("stroke", function(d) { return d.data.ev ? '#444' : 'black' })
       .on("mouseover", function(d) { clock.arcMouseOn("Activity " + d.data.activity); })
       .on("mouseout", function(d) { clock.arcMouseOut(); })
       .on("mousedown", function(d, i) { clock.arcMouseClick(this, i + 1); });
