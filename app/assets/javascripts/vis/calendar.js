@@ -2,10 +2,13 @@ var calendarSelectedDays = [];
 
 function fillCalendar(element, data) {
   var max_activity = d3.max(data, function(d) { return d.activity } );
-  var steps_color = d3.scale.linear().domain([0, max_activity / 2, max_activity]).range(["#ff1a1a", "#ffff1a", "#1aff1a"]);
+  if (max_activity < 10000) {
+    max_activity = 10000;
+  }
+  var steps_color = d3.scale.linear().domain([0, 5000, 10000, max_activity]).range(["#ff1a1a", "#ffff1a", "#99ff33", "#1aff1a"]);
 
   var max_work = d3.max(data, function(d) { return d.work } );
-  var work_color = d3.scale.linear().domain([0, max_work / 2, max_work]).range(["#ff00bf", "#007fff"]);
+  var work_color = d3.scale.linear().domain([0, max_work / 2, max_work]).range(["#bbbbbb", "#6699ff"]);
 
   evs = [];
   data.forEach(function(d, i) {
@@ -18,18 +21,20 @@ function fillCalendar(element, data) {
       textColor: 'black',
       steps_scaled: Math.round(steps_color(d.activity)),
       weather: d.weather,
+      doit: true,
       order: 1
     });
     if (d.work > 0) {
+      var hh = Math.floor(d.work / 60);
+      var mm = d.work - (hh * 60);
       evs.push({
         d: d,
-        title: d.work + " worked minutes",
+        title: hh + ":" + ("0" + mm).slice(-2) + " worked",
         start: d.datetime,
         allDay: true,
         color: work_color(d.work),
         textColor: 'black',
         work_scaled: Math.round(work_color(d.work)),
-        donot: true,
         order: 2
       });
     }
@@ -53,7 +58,7 @@ function fillCalendar(element, data) {
         el.css('padding', '6px 12px 14px 12px');
         el.css('font-weight', 'bold');
 
-        if (!ev.donot) {
+        if (ev.doit) {
           var dayid = ev.d.datetime.substr(0, 10);
           var checkbox = $('<input type=checkbox class="calendar-box">')
           checkbox.attr("dayid", dayid);
