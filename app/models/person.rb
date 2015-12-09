@@ -42,11 +42,14 @@ class Person < ActiveRecord::Base
     while (last_date > date) do
       ws = weathers.select{|w| w.date == date.to_date}
       ws = ws.first.events unless ws.empty?
-      day = { activity: 0, weather: ws, datetime: date }
+      day = { activity: 0, weather: ws, work: 0, datetime: date }
 
       # optimizing number of queries here causes too much of a processing impact
       self.on_date(date).each do |activity|
         day[:activity] += activity.activity
+      end
+      self.on_date_works(date).each do |work|
+        day[:work] += (work.finish - work.start) / 60
       end
 
       days << day
