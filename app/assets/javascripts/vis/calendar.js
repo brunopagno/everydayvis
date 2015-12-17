@@ -80,7 +80,7 @@ function fillCalendar(element, data) {
           else if (ev.weather.indexOf("Rain") >= 0) { weather.attr("class", "cal-weather rain"); }
           else if (ev.weather.indexOf("Thunderstorm") >= 0) { weather.attr("class", "cal-weather thunder"); }
 
-          var fullHistogram = $('<a class="button tiny full-histogram-link">').text("H");
+          var fullHistogram = el;
           fullHistogram.on("mousedown", function() {
             $(".full-histogram").remove();
             var histo = d3.select(element).append("div").attr("class", "full-histogram");
