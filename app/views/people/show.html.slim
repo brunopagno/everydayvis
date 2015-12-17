@@ -2,23 +2,25 @@
 
 h3.center = "Data from #{person.display_name}"
 
-.person-wrapper
-  .calendar.person-block[data-calendar="#{person.monthly.to_json}"]
-    = check_box_tag 'select_all', nil, false, class: 'calendar-select-all'
-    = label_tag 'select_all'
+.row.full-width
+  .small-8.columns
+    .calendar[data-calendar="#{person.monthly.to_json}"]
+      = check_box_tag 'select_all', nil, false, class: 'calendar-select-all'
+      = label_tag 'select_all'
 
-    = link_to 'Show clocks', '#', id: 'view-clocks', class: 'button expand'
+      = link_to 'Show clocks', '#', id: 'view-clocks', class: 'button expand'
 
-  .clocks.person-block.hide
-    .switch
-      = check_box_tag 'relative_to_all', nil, false, class: 'clocks-relative-to-all'
-      = label_tag 'relative_to_all'
-      p Show activity relative to all days
-    = link_to 'Hide clocks', '#', id: 'back-to-calendar', class: 'button float-right', style: 'z-index: 10;'
+  .small-4.columns
+    .clocks.person
+      .switch
+        = check_box_tag 'relative_to_all', nil, false, class: 'clocks-relative-to-all'
+        = label_tag 'relative_to_all'
+        p Show activity relative to all days
 
-- if person.has(:locations)
-  .map[data-map="#{person.map_data.to_json}"]
-    script[src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktyvarPr54K1RG__mZF2j-xgwTLmTvi8&callback=initMap" async defer]
+  - if person.has(:locations)
+    .small-12.columns
+      .map[data-map="#{person.map_data.to_json}"]
+        script[src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAktyvarPr54K1RG__mZF2j-xgwTLmTvi8&callback=initMap" async defer]
 
 javascript:
   fillCalendar('.calendar', $('.calendar').data('calendar'));

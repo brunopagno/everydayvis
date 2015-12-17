@@ -3,16 +3,7 @@ $(document).ready(function() {
   $('#view-clocks').click(do_view_clocks);
 
   // CHANGE CLOCKS RELATIVE TO ALL
-  $('.clocks-relative-to-all').change(function() {
-    do_view_clocks();
-  });
-
-  // BACK TO CALENDAR
-  $('#back-to-calendar').click(function() {
-    $('.clocks').fadeOut(547);
-    $(".person-wrapper").animate({"margin-left": "24.5%"}, 650);
-    return false;
-  });
+  $('.clocks-relative-to-all').change(function() { do_view_clocks(); });
 
   // SELECT ALL
   $('.calendar-select-all').change(function() {
@@ -39,17 +30,9 @@ $(document).ready(function() {
   });
 
   function do_view_clocks() {
-    if ($(".calendar-box:checked").length === 0) {
-      alert("Please select at least one day.");
-      return false;
-    }
-  
-    $(".person-wrapper").animate({"margin-left": "0"}, 650);
-    $('.clock-arcs').hide();
     calendarSelectedDays.forEach(function(id) {
       addClockToView(id);
     });
-    $('.clocks').fadeIn(547);
   
     return false;
   }
