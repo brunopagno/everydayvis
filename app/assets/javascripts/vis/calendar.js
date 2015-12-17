@@ -64,13 +64,16 @@ function fillCalendar(element, data) {
 
           // CHECK CALENDAR DAY
           checkbox.change(function() {
+            var dd = $(this).attr("dayid");
             if (this.checked) {
-              calendarSelectedDays.push($(this).attr("dayid"));
+              calendarSelectedDays.push(dd);
+              addClockToView(dd);
             } else {
               var index = calendarSelectedDays.indexOf($(this).attr("dayid"));
               if (index > -1) {
                 calendarSelectedDays.splice(index, 1);
               }
+              $("#" + dd).remove();
             }
             updateMapMarkers();
           });

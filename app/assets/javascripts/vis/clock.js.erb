@@ -57,7 +57,9 @@ Clock.prototype.draw = function(element, data) {
 
   this._data = data;
 
-  this._element = d3.select(element).append("div").attr("class", "clock");
+  this._element = d3.select(element).append("div")
+                    .attr("class", "clock")
+                    .attr("id", this._elid);
 
   this._tooltip = this._element.append("div")
       .attr("class", "clock-tooltip")
@@ -68,7 +70,6 @@ Clock.prototype.draw = function(element, data) {
       .style("visibility", "hidden");
 
   var svg = this._element.append("svg")
-      .attr("id", this._elid)
       .attr("class", "clock-arcs")
       .attr("width", this._size)
       .attr("height", this._size);

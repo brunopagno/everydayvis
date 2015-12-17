@@ -5,17 +5,13 @@ h3.center = "Data from #{person.display_name}"
 .row.full-width
   .small-8.columns
     .calendar[data-calendar="#{person.monthly.to_json}"]
-      = check_box_tag 'select_all', nil, false, class: 'calendar-select-all'
-      = label_tag 'select_all'
-
-      = link_to 'Show clocks', '#', id: 'view-clocks', class: 'button expand'
 
   .small-4.columns
     .clocks.person
       .switch
         = check_box_tag 'relative_to_all', nil, false, class: 'clocks-relative-to-all'
         = label_tag 'relative_to_all'
-        p Show activity relative to all days
+        p Show activity relative to <SELECTED> days (not implemented yet)
 
   - if person.has(:locations)
     .small-12.columns
