@@ -10,6 +10,9 @@ $(document).ready(function() {
   });
 
   function do_view_clocks() {
+    $(".clocks").children(".clock").each(function(i, clock) {
+      clock.remove();
+    });
     calendarSelectedDays.forEach(function(id) {
       addClockToView(id);
     });

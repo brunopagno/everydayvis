@@ -145,7 +145,7 @@ Clock.prototype.arcMouseOut = function() {
 
 Clock.prototype.arcMouseClick = function(element, hour) {
   if ($(element).attr('class').indexOf("highlight") > 0) {
-    $(this._element[0]).children(".slice-info").style("visibility", "hidden");
+    $(this._element[0]).children(".slice-info").css("visibility", "hidden");
     
     var pathClass = $(element).attr("class").replace(new RegExp('(\\s|^)' + 'highlight' + '(\\s|$)', 'g'), '$2');
     $(element).parent().children(".interaction-path").attr("class", pathClass);
