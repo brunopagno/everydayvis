@@ -408,13 +408,14 @@ WorkArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
 
     var dayPath = workSvg.append("path")
         .attr("class", "work-slice")
+        .attr("data-ttip", work.name + ": " + work.time_spent / 60000 + " min")
         .attr("fill", function(d) { return work.color; })
         .attr("d", workArc.startAngle(function(d) {
                             return workStartAngle;
                           }).endAngle(function(d) {
                             return workEndAngle;
                           }))
-        .on("mouseover", function(d) { clock.arcMouseOn(work.name + ": " + work.time_spent / 60000 + " min"); })
+        .on("mouseover", function(d) { clock.arcMouseOn($(this).data("ttip")); })
         .on("mouseout", function(d) { clock.arcMouseOut(); });
   }
 }
