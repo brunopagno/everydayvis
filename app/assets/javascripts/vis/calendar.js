@@ -43,7 +43,7 @@ function fillCalendar(element, data) {
         center: 'title',
         right: 'month'
       },
-      defaultDate: data[0].datetime,
+      defaultDate: data[data.length - 1].datetime,
       displayEventTime: false,
       businessHours: false,
       editable: false,
@@ -76,6 +76,7 @@ function fillCalendar(element, data) {
               $("#" + dd).remove();
             }
             updateMapMarkers();
+            updateMaxSelectedActivity();
           });
 
           var weather = $("<div>");

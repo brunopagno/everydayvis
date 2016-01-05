@@ -15,6 +15,14 @@ class PeopleController < ApplicationController
     render json: person.at_hour(datetime)
   end
 
+  def max_activity
+    person = Person.find(params[:id])
+    date = Time.zone.local(params[:year].to_i, params[:month].to_i, params[:day].to_i)
+    max_activity = person.on_date(date).map(&:activity).max
+
+    render json: max_activity
+  end
+
   def clock_day
     person = Person.find(params[:id])
     date = Time.zone.local(params[:year].to_i, params[:month].to_i, params[:day].to_i)
