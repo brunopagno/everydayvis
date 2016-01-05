@@ -11,7 +11,7 @@ h3.center = "Data from #{person.display_name}"
       .switch
         = check_box_tag 'relative_to_all', nil, false, class: 'clocks-relative-to-all'
         = label_tag 'relative_to_all'
-        p Show activity relative to <SELECTED> days (not implemented yet)
+        p Show activity relative to selected days
 
   - if person.has(:locations)
     .small-12.columns
