@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'dataLogin' => 'login#index'
   get 'fitbit' => 'fitbit#index'
   get 'jawbone' => 'jawbone#index'
-  get 'jawboneLogged' => 'jawbone#logged'
+  get 'jawbonelogged' => 'jawbone#logged'
 
   resources :login,:people,:maps, only: [:index, :show]
 end
