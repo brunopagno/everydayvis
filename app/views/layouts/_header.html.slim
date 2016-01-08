@@ -2,6 +2,8 @@
   = link_to "home", root_path
   |  | 
   = link_to "people", people_path
+    |  | 
+  = link_to "Get Data", login_path
 .user-menu.float-right
   - if current_user
     = link_to "my account", edit_user_registration_path(current_user)
