@@ -14,26 +14,18 @@ function getQueryVariable(variable)
        return(false);
 }
 
-var req = new XMLHttpRequest();
+function Get(yourUrl){
+var Httpreq = new XMLHttpRequest(); // a new request
+Httpreq.open("GET",yourUrl,false);
+Httpreq.send(null);
+return Httpreq.responseText;          
 
-// Feature detection for CORS
-if ('withCredentials' in req) {
-    req.open('GET', "https://foursquare.com/oauth2/access_token?client_id=DXNTVHRHFKEM2RUW5RPP1WL40AWM2OWZADS53LA1BPAATHNR&client_secret=CIN4INFRTBVUVIKHENWOKLOR4VKYKMUDOGXKTXNVCIHTO0TP&grant_type=authorization_code&redirect_uri=http://nedel.cloudapp.net/foursquarecode&code=" + getQueryVariable("code"), true);
-    // Just like regular ol' XHR
-    req.onreadystatechange = function() {
-        if (req.readyState === 4) {
-            if (req.status >= 200 && req.status < 400) {
-                var json_obj = JSON.parse(req.responseText);
-                console.log(json_obj);
-            } else {
-                // Handle error case
-            }
-        }
-    };
-    req.send();
-}
+    }
 
+var url = "https://foursquare.com/oauth2/access_token?client_id=DXNTVHRHFKEM2RUW5RPP1WL40AWM2OWZADS53LA1BPAATHNR&client_secret=CIN4INFRTBVUVIKHENWOKLOR4VKYKMUDOGXKTXNVCIHTO0TP&grant_type=authorization_code&redirect_uri=http://nedel.cloudapp.net/foursquarecode&Access-Control-Allow-Origin:*&code=" + getQueryVariable("code")
 
+var json_obj = JSON.parse(Get(url));
+console.log(json_obj);
 
 //basta usar essa função para pegar o token
 
