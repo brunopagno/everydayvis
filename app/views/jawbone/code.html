@@ -1,6 +1,10 @@
 
 
 
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
 
 function getQueryVariable(variable)
@@ -14,13 +18,26 @@ function getQueryVariable(variable)
        return(false);
 }
 
-var url = "https://jawbone.com/auth/oauth2/token&client_id=7NkRJA8m8sg&client_secret=59f2f3e8915b065113d9e54a76eda13672066004&grant_type=authorization_code&code=" + getQueryVariable("code")
-window.open(url,"_self")
 
-//basta usar essa função para pegar o token
-
-
+$(document).ready(function(){
+    $("button").click(function(){
+        $.getJSON("https://jawbone.com/auth/oauth2/token&client_id=7NkRJA8m8sg&client_secret=59f2f3e8915b065113d9e54a76eda13672066004&grant_type=authorization_code&code=" + getQueryVariable("code"), function(result){
+            $.each(result, function(i, field){
+                $("div").append(field + " ");
+            });
+        });
+    });
+});
 </script>
+</head>
+<body>
+
+<button>Get JSON data</button>
+
+<div></div>
+
+</body>
+</html>
 <!--aac3f063d18489fc2e3fa3dabbd5c01a120fa450CHAVEANTIGA>
 
 <section>
