@@ -22,7 +22,7 @@ return Httpreq.responseText;
 
     }
 
-var url = "https://foursquare.com/oauth2/access_token?client_id=DXNTVHRHFKEM2RUW5RPP1WL40AWM2OWZADS53LA1BPAATHNR&client_secret=CIN4INFRTBVUVIKHENWOKLOR4VKYKMUDOGXKTXNVCIHTO0TP&grant_type=authorization_code&redirect_uri=http://nedel.cloudapp.net/foursquarecode&code=" + getQueryVariable("code")
+var url = "https://foursquare.com/oauth2/access_token?client_id=DXNTVHRHFKEM2RUW5RPP1WL40AWM2OWZADS53LA1BPAATHNR&client_secret=CIN4INFRTBVUVIKHENWOKLOR4VKYKMUDOGXKTXNVCIHTO0TP&grant_type=authorization_code&redirect_uri=http://www.nedel.cloudapp.net/foursquarecode&code=" + getQueryVariable("code")
 
 var json_obj = JSON.parse(Get(url));
 console.log(json_obj);
