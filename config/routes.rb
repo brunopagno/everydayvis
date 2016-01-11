@@ -19,5 +19,9 @@ Rails.application.routes.draw do
   get 'jawbonelogged' => 'jawbone#logged'
   get 'fitbitlogged' => 'fitbit#logged'
 
+  get 'foursquare' => 'foursquare#index'
+  get 'foursquarecode' => 'foursquare#code'
+  get 'foursquarelogged' => 'foursquare#logged'
+
   resources :login,:people,:maps, only: [:index, :show]
 end

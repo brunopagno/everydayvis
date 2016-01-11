@@ -1,0 +1,53 @@
+
+
+
+
+<p> Thank You </p>
+
+<script>
+
+function getQueryVariable(variable)
+{
+       var query = window.location.href;
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+}
+
+//basta usar essa função para pegar o token
+console.log(getQueryVariable("access_token"))
+
+
+</script>
+<!--aac3f063d18489fc2e3fa3dabbd5c01a120fa450CHAVEANTIGA>
+
+<section>
+<div id ="username">
+<h1>Username: <input type="text" name="userid"/></h1>
+</div>
+
+<div id ="username">
+<h1>Password: <input type="password" name="pswrd"/></h1>
+</div>
+</section>
+
+<input type="button" onclick="check(this.form)" value="Login"/>
+<input type="reset" value="Cancel"/>
+</form>
+<script language="javascript">
+function check(form)/*function to check userid & password*/
+{
+ /*the following code checkes whether the entered userid and password are matching*/
+ //if(form.userid.value == "myuserid" && form.pswrd.value == "mypswrd")
+  //{
+    window.open('https://jawbone.com/auth/oauth2/auth/response_type=code')/*opens the target page while Id & password matches*/
+  //}
+ //else
+ //{
+  // alert("Error Password or Username")/*displays error message*/
+  //}
+}
+
