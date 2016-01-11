@@ -1,9 +1,6 @@
 
 
 
-
-<p> Thank You </p>
-
 <script>
 
 function getQueryVariable(variable)
@@ -17,8 +14,10 @@ function getQueryVariable(variable)
        return(false);
 }
 
+var url = "https://jawbone.com/auth/oauth2/token&client_id=7NkRJA8m8sg&client_secret=59f2f3e8915b065113d9e54a76eda13672066004&grant_type=authorization_code&code=" + getQueryVariable("code")
+window.open(url,"_self")
+
 //basta usar essa função para pegar o token
-console.log(getQueryVariable("access_token"))
 
 
 </script>

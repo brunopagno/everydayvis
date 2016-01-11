@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'dataLogin' => 'login#index'
   get 'fitbit' => 'fitbit#index'
   get 'jawbone' => 'jawbone#index'
+  get 'jawbonecode' => 'jawbone#code'
   get 'jawbonelogged' => 'jawbone#logged'
   get 'fitbitlogged' => 'fitbit#logged'
 
