@@ -4,12 +4,9 @@
 
 <p> Thank You </p>
 <%= @token %>
-<a href=fitbittoken>
-só vai
-</a>
 <script>
 
-$.ajax({url: 'nedel.cloudapp.net/fitbittoken/olar',
+$.ajax({url: 'fitbittoken/olar',
         success: function(data) {
           console.log("deu certo!");}
         });
