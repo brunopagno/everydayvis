@@ -4,11 +4,10 @@ class FitbitController < ApplicationController
   end
 
   def logged
-  	@token = params[:access_token]
   end
 
-  def teste
-  	@token = params[:access_token]
+  def token
+  	@token = params[:token]
   end
 
 end

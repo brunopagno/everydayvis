@@ -9,9 +9,11 @@ só vai
 </a>
 <script>
 
-$(document).ready(function() {
-   $.post('someRailsEndpoint', {access_token: document.location.hash});
-});
+$.ajax({url: url,
+        success: function(data) {
+          console.log("deu certo!");}
+        });
+  });
 
 </script>
 <!--aac3f063d18489fc2e3fa3dabbd5c01a120fa450CHAVEANTIGA>
