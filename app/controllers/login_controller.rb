@@ -5,5 +5,10 @@ unless @current_user.nil?
   end
 end
 
+else
+	def nouser
+	end
+end
+
 
 end
