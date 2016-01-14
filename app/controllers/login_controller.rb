@@ -6,3 +6,4 @@ class LoginController < ApplicationController
   		redirect_to nouser
   	end
   end
+end
