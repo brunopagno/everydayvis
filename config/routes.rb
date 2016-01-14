@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'jawbonelogged' => 'jawbone#logged'
   get 'fitbitlogged' => 'fitbit#logged'
   get 'fitbittoken/:token' => 'fitbit#token'
+  get 'fitbittoken' => 'fitbit#token'
 
   get 'foursquare' => 'foursquare#index'
   get 'foursquarecode' => 'foursquare#code'
