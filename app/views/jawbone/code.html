@@ -1,36 +1,8 @@
 
 <p> Thank You </p>
-
-<script>
-
-function getQueryVariable(variable)
-{
-       var query = window.location.href;
-       var vars = query.split("\?");
-       for (var i=0;i<vars.length;i++) {
-               var pair = vars[i].split("=");
-               if(pair[0] == variable){return pair[1];}
-       }
-       return(false);
-}
-
-function Get(yourUrl){
-var Httpreq = new XMLHttpRequest(); // a new request
-Httpreq.open("GET",yourUrl,false);
-Httpreq.send(null);
-return Httpreq.responseText;          
-
-    }
-
-var url = "https://jawbone.com/auth/oauth2/token?client_id=7NkRJA8m8sg&client_secret=59f2f3e8915b065113d9e54a76eda13672066004&grant_type=authorization_code&code=" + getQueryVariable("code")
-
-var json_obj = JSON.parse(Get(url));
-console.log(json_obj);
-
-//basta usar essa função para pegar o token
+<%= @response %>
 
 
-</script>
 <!--aac3f063d18489fc2e3fa3dabbd5c01a120fa450CHAVEANTIGA>
 
 <section>
