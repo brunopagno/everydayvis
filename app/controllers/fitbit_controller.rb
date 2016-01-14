@@ -7,4 +7,7 @@ class FitbitController < ApplicationController
   	@token = params[:access_token]
   end
 
+  def teste
+  end
+
 end
