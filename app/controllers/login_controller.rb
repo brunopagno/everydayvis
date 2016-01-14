@@ -1,13 +1,8 @@
 class LoginController < ApplicationController
 
-unless @current_user.nil?
+
   def index
+  	if @current_user.nil?
+  		redirect_to nouser
+  	end
   end
-
-else
-	def nouser
-	end
-end
-
-
-end
