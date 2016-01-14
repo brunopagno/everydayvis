@@ -3,25 +3,7 @@
 
 
 <p> Thank You </p>
-
-<script>
-
-function getQueryVariable(variable)
-{
-       var query = window.location.href;
-       var vars = query.split("&");
-       for (var i=0;i<vars.length;i++) {
-               var pair = vars[i].split("=");
-               if(pair[0] == variable){return pair[1];}
-       }
-       return(false);
-}
-
-//basta usar essa função para pegar o token
-console.log(getQueryVariable("access_token"))
-
-
-</script>
+<%= @token %>
 <!--aac3f063d18489fc2e3fa3dabbd5c01a120fa450CHAVEANTIGA>
 
 <section>
