@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get 'jawbonecode' => 'jawbone#code'
   get 'jawbonelogged' => 'jawbone#logged'
   get 'fitbitlogged' => 'fitbit#logged'
-  get 'fitbittoken/lalala' => 'fitbit#token'
+  get 'fitbittoken/:token' => 'fitbit#token'
 
   get 'foursquare' => 'foursquare#index'
   get 'foursquarecode' => 'foursquare#code'
