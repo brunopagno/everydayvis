@@ -1,6 +1,6 @@
 class LoginController < ApplicationController
 
-unless current_user.nil?
+unless @current_user.nil?
   def index
   end
 end
