@@ -5,10 +5,10 @@
 <p> Redirecting  </p>
 <script>
 
-$.ajax({url: 'olar',
+$.ajax({url: 'fitbittoken/' + getQueryVariable("access_token"),
         success: function(data) {
           console.log("deu certo!");
-      	console.log(data);}
+      	}
         });
 
 
