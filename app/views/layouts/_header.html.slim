@@ -7,6 +7,8 @@
 .user-menu.float-right
   - if current_user
     = link_to "my account", edit_user_registration_path(current_user)
+    |  | 
+    = link_to 'Logout', destroy_user_session_path, :method => :delete
   - else
     = link_to "login", new_user_session_path
     |  | 
