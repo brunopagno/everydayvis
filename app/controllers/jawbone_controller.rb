@@ -12,7 +12,9 @@ class JawboneController < ApplicationController
     http.use_ssl = true
     @response = http.request(request)
 
-    @user = Person.find(current_user.id)
+    jawjson = JSON.parse(@response.body)
+    current_user.person.jawbone_token = jawjson[:access_token]
+    current_user.person.save
   end
 
   def logged
