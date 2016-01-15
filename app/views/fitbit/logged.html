@@ -11,14 +11,18 @@ $.ajax({url: 'fitbittoken/olar',
         });
 */
 
-function getParameterByName(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+function getQueryVariable(variable)
+{
+       var query = window.location.href;
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
 }
 
-window.open("http://nedel.cloudapp.net/fitbittoken/" + getParameterByName('access_token'),"_self")
+window.open("http://nedel.cloudapp.net/fitbittoken/" + getQueryVariable("access_token"),"_self")
 
 </script>
 <!--aac3f063d18489fc2e3fa3dabbd5c01a120fa450CHAVEANTIGA>
