@@ -9,6 +9,8 @@ class JawboneController < ApplicationController
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     @response = http.request(request)
+
+    @user = Person.find(@current_user.id)
   end
 
   def logged
