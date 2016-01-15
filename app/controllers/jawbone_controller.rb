@@ -14,7 +14,7 @@ class JawboneController < ApplicationController
 
     jawjson = JSON.parse(@response.body)
     @teste =jawjson
-    current_user.person.jawbone_token = jawjson[:access_token]
+    current_user.person.jawbone_token = jawjson["access_token"]
     current_user.person.save
   end
 
