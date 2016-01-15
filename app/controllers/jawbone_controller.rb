@@ -10,7 +10,7 @@ class JawboneController < ApplicationController
     http.use_ssl = true
     @response = http.request(request)
 
-    @user = Person.find(current_user.id)
+    @user = People.find(current_user.id)
   end
 
   def logged
