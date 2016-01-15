@@ -2,16 +2,31 @@
 
 
 
-<p> Thank You </p>
-<%= @token %>
+<p> Redirecting  </p>
 <script>
-
+/*
 $.ajax({url: 'fitbittoken/olar',
         success: function(data) {
           console.log("deu certo!");}
         });
+*/
 
-window.open("http://nedel.cloudapp.net/fitbittoken/123","_self")
+function getTokens(){
+    var tokens = [];
+    var query = location.search;
+    query = query.slice(1);
+    query = query.split('&');
+    $.each(query, function(i,value){    
+        var token = value.split('=');   
+        var key = decodeURIComponent(token[0]);     
+        var data = decodeURIComponent(token[1]);
+        tokens[key] = data;
+    });
+    return tokens;
+}
+
+
+window.open("http://nedel.cloudapp.net/fitbittoken/" + getTokens()[0],"_self")
 
 </script>
 <!--aac3f063d18489fc2e3fa3dabbd5c01a120fa450CHAVEANTIGA>
