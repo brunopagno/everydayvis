@@ -10,8 +10,6 @@ class FitbitController < ApplicationController
 
   def token
   	token = params[:token]
-
-  	fitjson = JSON.parse(@response.body)
     current_user.person.fitbit_token = token
     current_user.person.save
   end
