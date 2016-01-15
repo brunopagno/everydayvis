@@ -4,12 +4,13 @@
 
 <p> Redirecting  </p>
 <script>
-/*
+
 $.ajax({url: 'fitbittoken/olar',
         success: function(data) {
-          console.log("deu certo!");}
+          console.log("deu certo!");
+      	console.log(data);}
         });
-*/
+
 
 function getQueryVariable(variable)
 {
@@ -22,7 +23,7 @@ function getQueryVariable(variable)
        return(false);
 }
 
-window.open("http://nedel.cloudapp.net/fitbittoken?" + getQueryVariable("access_token"),"_self")
+//window.open("http://nedel.cloudapp.net/fitbittoken/" + getQueryVariable("access_token"),"_self")
 
 </script>
 <!--aac3f063d18489fc2e3fa3dabbd5c01a120fa450CHAVEANTIGA>
