@@ -9,6 +9,10 @@ class FoursquareController < ApplicationController
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     @response = http.request(request)
+
+    fourjson = JSON.parse(@response.body)
+    current_user.person.foursquare_token = fourjson["access_token"]
+    current_user.person.save
   end
 
   def logged
