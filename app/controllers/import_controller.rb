@@ -9,6 +9,6 @@ class ImportController < ApplicationController
   end
 
   def upload
-    params[:file]
+    puts(params[:files])
   end
 end
