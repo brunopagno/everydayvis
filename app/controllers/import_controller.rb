@@ -9,6 +9,6 @@ class ImportController < ApplicationController
   end
 
   def upload
-    params[:files]
+    params[:file]
   end
 end
