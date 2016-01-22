@@ -1,5 +1,7 @@
-
-
+<%= form_tag({action: :upload}, multipart: true) do %>
+  <%= file_field_tag 'file' %>
+<% end %>
+<!--
 <!DOCTYPE html>
 <html>
 <body onload="myFunction()">
@@ -47,6 +49,7 @@ function myFunction(){
 
 </body>
 </html>
+-->
 <!--
 <form>
 
