@@ -1,6 +1,10 @@
-<%= form_for @person do |f| %>
-  <%= f.file_field :picture %>
-<% end %>
+<div>
+<h3>Import a CSV File</h3>
+  <%= form_tag import_products_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV" %>
+  <% end %>
+</div>
 <!--
 <!DOCTYPE html>
 <html>
