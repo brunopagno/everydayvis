@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get 'dataLogin' => 'login#index'
   get 'uploadFile' => 'import#index'
+  get 'uploadFile/:files' => 'import#index'
   get 'nouser' => 'login#nouser'
 
   get 'fitbit' => 'fitbit#index'
