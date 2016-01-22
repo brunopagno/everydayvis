@@ -1,5 +1,5 @@
-<%= form_tag({action: :upload}, multipart: true) do %>
-  <%= file_field_tag 'file' %>
+<%= form_for @file do |f| %>
+  <%= f.file_field :picture %>
 <% end %>
 <!--
 <!DOCTYPE html>
