@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'weather/:year/:month/:day/:latitude/:longitude', to: 'weather#show', constraints: { format: :json }
 
   get 'dataLogin' => 'login#index'
-  get 'importName' => 'import#index'
+  get 'uploadFile' => 'import#index'
   get 'nouser' => 'login#nouser'
 
   get 'fitbit' => 'fitbit#index'
