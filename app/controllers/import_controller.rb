@@ -1,5 +1,5 @@
 class ImportController < ApplicationController
-
+  @@files = nil
   def index
     @@files = nil
     #uploaded_io = params[:person][:picture]
