@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'dataLogin' => 'login#index'
   get 'uploadFile' => 'import#index'
   #post 'uploadFile/:files' => 'import#index'
-  post 'uploadFile', to: 'import#index' 
+  post 'uploadFile', to: 'import#upload' 
 
 
   get 'nouser' => 'login#nouser'

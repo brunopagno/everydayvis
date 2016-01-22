@@ -7,4 +7,8 @@ class ImportController < ApplicationController
     #file.write(uploaded_io.read)
     #end
   end
+
+  def upload
+    params[:files]
+  end
 end
