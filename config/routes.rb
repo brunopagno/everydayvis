@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'weather/:year/:month/:day/:latitude/:longitude', to: 'weather#show', constraints: { format: :json }
 
   get 'dataLogin' => 'login#index'
+  get 'importName' => 'import#index'
   get 'nouser' => 'login#nouser'
 
   get 'fitbit' => 'fitbit#index'
@@ -25,6 +26,8 @@ Rails.application.routes.draw do
   get 'foursquare' => 'foursquare#index'
   get 'foursquarecode' => 'foursquare#code'
   get 'foursquarelogged' => 'foursquare#logged'
+
+
 
   resources :login,:people,:maps, only: [:index, :show]
 end

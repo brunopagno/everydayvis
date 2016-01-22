@@ -4,6 +4,8 @@
   = link_to "people", people_path
   |  | 
   = link_to "Get Data", dataLogin_path
+  |  | 
+  = link_to "Import Nem File", importName_path
 .user-menu.float-right
   - if current_user
     = link_to "my account", edit_user_registration_path(current_user)
