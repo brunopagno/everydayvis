@@ -31,10 +31,3 @@ Rails.application.routes.draw do
 
   resources :login,:people,:maps, only: [:index, :show]
 end
-
-resources :products do
-    collection { post :import }
-  end
-
-  root to: "import#index"
-end
