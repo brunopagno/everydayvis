@@ -8,6 +8,9 @@ Bundler.require(*Rails.groups)
 
 module Everydayvis
   class Application < Rails::Application
+
+    config.web_console.whitelisted_ips = '10.0.2.2'
+    
     config.generators.assets = false
     config.generators.helper = false
     config.generators.test_framework = false
