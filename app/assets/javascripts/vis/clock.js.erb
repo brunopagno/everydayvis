@@ -449,7 +449,7 @@ TextArc.prototype.draw = function(svg, date) {
         return radiusPercent * Math.sin((degrees * d) + (degrees / 2) - 1.5708) + textOffset;
       })
       .text(function(d) {
-        return d + 1;
+        return d;
       });
 
   svg.append("svg:text")
