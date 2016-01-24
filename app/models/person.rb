@@ -71,9 +71,11 @@ class Person < ActiveRecord::Base
       if activity[0] - current < interval.minutes
         sum += activity[1]
       else
-        while activity[0] - current > interval.minutes
+        puts "LOOKATTHISPLZ #{activity[0]} - #{current}"
+        while activity[0] - current >= interval.minutes
           current += 1.hour
           day << { activity: sum, ev: (on_hour_appointments(current).count > 0) }
+          puts "ADDED A SUM => #{sum}"
         end
         sum = activity[1]
       end
