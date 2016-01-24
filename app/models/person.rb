@@ -68,17 +68,19 @@ class Person < ActiveRecord::Base
     current = date.dup
     sum = 0
     on_date(date).map{|a| [a.datetime, a.activity]}.each do |activity|
-      if activity[0] - current < interval.minutes
+      if activity[0] - current <= interval.minutes
         sum += activity[1]
       else
-        puts "LOOKATTHISPLZ #{activity[0]} - #{current}"
-        while activity[0] - current >= interval.minutes
+        while activity[0] - current > interval.minutes
           current += 1.hour
           day << { activity: sum, ev: (on_hour_appointments(current).count > 0) }
-          puts "ADDED A SUM => #{sum}"
         end
         sum = activity[1]
       end
+    end
+    if sum > 0
+      current += 1.hour
+      day << { activity: sum, ev: (on_hour_appointments(current).count > 0) }
     end
     while day.count < 24
       day << { activity: 0, ev: false }
@@ -90,16 +92,23 @@ class Person < ActiveRecord::Base
     day = []
     current = date.dup
     sum = 0
+    itens = 0
     on_date_luminosity(date).map{|l| [l.datetime, l.light]}.each do |luminosity|
-      if luminosity[0] - current < interval.minutes
+      if luminosity[0] - current <= interval.minutes
         sum += luminosity[1]
+        itens += 1
       else
         while luminosity[0] - current > interval.minutes
           current += 1.hour
-          day << sum
+          day << sum / itens
         end
         sum = luminosity[1]
+        iten = 1
       end
+    end
+    if sum > 0
+      current += 1.hour
+      day << sum / itens
     end
     while day.count < 24
       day << 0
