@@ -137,6 +137,42 @@ function fillCalendar(element, data) {
                 console.log("error loading histogram data");
               }
             });
+
+            var url = "/person/" + user_id + "/histogram/luminosity/" + dd.getFullYear() + "/" + (dd.getMonth()+1) + "/" + dd.getDate();
+            $.ajax({
+              url: url,
+              success: function(data) {
+                var xaxis = ['x'];
+                var yaxis = ['luminosity'];
+                data.forEach(function(d) {
+                  xaxis.push(new Date(d.datetime));
+                  yaxis.push(+d.light);
+                });
+
+                var chart = c3.generate({
+                  bindto: histo.append("div"),
+                  size: {
+                    height: 220
+                  },
+                  data: {
+                    x: 'x',
+                    columns: [xaxis, yaxis],
+                    type: 'bar'
+                  },
+                  axis: {
+                    x: {
+                      type: 'timeseries',
+                      tick: {
+                        format: '%H:%M'
+                      }
+                    }
+                  }
+                });
+              },
+              error: function() {
+                console.log("error loading histogram data");
+              }
+            });
           });
 
           var holder = $("<div>").attr("class", "ev-cal-holder");
