@@ -254,7 +254,7 @@ LuminosityArc.prototype.validate = function(data) {
 
 LuminosityArc.prototype.draw = function(svg, data, outerRadius, innerRadius) {
   var max_luminosity = d3.max(data.luminosity);
-  var luminosity_scale = d3.scale.linear().domain([0, max_luminosity]).range(["#000", "#fff"]);
+  var luminosity_scale = d3.scale.linear().domain([0, max_luminosity / 2, max_luminosity]).range(["#999900", "#cccc00", "#ffff66"]);
 
   var innerPie = d3.layout.pie()
       .sort(null)
