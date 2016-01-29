@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'smada/dados'
+
   root 'pages#index'
 
   devise_for :users
@@ -12,6 +14,8 @@ Rails.application.routes.draw do
   get 'person/:id/:year/:month/:day/:hour', to: 'people#person_hour', constraints: { format: :json }
   get 'weather/:year/:month/:day/:latitude/:longitude', to: 'weather#show', constraints: { format: :json }
   get 'weather/:year/:month/:day/:latitude/:longitude', to: 'weather#show', constraints: { format: :json }
+
+  get 'smada/dados', to: 'smada#dados'
 
   get 'dataLogin' => 'login#index'
   get 'uploadFile' => 'import#index'
