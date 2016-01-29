@@ -1,13 +1,13 @@
-class Dados < ActiveRecord::Base
+class Smada < ActiveRecord::Base
 
-  @conn = ActiveRecord::Base.establish_connection(
-    :adapter  => "postgresql",
-    :host     => "localhost",
-    :database => "sensordata"
-  )
-
-  def dados
-    @conn.connection.execute("select * from dados")
+  def conn
+    ActiveRecord::Base.establish_connection(
+      :adapter  => "postgresql",
+      :host     => "localhost",
+      :database => "sensordata",
+      :user     => "postgres",
+      :password => "city9"
+    ).connection
   end
 
 end
