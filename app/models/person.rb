@@ -103,7 +103,7 @@ class Person < ActiveRecord::Base
           day << sum / itens
         end
         sum = luminosity[1]
-        iten = 1
+        itens = 1
       end
     end
     if sum > 0
