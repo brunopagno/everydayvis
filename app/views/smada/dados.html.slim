@@ -5,7 +5,7 @@ h1 Smada#dados
   javascript:
     var idx = "#{index}";
     var xaxis = ['x'];
-    var yaxis = ['sub_sensor_id ' + idx];
+    var yaxis = ['sub_sensor_id ' + (idx + 1)];
 
     var data = $(".smada-dados-" + idx).data("info");
     data.forEach(function(d) {
