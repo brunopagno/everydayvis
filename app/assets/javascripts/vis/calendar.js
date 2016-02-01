@@ -175,6 +175,9 @@ function fillCalendar(element, data) {
                           format: '%H:%M'
                         }
                       }
+                    },
+                    colors: {
+                      luminosity: 'cc9900'
                     }
                   });
                 }
