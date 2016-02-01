@@ -1,16 +1,16 @@
 h1 Smada#dados
 
 - @dados.each_with_index do |sensor_data, index|
-  div[class="smada-dados-#{index}" data-info="sensor_data.to_json"]
+  div[class="smada-dados-#{index}" data-info="#{sensor_data.to_json}"]
   javascript:
     var idx = "#{index}";
     var xaxis = ['x'];
     var yaxis = ['dados'];
 
-    var data = d3.select(".smada-dados-" + idx).data("info");
+    var data = $(".smada-dados-" + idx).data("info");
     data.forEach(function(d) {
-      xaxis.push(new Date(d.timestamp));
-      yaxis.push(+d.payload);
+      xaxis.push(new Date(d['timestamp']));
+      yaxis.push(+d['payload']);
     });
 
     var chart = c3.generate({
@@ -27,7 +27,7 @@ h1 Smada#dados
         x: {
           type: 'timeseries',
           tick: {
-            format: 'dd/mm/yy - %H:%M'
+            format: '%d/%m/%y - %H:%M'
           }
         }
       }
