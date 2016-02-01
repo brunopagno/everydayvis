@@ -1,4 +1,32 @@
 h1 Smada#dados
 
-- @dados.each_row do |row|
-  p = row
+#smada-dados
+
+- @dados.each do |sensor_data|
+  javascript:
+    var xaxis = ['x'];
+    var yaxis = ['dados'];
+    data.forEach(function(d) {
+      xaxis.push(new Date(d.timestamp));
+      yaxis.push(+d.payload);
+    });
+
+    var chart = c3.generate({
+      bindto: d3.select("#smada-dados").append("div"),
+      size: {
+        height: 180
+      },
+      data: {
+        x: 'x',
+        columns: [xaxis, yaxis],
+        type: 'line'
+      },
+      axis: {
+        x: {
+          type: 'timeseries',
+          tick: {
+            format: 'dd/mm/yy - %H:%M'
+          }
+        }
+      }
+    });
