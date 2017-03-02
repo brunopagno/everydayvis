@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   get 'foursquarecode' => 'foursquare#code'
   get 'foursquarelogged' => 'foursquare#logged'
 
-
+  get 'theurl' => 'problemsolver#index'
 
   resources :login,:people,:maps, only: [:index, :show]
 end
