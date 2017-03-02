@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   get 'foursquarelogged' => 'foursquare#logged'
 
   get 'theurl' => 'problemsolver#index'
+  get 'busqueite' => 'problemsolver#busqueite'
 
   resources :login,:people,:maps, only: [:index, :show]
 end

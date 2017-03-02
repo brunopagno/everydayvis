@@ -1,3 +1,10 @@
 h1 Problem Solver
 
 p please let's make this work~
+
+
+- @people.each do |p|
+  - unless p.fitbit_token.nil?
+    p = p.user.email
+    p = p.fitbit_token
+    hr
